@@ -5,7 +5,6 @@
  */
 package PatientManagementSystem;
 
-import PatientManagementSystem.DoctorSystem.Doctor;
 
 /**
  *

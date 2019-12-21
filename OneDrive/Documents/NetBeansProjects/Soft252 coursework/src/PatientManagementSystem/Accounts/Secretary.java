@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem.AdminSystem;
-import PatientManagementSystem.User;
+package PatientManagementSystem.Accounts;
 
 /**
  *
  * @author james
  */
-public class Admin extends User{
+public class Secretary extends User{
     
 }

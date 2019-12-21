@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem.DoctorSystem;
-
-import PatientManagementSystem.User;
+package PatientManagementSystem.Accounts;
 
 /**
  *
