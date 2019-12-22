@@ -5,10 +5,14 @@
  */
 package PatientManagementSystem.Accounts;
 
+import PatientManagementSystem.System.AccountRequest;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author james
  */
 public class Secretary extends User implements java.io.Serializable{
-    
+    private List<AccountRequest> AccountRequests = new ArrayList();
 }

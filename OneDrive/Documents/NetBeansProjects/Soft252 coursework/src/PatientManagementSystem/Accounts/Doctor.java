@@ -5,10 +5,29 @@
  */
 package PatientManagementSystem.Accounts;
 
+import PatientManagementSystem.System.Appointment;
+import PatientManagementSystem.System.DoctorFeedback;
+import PatientManagementSystem.System.Prescription;
+import java.util.ArrayList;
+import java.util.List;
+import PatientManagementSystem.System.Observer;
+import PatientManagementSystem.System.Observable;
+import java.time.LocalDate;
+
 /**
  *
  * @author james
  */
-public class Doctor extends User implements java.io.Serializable{
+public class Doctor extends User implements java.io.Serializable, Observer{
+    private List<Prescription> WrittenPrescriptions = new ArrayList();
+    private List<Appointment> PossibleAppointments = new ArrayList();
+    private List<DoctorFeedback> DoctorFeedback = new ArrayList();
     
+    public Doctor(Observable observable){
+        observable.registerObserver(this);
+    }
+    
+    public void update(LocalDate[] PotentialDates, Appointment appointment){
+        appointment.setPotentialDates(PotentialDates);
+    }
 }

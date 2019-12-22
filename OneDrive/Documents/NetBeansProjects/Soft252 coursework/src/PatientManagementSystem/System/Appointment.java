@@ -8,15 +8,17 @@ package PatientManagementSystem.System;
 import PatientManagementSystem.Accounts.Doctor;
 import PatientManagementSystem.Accounts.Patient;
 import java.time.*;
-
+import java.util.ArrayList;
+import PatientManagementSystem.System.Observable;
 /**
  *
  * @author james
  */
-public class Appointment implements java.io.Serializable{
+public class Appointment implements java.io.Serializable, Observable{
     private Doctor doctor;
     private Patient patient;
-    private LocalDate[] PotentialDates;
+    private LocalDate[] PotentialDates = new LocalDate[0];
+    private ArrayList<Observer> observers = new ArrayList();
 
     public Doctor getDoctor() {
         return doctor;
@@ -40,5 +42,15 @@ public class Appointment implements java.io.Serializable{
 
     public void setPotentialDates(LocalDate[] PotentialDates) {
         this.PotentialDates = PotentialDates;
+    }
+    
+    public void registerObserver(Observer observer){
+        observers.add(observer);
+    }  
+    
+    public void notifyObserver(){
+        for (Observer observer: observers) {
+            observer.update(PotentialDates, this);
+        }
     }
 }
