@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package PatientManagementSystem.Accounts;
-
+import java.time.*;
 /**
  *
  * @author james
  */
 public class Patient extends User{
     private int Gender = 0;
-    private int Age = 0;
+    private LocalDate Dob;
 
     public int getGender() {
         return Gender;
@@ -23,14 +23,14 @@ public class Patient extends User{
         }       
     }
 
-    public int getAge() {
-        return Age;
+    public LocalDate getDob() {
+        return Dob;
     }
 
-    public void setAge(int Age) {
-        if (Age > 0) {
-            this.Age = Age;
-        }
+    public void setDob(LocalDate Dob) {
+        this.Dob = Dob;
     }
+
+    
     
 }
