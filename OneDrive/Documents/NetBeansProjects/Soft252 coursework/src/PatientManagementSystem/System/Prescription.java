@@ -9,6 +9,6 @@ package PatientManagementSystem.System;
  *
  * @author james
  */
-public class Prescription {
+public class Prescription implements java.io.Serializable{
     
 }

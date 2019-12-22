@@ -13,7 +13,7 @@ import java.time.*;
  *
  * @author james
  */
-public class Appointment {
+public class Appointment implements java.io.Serializable{
     private Doctor doctor;
     private Patient patient;
     private LocalDate[] PotentialDates;

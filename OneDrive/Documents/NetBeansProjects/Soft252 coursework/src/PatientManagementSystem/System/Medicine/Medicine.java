@@ -8,7 +8,7 @@ package PatientManagementSystem.System.Medicine;
  *
  * @author james
  */
-public class Medicine {
+public class Medicine implements java.io.Serializable{
     private String MedicineName = "";
     private int Stock = 0;
     private iMedicineState State;

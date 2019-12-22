@@ -9,13 +9,13 @@ import java.time.*;
  *
  * @author james
  */
-public class AccountRequest {
+public class AccountRequest implements java.io.Serializable{
     private String PotentialPatientName = "";
     private String PotentialPatientAddress = "";
     private String PotentialPassword = "";
     private int PotentialGender = 0;
     private LocalDate DoB;
-    private int AccountRequestType = 0;
+    private int AccountRequestType = 1;
 
     public String getPotentialPatientName() {
         return PotentialPatientName;

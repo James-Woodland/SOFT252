@@ -9,6 +9,6 @@ package PatientManagementSystem.Accounts;
  *
  * @author james
  */
-public class Doctor extends User{
+public class Doctor extends User implements java.io.Serializable{
     
 }

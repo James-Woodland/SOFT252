@@ -5,10 +5,6 @@
  */
 package PatientManagementSystem;
 
-import PatientManagementSystem.System.Medicine.Medicine;
-import PatientManagementSystem.System.Medicine.InStock;
-import PatientManagementSystem.System.Medicine.OutOfStock;
-
 
 /**
  *
@@ -21,13 +17,6 @@ public class Soft252Coursework {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        OutOfStock Start = new OutOfStock();
-        Medicine medicine = new Medicine(Start);
-        medicine.setStock(1);
-        medicine.GiveMedicine();
-        medicine.GiveMedicine();
-        medicine.Restock(0);
-        medicine.Restock(50);
-        medicine.GiveMedicine();
+        
     }
 }

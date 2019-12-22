@@ -9,7 +9,7 @@ import java.time.*;
  *
  * @author james
  */
-public class Patient extends User{
+public class Patient extends User implements java.io.Serializable{
     private int Gender = 0;
     private LocalDate Dob;
 

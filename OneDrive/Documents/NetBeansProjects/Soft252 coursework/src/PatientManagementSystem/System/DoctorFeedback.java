@@ -11,7 +11,7 @@ import PatientManagementSystem.Accounts.Doctor;
  *
  * @author james
  */
-public class DoctorFeedback {
+public class DoctorFeedback implements java.io.Serializable{
     private Doctor doctor;
     private int DoctorRating = 0;
     private String[] FeedbackNotes;
