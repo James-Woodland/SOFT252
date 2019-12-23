@@ -31,7 +31,7 @@ public class Patient extends User implements java.io.Serializable, Observer{
         }       
     }
     
-    public Patient(Observable observable){
+    public void PatientObserver(Observable observable){
         observable.registerObserver(this);
     }
     

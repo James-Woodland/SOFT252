@@ -5,6 +5,10 @@
  */
 package PatientManagementSystem;
 
+import PatientManagementSystem.Accounts.Admin;
+import PatientManagementSystem.Accounts.AllAccounts;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -17,6 +21,18 @@ public class Soft252Coursework {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        AllAccounts allAccounts = AllAccounts.getInstance();
+        ArrayList<Admin> Admins = allAccounts.getAllAdmins();
+        Admin admin = new Admin();
+        admin.setName("Bob");
+        admin.setAddress("1 Larch Close");
+        admin.setUserID("A0001");
+        admin.setPassword("Boris");
+        allAccounts.addAdmin(admin);
         
+        admin.CreateAccount("Admin", "test", "James", "2 Larch Close");
+        for (int i = 0; i < Admins.size(); i++) {
+            System.out.println(Admins.get(i).getName());
+        }
     }
 }

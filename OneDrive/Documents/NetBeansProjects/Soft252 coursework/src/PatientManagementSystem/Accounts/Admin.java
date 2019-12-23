@@ -5,10 +5,19 @@
  */
 package PatientManagementSystem.Accounts;
 
+import PatientManagementSystem.CreateAccount.CreateAccount;
+import PatientManagementSystem.CreationStrategies.CreateAdmin;
+import PatientManagementSystem.CreationStrategies.CreationStrategy;
+
 /**
  *
  * @author james
  */
 public class Admin extends User implements java.io.Serializable{
-    
+    public void CreateAccount(String AccountType, String Password, String Name, String Address){
+         CreateAccount createAccount = new CreateAccount();
+         createAccount.SelectStrategy(AccountType);
+         createAccount.executeStrategy(Password, Name, Address);   
+    }
+       
 }

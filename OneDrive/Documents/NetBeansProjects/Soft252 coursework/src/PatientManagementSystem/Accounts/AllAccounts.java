@@ -6,33 +6,48 @@
 package PatientManagementSystem.Accounts;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  *
  * @author james
  */
 public class AllAccounts implements java.io.Serializable{
-    private List<Doctor> AllDoctors = new ArrayList();
-    private List<Patient> AllPatients = new ArrayList();
-    private List<Secretary> AllSecretarys = new ArrayList();
-    private List<Admin> AllAdmins = new ArrayList();
+    private ArrayList<Doctor> AllDoctors;
+    private ArrayList<Patient> AllPatients;
+    private ArrayList<Secretary> AllSecretarys;
+    private ArrayList<Admin> AllAdmins;
+    private static AllAccounts single_instance = null;
+    
+    private AllAccounts(){
+        AllDoctors = new ArrayList();
+        AllPatients = new ArrayList();
+        AllSecretarys = new ArrayList();
+        AllAdmins = new ArrayList();
+    }
+    
+    public static AllAccounts getInstance() 
+    { 
+        if (single_instance == null) 
+            single_instance = new AllAccounts(); 
+  
+        return single_instance; 
+    } 
     //getters
-    public List<Doctor> getAllDoctors() {
+    public ArrayList<Doctor> getAllDoctors() {
         return AllDoctors;
     }
    
-    public List<Patient> getAllPatients() {
+    public ArrayList<Patient> getAllPatients() {
         return AllPatients;
     }
    
-
-    public List<Secretary> getSecretary() {
+    public ArrayList<Secretary> getAllSecretarys() {
         return AllSecretarys;
     }
    
 
-    public List<Admin> getAdmin() {
+    public ArrayList<Admin> getAllAdmins() {
         return AllAdmins;
     }
     //editors
@@ -65,7 +80,7 @@ public class AllAccounts implements java.io.Serializable{
         AllDoctors.remove(doctor);
     }
     
-    public void removerPatient(Patient patient){
+    public void removePatient(Patient patient){
         AllPatients.remove(patient);
     }
     

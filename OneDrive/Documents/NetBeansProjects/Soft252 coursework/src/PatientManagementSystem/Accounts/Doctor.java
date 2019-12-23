@@ -23,7 +23,7 @@ public class Doctor extends User implements java.io.Serializable, Observer{
     private List<Appointment> PossibleAppointments = new ArrayList();
     private List<DoctorFeedback> DoctorFeedback = new ArrayList();
     
-    public Doctor(Observable observable){
+    public void DoctorObserver(Observable observable){
         observable.registerObserver(this);
     }
     
