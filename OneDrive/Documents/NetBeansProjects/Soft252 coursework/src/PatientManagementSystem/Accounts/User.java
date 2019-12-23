@@ -9,7 +9,7 @@ package PatientManagementSystem.Accounts;
  *
  * @author james
  */
-public class User {
+public class User implements java.io.Serializable{
     private String name = "";
     private String Password = "";
     private String UserID = "";

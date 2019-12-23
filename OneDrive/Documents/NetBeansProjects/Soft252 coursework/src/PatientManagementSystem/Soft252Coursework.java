@@ -7,7 +7,13 @@ package PatientManagementSystem;
 
 import PatientManagementSystem.Accounts.Admin;
 import PatientManagementSystem.Accounts.AllAccounts;
+import PatientManagementSystem.Accounts.Doctor;
+import PatientManagementSystem.Accounts.Patient;
+import PatientManagementSystem.Accounts.Secretary;
+import PatientManagementSystem.Serialiser.Serialiser;
 import java.util.ArrayList;
+
+
 
 
 /**
@@ -16,23 +22,45 @@ import java.util.ArrayList;
  */
 public class Soft252Coursework {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO code application logic here      
+        Serialiser serialiser = new Serialiser("AllAccounts");      
+        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
+        System.out.println(allAccounts.getAllAdmins().get(0).getName());
+    }
+    
+    public boolean Login(String AccountType, String Username, String Password){
         AllAccounts allAccounts = AllAccounts.getInstance();
-        ArrayList<Admin> Admins = allAccounts.getAllAdmins();
-        Admin admin = new Admin();
-        admin.setName("Bob");
-        admin.setAddress("1 Larch Close");
-        admin.setUserID("A0001");
-        admin.setPassword("Boris");
-        allAccounts.addAdmin(admin);
-        
-        admin.CreateAccount("Admin", "test", "James", "2 Larch Close");
-        for (int i = 0; i < Admins.size(); i++) {
-            System.out.println(Admins.get(i).getName());
-        }
+        switch(AccountType){
+            case "Admin":               
+                ArrayList<Admin> admins = allAccounts.getAllAdmins();
+                for (int i = 0; i < admins.size(); i++) {
+                if ((admins.get(i).getPassword().equals(Password)) && (admins.get(i).getUserID().equals(Username))) {
+                    return true;
+                }
+                }
+                break;
+            case "Doctor":                
+                ArrayList<Doctor> doctors = allAccounts.getAllDoctors();
+                for (int i = 0; i < doctors.size(); i++) {
+                if ((doctors.get(i).getPassword().equals(Password)) && (doctors.get(i).getUserID().equals(Username))) 
+                    return true;                      
+                }
+            case "Secretary":
+                ArrayList<Secretary> secretarys = allAccounts.getAllSecretarys();
+                for (int i = 0; i < secretarys.size(); i++) {
+                if ((secretarys.get(i).getPassword().equals(Password)) && (secretarys.get(i).getUserID().equals(Username))) 
+                    return true;                      
+                }
+            default:
+                ArrayList<Patient> patients = allAccounts.getAllPatients();
+                for (int i = 0; i < patients.size(); i++) {
+                if ((patients.get(i).getPassword().equals(Password)) && (patients.get(i).getUserID().equals(Username))) 
+                    return true;                   
+                }
+            }        
+        return false;
     }
 }
+
