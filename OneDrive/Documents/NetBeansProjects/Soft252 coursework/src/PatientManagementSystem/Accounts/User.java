@@ -14,6 +14,7 @@ public class User implements java.io.Serializable{
     private String Password = "";
     private String UserID = "";
     private String Address = "";
+    
 
     public boolean Login(String Input){
         boolean Login = false;

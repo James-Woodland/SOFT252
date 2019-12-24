@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * @author james
  */
 public class Admin extends User implements java.io.Serializable{
+    private static final long serialVersionUID = 2L;
     public void CreateAccount(String AccountType, String Password, String Name, String Address){
         CreateAccount createAccount = new CreateAccount(AccountType);        
         createAccount.executeStrategy(Password, Name, Address);   
@@ -31,7 +32,7 @@ public class Admin extends User implements java.io.Serializable{
         ArrayList<Object> DoctorRatings = new ArrayList();
         for (int i = 0; i < AllDoctors.size(); i++) {
             int count = 0;
-            DoctorRatings.add(Doctors.getAllDoctors().get(i).getName());
+            DoctorRatings.add(Doctors.getAllDoctors().get(i).getUserID());
             float average = 0;
             //gets all the doctor feedbacks for 1 particular doctor
             ArrayList<DoctorFeedback> AllDoctorFeedback = AllDoctors.get(i).getDoctorFeedback();
@@ -49,13 +50,29 @@ public class Admin extends User implements java.io.Serializable{
         }  
         return DoctorRatings;
     }
-    public ArrayList<Object> GenerateFeedbackreport(String DoctorID){
+    public ArrayList<Object> GenerateFeedbackReport(String DoctorID){
         Serialiser serialiser = new Serialiser("AllAccounts");
         AllAccounts Doctors = (AllAccounts) serialiser.readObject();
         ArrayList<Doctor> AllDoctors = Doctors.getAllDoctors();
-        for (int i = 0; i < AllDoctors.size(); i++) {
-            Doctor doctor = 
-        }
         ArrayList<Object> DoctorFeedbackReport = new ArrayList();
+        ArrayList<DoctorFeedback> AllDoctorFeedback = null;
+        int count = 0;
+        float average = 0;
+        for (int i = 0; i < AllDoctors.size(); i++) {
+            if (AllDoctors.get(i).getUserID().equals(DoctorID)) {
+                DoctorFeedbackReport.add(AllDoctors.get(count).getUserID());
+                AllDoctorFeedback = AllDoctors.get(i).getDoctorFeedback();               
+                break;
+            }
+        }   
+        for (int i = 0; i < AllDoctorFeedback.size(); i++) {
+            DoctorFeedback doctorfeedback = AllDoctorFeedback.get(i);
+            DoctorFeedbackReport.add(doctorfeedback.getFeedbackNotes());
+            average = average + doctorfeedback.getDoctorRating();
+            count++;
+        }
+        average = average/count;
+        DoctorFeedbackReport.add(average);
+        return DoctorFeedbackReport;
     }
 }

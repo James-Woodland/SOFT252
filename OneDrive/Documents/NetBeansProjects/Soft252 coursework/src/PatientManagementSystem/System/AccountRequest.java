@@ -16,6 +16,7 @@ public class AccountRequest implements java.io.Serializable{
     private int PotentialGender = 0;
     private LocalDate DoB;
     private int AccountRequestType = 1;
+    private static final long serialVersionUID = 6L;
 
     public String getPotentialPatientName() {
         return PotentialPatientName;

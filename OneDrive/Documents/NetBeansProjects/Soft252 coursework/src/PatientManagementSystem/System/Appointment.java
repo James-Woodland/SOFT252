@@ -18,6 +18,7 @@ public class Appointment implements java.io.Serializable, Observable{
     
     private LocalDate[] PotentialDates = new LocalDate[0];
     private ArrayList<Observer> observers = new ArrayList();
+    private static final long serialVersionUID = 7L;
     
 
     public LocalDate[] getPotentialDates() {

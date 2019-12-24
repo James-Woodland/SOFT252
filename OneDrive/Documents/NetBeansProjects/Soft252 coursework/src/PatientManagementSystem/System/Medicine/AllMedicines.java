@@ -13,15 +13,14 @@ import java.util.ArrayList;
  */
 public class AllMedicines {
     private ArrayList<Medicine> AllMedicines;
-    private static final long serialVersionUID = 2L; 
+    private static final long serialVersionUID = 10L; 
 
     public ArrayList<Medicine> getAllMedicines() {
         return AllMedicines;
     }
        
     private AllMedicines(){
-        AllMedicines = new ArrayList();
-        
+        AllMedicines = new ArrayList();       
     }
        
 }

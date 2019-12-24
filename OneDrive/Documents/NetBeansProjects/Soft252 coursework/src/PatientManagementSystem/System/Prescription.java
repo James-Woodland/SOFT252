@@ -10,5 +10,5 @@ package PatientManagementSystem.System;
  * @author james
  */
 public class Prescription implements java.io.Serializable{
-    
+    private static final long serialVersionUID = 9L;
 }

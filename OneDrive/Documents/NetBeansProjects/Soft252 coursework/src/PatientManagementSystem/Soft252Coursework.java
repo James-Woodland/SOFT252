@@ -30,28 +30,28 @@ public class Soft252Coursework {
         Serialiser serialiser = new Serialiser("AllAccounts");
 //        AllAccounts allaccounts = new AllAccounts();
 //        serialiser.writeObject(allaccounts);
-        Admin admin = new Admin();
+        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
+        Admin admin = (Admin) allAccounts.getAllAdmins().get(0);
 //        Delete delete = new Delete();
 //        admin.RemoveAccount("Admin", "A0002", "Password");
 //        admin.CreateAccount("Admin", "Password", "Name", "Address");    
 //        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
 //        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
 //        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
-//        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
-//        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
-//        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
-//        Doctor doctor = allAccounts.getAllDoctors().get(0);
-//        DoctorFeedback doctorfeedback1 = new DoctorFeedback();
-//        doctorfeedback1.setDoctorRating(5);
-//        doctorfeedback1.setDoctor(doctor);
-//        doctor.addDoctorFeedback(doctorfeedback1);
+//        admin.CreateAccount("Secretary", "Password", "Name", "Address");         
+        allAccounts = (AllAccounts) serialiser.readObject();
+        Doctor doctor = allAccounts.getAllDoctors().get(0);
+        DoctorFeedback doctorfeedback1 = new DoctorFeedback();
+        doctorfeedback1.setDoctorRating(5);
+        doctorfeedback1.setDoctor(doctor);
+        doctor.addDoctorFeedback(doctorfeedback1);
 //        DoctorFeedback doctorfeedback2 = new DoctorFeedback();
 //        doctorfeedback2.setDoctorRating(0);
 //        doctorfeedback2.setDoctor(doctor);
 //        doctor.addDoctorFeedback(doctorfeedback2);
-//        serialiser.writeObject(allAccounts);
-//        AllAccounts ReadAccounts = (AllAccounts) serialiser.readObject();  
-        ArrayList<Object> DoctorRatings = admin.GetDoctorRatings();
+        serialiser.writeObject(allAccounts);
+        AllAccounts ReadAccounts = (AllAccounts) serialiser.readObject();  
+        ArrayList<Object> DoctorFeedback = admin.GenerateFeedbackReport("D0001");
         
     }    
 }

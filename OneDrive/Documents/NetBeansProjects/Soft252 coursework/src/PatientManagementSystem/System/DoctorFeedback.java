@@ -15,6 +15,7 @@ public class DoctorFeedback implements java.io.Serializable{
     private Doctor doctor;
     private int DoctorRating = 0;
     private String FeedbackNotes = "";
+    private static final long serialVersionUID = 8L;
 
     public Doctor getDoctor() {
         return doctor;

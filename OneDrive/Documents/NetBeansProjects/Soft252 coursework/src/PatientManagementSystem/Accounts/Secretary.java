@@ -15,4 +15,5 @@ import java.util.List;
  */
 public class Secretary extends User implements java.io.Serializable{
     private List<AccountRequest> AccountRequests = new ArrayList();
+    private static final long serialVersionUID = 5L;
 }

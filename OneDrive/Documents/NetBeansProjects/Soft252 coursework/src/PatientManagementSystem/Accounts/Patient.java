@@ -20,6 +20,7 @@ public class Patient extends User implements java.io.Serializable, Observer{
     private LocalDate Dob;
     private ArrayList<Prescription> Prescriptions = new ArrayList();
     private ArrayList<Appointment> Appointments = new ArrayList();
+    private static final long serialVersionUID = 4L;
 
     public int getGender() {
         return Gender;
