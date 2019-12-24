@@ -13,26 +13,11 @@ import java.util.ArrayList;
  * @author james
  */
 public class AllAccounts implements java.io.Serializable{
-    private ArrayList<Doctor> AllDoctors;
-    private ArrayList<Patient> AllPatients;
-    private ArrayList<Secretary> AllSecretarys;
-    private ArrayList<Admin> AllAdmins;
-    private static AllAccounts single_instance = null;
-    
-    private AllAccounts(){
-        AllDoctors = new ArrayList();
-        AllPatients = new ArrayList();
-        AllSecretarys = new ArrayList();
-        AllAdmins = new ArrayList();
-    }
-    
-    public static AllAccounts getInstance() 
-    { 
-        if (single_instance == null) 
-            single_instance = new AllAccounts(); 
-  
-        return single_instance; 
-    } 
+    private ArrayList<Doctor> AllDoctors = new ArrayList();
+    private ArrayList<Patient> AllPatients = new ArrayList();   
+    private ArrayList<Secretary> AllSecretarys = new ArrayList();
+    private ArrayList<Admin> AllAdmins = new ArrayList();
+    private static final long serialVersionUID = 1L;   
     //getters
     public ArrayList<Doctor> getAllDoctors() {
         return AllDoctors;
@@ -82,6 +67,22 @@ public class AllAccounts implements java.io.Serializable{
     
     public void removePatient(Patient patient){
         AllPatients.remove(patient);
+    }
+    
+    public void setAllDoctors(ArrayList<Doctor> AllDoctors) {
+        this.AllDoctors = AllDoctors;
+    }
+
+    public void setAllPatients(ArrayList<Patient> AllPatients) {
+        this.AllPatients = AllPatients;
+    }
+
+    public void setAllSecretarys(ArrayList<Secretary> AllSecretarys) {
+        this.AllSecretarys = AllSecretarys;
+    }
+
+    public void setAllAdmins(ArrayList<Admin> AllAdmins) {
+        this.AllAdmins = AllAdmins;
     }
     
 }

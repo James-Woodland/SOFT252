@@ -7,6 +7,7 @@ package PatientManagementSystem.CreationStrategies;
 
 import PatientManagementSystem.Accounts.AllAccounts;
 import PatientManagementSystem.Accounts.Secretary;
+import PatientManagementSystem.Serialiser.Serialiser;
 import java.util.ArrayList;
 
 /**
@@ -16,16 +17,29 @@ import java.util.ArrayList;
 public class CreateSecretary implements CreationStrategy{
     @Override
     public void CreateWorkerAccount(String Password, String Name, String Address){
-        AllAccounts Secretarys= AllAccounts.getInstance();
-        ArrayList<Secretary> AllSecretarys = Secretarys.getAllSecretarys();
-        int NewSecretaryIDGen = AllSecretarys.size();
-        NewSecretaryIDGen = NewSecretaryIDGen + 1;
-        String NewSecretaryID = String.format("D%05d", NewSecretaryIDGen);
+        Serialiser serialiser = new Serialiser("AllAccounts");
+        AllAccounts Secretarys= (AllAccounts) serialiser.readObject();
+        ArrayList<Secretary> AllSecretarys = Secretarys.getAllSecretarys();       
         Secretary secretary= new Secretary();
+        //for loop used to generate UserIDs. Checks each version of of a Secretary User id from S0001 - S9999 to make sure all possible values can be used 
+        //and the assigned UserID is unique.
+        for (int i = 0; i <= AllSecretarys.size(); i++) {
+            int NewSecretaryIDGen = i + 1;  
+            //generates a string in format S(0001-9999)
+            String NewSecretaryID = String.format("S%04d", NewSecretaryIDGen);
+            if (AllSecretarys.isEmpty() || i == AllSecretarys.size()) {
+                secretary.setUserID(NewSecretaryID);
+                break;
+            }
+            else if (!AllSecretarys.get(i).getUserID().equals(NewSecretaryID)) {
+                secretary.setUserID(NewSecretaryID);
+                break;
+            }      
+        }     
         secretary.setAddress(Address);
         secretary.setName(Name);
-        secretary.setPassword(Password);
-        secretary.setUserID(NewSecretaryID);
+        secretary.setPassword(Password);      
         Secretarys.addSecretary(secretary);
+        serialiser.writeObject(Secretarys);
     }
 }

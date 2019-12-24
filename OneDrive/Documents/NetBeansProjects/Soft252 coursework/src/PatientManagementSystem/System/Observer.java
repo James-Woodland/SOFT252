@@ -12,5 +12,5 @@ import java.time.LocalDate;
  * @author james
  */
 public interface Observer {
-    public void update(LocalDate[] PotentialDates, Appointment appointment);
+    public void updateAppointmentDates(LocalDate[] PotentialDates, Appointment appointment);
 }

@@ -34,8 +34,8 @@ public class Patient extends User implements java.io.Serializable, Observer{
     public void PatientObserver(Observable observable){
         observable.registerObserver(this);
     }
-    
-    public void update(LocalDate[] PotentialDates, Appointment appointment){
+    @Override
+    public void updateAppointmentDates(LocalDate[] PotentialDates, Appointment appointment){
         appointment.setPotentialDates(PotentialDates);
     }
 

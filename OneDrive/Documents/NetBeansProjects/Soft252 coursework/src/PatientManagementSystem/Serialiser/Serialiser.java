@@ -37,11 +37,9 @@ public class Serialiser {
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(object);
             out.close();
-            fileOut.close();
-            System.out.println("Serialized data is saved in: " + name);
+            fileOut.close();           
             return true;
-         } catch (IOException i) {
-            System.out.println("Failed to load!");
+         } catch (IOException i) {           
             i.printStackTrace();
             return false;
          }
@@ -54,13 +52,10 @@ public class Serialiser {
          ObjectInputStream in = new ObjectInputStream(fileIn);
          loadedObject = (Serializable) in.readObject();
          in.close();
-         fileIn.close();
-         System.out.println("Data loaded from: "+ name);
-        } catch (IOException i) {
-            System.out.println("File not found.");
+         fileIn.close();       
+        } catch (IOException i) {       
             i.printStackTrace();
-        } catch (ClassNotFoundException c) {
-            System.out.println("Class not found");
+        } catch (ClassNotFoundException c) {           
             c.printStackTrace();
         }
         return loadedObject;

@@ -9,6 +9,7 @@ import PatientManagementSystem.CreationStrategies.CreationStrategy;
 import PatientManagementSystem.CreationStrategies.CreateSecretary;
 import PatientManagementSystem.CreationStrategies.CreateDoctor;
 import PatientManagementSystem.CreationStrategies.CreateAdmin;
+import PatientManagementSystem.CreationStrategies.CreatePatient;
 
 /**
  *
@@ -17,15 +18,7 @@ import PatientManagementSystem.CreationStrategies.CreateAdmin;
 public class CreateAccount {
     private CreationStrategy Strategy; 
           
-    public CreateAccount(){
-        this.Strategy = new CreateAdmin();
-    }
-
-    public void setStrategy(CreationStrategy Strategy) {
-        this.Strategy = Strategy;
-    }
-    
-    public static CreationStrategy SelectStrategy(String AccountType){
+    public CreateAccount(String AccountType){
         CreationStrategy Strategy;
         switch(AccountType){
             case "Admin":
@@ -38,11 +31,10 @@ public class CreateAccount {
                 Strategy = new CreateDoctor();
                 break;
             default:
-                Strategy = null;
-                System.out.println("No Strategy selected");
+                Strategy = new CreatePatient();           
                 break;
         }
-        return Strategy;
+        this.Strategy = Strategy;
     }
     
     public void executeStrategy(String Password, String Name, String Address){

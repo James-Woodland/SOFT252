@@ -14,7 +14,7 @@ import PatientManagementSystem.Accounts.Doctor;
 public class DoctorFeedback implements java.io.Serializable{
     private Doctor doctor;
     private int DoctorRating = 0;
-    private String[] FeedbackNotes;
+    private String FeedbackNotes = "";
 
     public Doctor getDoctor() {
         return doctor;
@@ -32,11 +32,11 @@ public class DoctorFeedback implements java.io.Serializable{
         this.DoctorRating = DoctorRating;
     }
 
-    public String[] getFeedbackNotes() {
+    public String getFeedbackNotes() {
         return FeedbackNotes;
     }
 
-    public void setFeedbackNotes(String[] FeedbackNotes) {
+    public void setFeedbackNotes(String FeedbackNotes) {
         this.FeedbackNotes = FeedbackNotes;
     }
 }

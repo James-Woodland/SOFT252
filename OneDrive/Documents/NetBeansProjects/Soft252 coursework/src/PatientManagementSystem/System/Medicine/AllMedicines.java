@@ -13,30 +13,15 @@ import java.util.ArrayList;
  */
 public class AllMedicines {
     private ArrayList<Medicine> AllMedicines;
-    private static AllMedicines single_instance = null;
+    private static final long serialVersionUID = 2L; 
 
     public ArrayList<Medicine> getAllMedicines() {
         return AllMedicines;
     }
-
-    public void addPatient(Medicine medicine){
-        AllMedicines.add(medicine);
-    }
-    
-    public void removeSecretary(Medicine medicine){
-        AllMedicines.remove(medicine);
-    }
-    
+       
     private AllMedicines(){
         AllMedicines = new ArrayList();
         
     }
-    
-    public static AllMedicines getInstance() 
-    { 
-        if (single_instance == null) 
-            single_instance = new AllMedicines(); 
-  
-        return single_instance; 
-    } 
+       
 }

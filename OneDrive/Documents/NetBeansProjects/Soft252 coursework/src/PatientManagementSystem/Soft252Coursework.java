@@ -8,9 +8,12 @@ package PatientManagementSystem;
 import PatientManagementSystem.Accounts.Admin;
 import PatientManagementSystem.Accounts.AllAccounts;
 import PatientManagementSystem.Accounts.Doctor;
-import PatientManagementSystem.Accounts.Patient;
-import PatientManagementSystem.Accounts.Secretary;
+import PatientManagementSystem.AllUsersFunctionality.Login.AdminLogin;
+import PatientManagementSystem.AllUsersFunctionality.Login.DoctorLogin;
+import PatientManagementSystem.AllUsersFunctionality.Login.Login;
+import PatientManagementSystem.DeleteAccount.Delete;
 import PatientManagementSystem.Serialiser.Serialiser;
+import PatientManagementSystem.System.DoctorFeedback;
 import java.util.ArrayList;
 
 
@@ -20,47 +23,36 @@ import java.util.ArrayList;
  *
  * @author james
  */
-public class Soft252Coursework {
-
-    
+        
+public class Soft252Coursework {   
     public static void main(String[] args) {
-        // TODO code application logic here      
-        Serialiser serialiser = new Serialiser("AllAccounts");      
-        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
-        System.out.println(allAccounts.getAllAdmins().get(0).getName());
-    }
-    
-    public boolean Login(String AccountType, String Username, String Password){
-        AllAccounts allAccounts = AllAccounts.getInstance();
-        switch(AccountType){
-            case "Admin":               
-                ArrayList<Admin> admins = allAccounts.getAllAdmins();
-                for (int i = 0; i < admins.size(); i++) {
-                if ((admins.get(i).getPassword().equals(Password)) && (admins.get(i).getUserID().equals(Username))) {
-                    return true;
-                }
-                }
-                break;
-            case "Doctor":                
-                ArrayList<Doctor> doctors = allAccounts.getAllDoctors();
-                for (int i = 0; i < doctors.size(); i++) {
-                if ((doctors.get(i).getPassword().equals(Password)) && (doctors.get(i).getUserID().equals(Username))) 
-                    return true;                      
-                }
-            case "Secretary":
-                ArrayList<Secretary> secretarys = allAccounts.getAllSecretarys();
-                for (int i = 0; i < secretarys.size(); i++) {
-                if ((secretarys.get(i).getPassword().equals(Password)) && (secretarys.get(i).getUserID().equals(Username))) 
-                    return true;                      
-                }
-            default:
-                ArrayList<Patient> patients = allAccounts.getAllPatients();
-                for (int i = 0; i < patients.size(); i++) {
-                if ((patients.get(i).getPassword().equals(Password)) && (patients.get(i).getUserID().equals(Username))) 
-                    return true;                   
-                }
-            }        
-        return false;
-    }
+        // TODO code application logic here             
+        Serialiser serialiser = new Serialiser("AllAccounts");
+//        AllAccounts allaccounts = new AllAccounts();
+//        serialiser.writeObject(allaccounts);
+        Admin admin = new Admin();
+//        Delete delete = new Delete();
+//        admin.RemoveAccount("Admin", "A0002", "Password");
+//        admin.CreateAccount("Admin", "Password", "Name", "Address");    
+//        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
+//        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
+//        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
+//        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
+//        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
+//        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
+//        Doctor doctor = allAccounts.getAllDoctors().get(0);
+//        DoctorFeedback doctorfeedback1 = new DoctorFeedback();
+//        doctorfeedback1.setDoctorRating(5);
+//        doctorfeedback1.setDoctor(doctor);
+//        doctor.addDoctorFeedback(doctorfeedback1);
+//        DoctorFeedback doctorfeedback2 = new DoctorFeedback();
+//        doctorfeedback2.setDoctorRating(0);
+//        doctorfeedback2.setDoctor(doctor);
+//        doctor.addDoctorFeedback(doctorfeedback2);
+//        serialiser.writeObject(allAccounts);
+//        AllAccounts ReadAccounts = (AllAccounts) serialiser.readObject();  
+        ArrayList<Object> DoctorRatings = admin.GetDoctorRatings();
+        
+    }    
 }
 

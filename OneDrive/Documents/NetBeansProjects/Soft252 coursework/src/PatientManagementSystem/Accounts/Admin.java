@@ -6,8 +6,10 @@
 package PatientManagementSystem.Accounts;
 
 import PatientManagementSystem.CreateAccount.CreateAccount;
-import PatientManagementSystem.CreationStrategies.CreateAdmin;
-import PatientManagementSystem.CreationStrategies.CreationStrategy;
+import PatientManagementSystem.DeleteAccount.Delete;
+import PatientManagementSystem.Serialiser.Serialiser;
+import PatientManagementSystem.System.DoctorFeedback;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,9 +17,45 @@ import PatientManagementSystem.CreationStrategies.CreationStrategy;
  */
 public class Admin extends User implements java.io.Serializable{
     public void CreateAccount(String AccountType, String Password, String Name, String Address){
-         CreateAccount createAccount = new CreateAccount();
-         createAccount.SelectStrategy(AccountType);
-         createAccount.executeStrategy(Password, Name, Address);   
+        CreateAccount createAccount = new CreateAccount(AccountType);        
+        createAccount.executeStrategy(Password, Name, Address);   
     }
-       
+    public void RemoveAccount(String AccountType, String Username, String Password){
+        Delete delete = new Delete();
+        delete.DeleteAccount(AccountType, Username, Password);
+    }
+    public ArrayList<Object> GetDoctorRatings(){
+        Serialiser serialiser = new Serialiser("AllAccounts");
+        AllAccounts Doctors = (AllAccounts) serialiser.readObject();
+        ArrayList<Doctor> AllDoctors = Doctors.getAllDoctors();  
+        ArrayList<Object> DoctorRatings = new ArrayList();
+        for (int i = 0; i < AllDoctors.size(); i++) {
+            int count = 0;
+            DoctorRatings.add(Doctors.getAllDoctors().get(i).getName());
+            float average = 0;
+            //gets all the doctor feedbacks for 1 particular doctor
+            ArrayList<DoctorFeedback> AllDoctorFeedback = AllDoctors.get(i).getDoctorFeedback();
+            if (AllDoctorFeedback.isEmpty()) {
+                DoctorRatings.add(-1);
+            }
+            else{               
+                for (int j = 0; j < AllDoctorFeedback.size(); j++) {
+                    count++;               
+                    average = average + AllDoctorFeedback.get(j).getDoctorRating();
+                }
+                average = average/count;
+                DoctorRatings.add(average);    
+            }                   
+        }  
+        return DoctorRatings;
+    }
+    public ArrayList<Object> GenerateFeedbackreport(String DoctorID){
+        Serialiser serialiser = new Serialiser("AllAccounts");
+        AllAccounts Doctors = (AllAccounts) serialiser.readObject();
+        ArrayList<Doctor> AllDoctors = Doctors.getAllDoctors();
+        for (int i = 0; i < AllDoctors.size(); i++) {
+            Doctor doctor = 
+        }
+        ArrayList<Object> DoctorFeedbackReport = new ArrayList();
+    }
 }

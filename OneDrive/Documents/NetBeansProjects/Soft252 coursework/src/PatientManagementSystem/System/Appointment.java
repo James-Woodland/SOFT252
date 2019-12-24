@@ -15,26 +15,10 @@ import PatientManagementSystem.System.Observable;
  * @author james
  */
 public class Appointment implements java.io.Serializable, Observable{
-    private Doctor doctor;
-    private Patient patient;
+    
     private LocalDate[] PotentialDates = new LocalDate[0];
     private ArrayList<Observer> observers = new ArrayList();
-
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+    
 
     public LocalDate[] getPotentialDates() {
         return PotentialDates;
@@ -43,14 +27,14 @@ public class Appointment implements java.io.Serializable, Observable{
     public void setPotentialDates(LocalDate[] PotentialDates) {
         this.PotentialDates = PotentialDates;
     }
-    
+    @Override
     public void registerObserver(Observer observer){
         observers.add(observer);
     }  
-    
+    @Override
     public void notifyObserver(){
         for (Observer observer: observers) {
-            observer.update(PotentialDates, this);
+            observer.updateAppointmentDates(PotentialDates, this);
         }
     }
 }
