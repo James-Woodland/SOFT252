@@ -10,7 +10,6 @@ package PatientManagementSystem.System.Medicine;
  * @author james
  */
 interface iMedicineState {   
-    public Boolean GiveMedicine(Medicine medicine);
+    public Boolean GiveMedicine(Medicine medicine, int Quantity);
     public void ReStock(Medicine medicine, int newStock);
-    
 }

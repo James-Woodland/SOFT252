@@ -6,9 +6,9 @@
 package PatientManagementSystem.Accounts;
 
 import PatientManagementSystem.CreateAccount.CreateAccount;
-import PatientManagementSystem.Functionality.Delete;
-import PatientManagementSystem.Functionality.GenerateFeedbackReport;
-import PatientManagementSystem.Functionality.ViewDoctorRatings;
+import PatientManagementSystem.AdminFunctionality.Delete;
+import PatientManagementSystem.AdminFunctionality.GenerateFeedbackReport;
+import PatientManagementSystem.AdminFunctionality.ViewDoctorRatings;
 import PatientManagementSystem.Serialiser.Serialiser;
 import PatientManagementSystem.System.DoctorFeedback;
 import java.util.ArrayList;

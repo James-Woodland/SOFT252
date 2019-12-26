@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package PatientManagementSystem.System.Medicine;
-import PatientManagementSystem.System.Medicine.Medicine;
 /**
  *
  * @author james
@@ -12,12 +11,13 @@ import PatientManagementSystem.System.Medicine.Medicine;
 public class InStock implements iMedicineState{  
     
     @Override
-    public Boolean GiveMedicine(Medicine medicine){
+    public Boolean GiveMedicine(Medicine medicine, int Quantity){
         System.out.println("Medicine is given");
         System.out.println("Stock:" + medicine.getStock());
-        medicine.setStock(medicine.getStock()-1);
-        if (medicine.getStock() == 0) {            ;
+        medicine.setStock(medicine.getStock()-Quantity);
+        if (medicine.getStock() == 0) {              
             medicine.setState(new OutOfStock());
+            return false;
         }
         System.out.println("Stock:" + medicine.getStock());
         return true;

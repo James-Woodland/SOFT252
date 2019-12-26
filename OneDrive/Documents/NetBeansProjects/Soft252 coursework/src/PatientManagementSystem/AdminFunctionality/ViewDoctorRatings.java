@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem.Functionality;
+package PatientManagementSystem.AdminFunctionality;
 
 import PatientManagementSystem.Accounts.AllAccounts;
 import PatientManagementSystem.Accounts.Doctor;
@@ -16,6 +16,11 @@ import java.util.ArrayList;
  * @author james
  */
 public class ViewDoctorRatings {
+
+    /**
+     * generate an array that contains a doctors ID followed by their average rating
+     * @return returns the array containing all the Doctor IDS and ratings
+     */
     public ArrayList<Object> GetDoctorRatings(){
         Serialiser serialiser = new Serialiser("AllAccounts");
         AllAccounts Doctors = (AllAccounts) serialiser.readObject();

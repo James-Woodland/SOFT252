@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem.Functionality;
+package PatientManagementSystem.AdminFunctionality;
 
-import PatientManagementSystem.Accounts.Admin;
 import PatientManagementSystem.Accounts.AllAccounts;
 import PatientManagementSystem.Accounts.Doctor;
 import PatientManagementSystem.Accounts.Patient;

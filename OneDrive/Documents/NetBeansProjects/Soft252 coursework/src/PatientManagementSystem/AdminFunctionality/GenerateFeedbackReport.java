@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PatientManagementSystem.Functionality;
+package PatientManagementSystem.AdminFunctionality;
 
 import PatientManagementSystem.Accounts.AllAccounts;
 import PatientManagementSystem.Accounts.Doctor;
@@ -16,6 +16,12 @@ import java.util.ArrayList;
  * @author james
  */
 public class GenerateFeedbackReport {
+
+    /**
+     * generate a feedback report which contains the average rating of a given doctor and all of the comments that doctor has received.
+     * @param DoctorID
+     * @return returns an array containing the doctors ID, all their comments, and their average rating.
+     */
     public ArrayList<Object> GenerateNewFeedbackReport(String DoctorID){
         Serialiser serialiser = new Serialiser("AllAccounts");
         AllAccounts Doctors = (AllAccounts) serialiser.readObject();
