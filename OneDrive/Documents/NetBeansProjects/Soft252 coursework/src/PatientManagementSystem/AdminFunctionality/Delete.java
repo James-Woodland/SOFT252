@@ -24,30 +24,29 @@ public class Delete {
      * @param Username The Username of that account
      * @param Password  The Password of that account
      */
-    public void DeleteAccount(String AccountType, String Username, String Password){
+    public void DeleteAccount(String AccountType, String UserID, String Password){
         Serialiser serialiser = new Serialiser("AllAccounts");
         AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
         switch(AccountType){           
             case "Doctor":                
                 ArrayList<Doctor> doctors = allAccounts.getAllDoctors();
                 for (int i = 0; i < doctors.size(); i++) {
-                if ((doctors.get(i).getPassword().equals(Password)) && (doctors.get(i).getUserID().equals(Username))) 
+                if ((doctors.get(i).getPassword().equals(Password)) && (doctors.get(i).getUserID().equals(UserID))) 
                     allAccounts.removeDoctor(doctors.get(i));                                        
                 }
             case "Secretary":
                 ArrayList<Secretary> secretarys = allAccounts.getAllSecretarys();
                 for (int i = 0; i < secretarys.size(); i++) {
-                if ((secretarys.get(i).getPassword().equals(Password)) && (secretarys.get(i).getUserID().equals(Username))) 
+                if ((secretarys.get(i).getPassword().equals(Password)) && (secretarys.get(i).getUserID().equals(UserID))) 
                     allAccounts.removeSecretary(secretarys.get(i));                                         
                 }
             default:
                 ArrayList<Patient> patients = allAccounts.getAllPatients();
                 for (int i = 0; i < patients.size(); i++) {
-                if ((patients.get(i).getPassword().equals(Password)) && (patients.get(i).getUserID().equals(Username)))
+                if ((patients.get(i).getPassword().equals(Password)) && (patients.get(i).getUserID().equals(UserID)))
                     allAccounts.removePatient(patients.get(i));                                 
                 }
             } 
-        serialiser.writeObject(allAccounts);
-        System.out.println("Account not found");    
+        serialiser.writeObject(allAccounts);          
     }
 }

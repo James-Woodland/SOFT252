@@ -17,14 +17,22 @@ import PatientManagementSystem.System.Observable;
 public class Appointment implements java.io.Serializable, Observable{
     
     private ArrayList<LocalDate> PotentialDates = new ArrayList();
-
-    public void setPotentialDates(ArrayList<LocalDate> PotentialDates) {
-        this.PotentialDates = PotentialDates;
-    }
+    private boolean AppointmentConfirmed;   
     private ArrayList<Observer> observers = new ArrayList();
     private static final long serialVersionUID = 7L;
     
+    public boolean isAppointmentConfirmed() {
+        return AppointmentConfirmed;
+    }
 
+    public void setAppointmentConfirmed(boolean AppointmentConfirmed) {
+        this.AppointmentConfirmed = AppointmentConfirmed;
+    }
+    
+    public void setPotentialDates(ArrayList<LocalDate> PotentialDates) {
+        this.PotentialDates = PotentialDates;
+    }   
+    
     public  ArrayList<LocalDate> getPotentialDates() {
         return PotentialDates;
     }

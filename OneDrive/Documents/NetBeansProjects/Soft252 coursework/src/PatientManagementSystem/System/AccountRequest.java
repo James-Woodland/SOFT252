@@ -23,7 +23,9 @@ public class AccountRequest implements java.io.Serializable{
     }
 
     public void setAccountRequestType(int AccountRequestType) {
-        this.AccountRequestType = AccountRequestType;
+        if (AccountRequestType == 1 || AccountRequestType == 2) {
+            this.AccountRequestType = AccountRequestType;
+        }        
     }
     
 

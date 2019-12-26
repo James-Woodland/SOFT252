@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package PatientManagementSystem.Accounts;
+import PatientManagementSystem.AdminFunctionality.ViewDoctorRatings;
 import PatientManagementSystem.System.Appointment;
 import PatientManagementSystem.System.Observable;
 import PatientManagementSystem.System.Prescription;
@@ -75,5 +76,21 @@ public class Patient extends User implements java.io.Serializable, Observer{
         this.PatientNotes.add(Note);
     }
     
+    public ArrayList<Object> GetDoctorRatings(){
+        ViewDoctorRatings viewDoctorRatings = new ViewDoctorRatings();
+        return viewDoctorRatings.GetDoctorRatings();
+    }
+    //gets the most recently added prescription for the patient
+    //assuming this is waht's emant when the spec says view Presciptionsingular
+    //and doesn;t mean view a particular prescription
+    public Prescription ViewPrescription(){
+        return this.Prescriptions.get(Prescriptions.size()-1);
+    }
+    //gets the most recently added Appointment for the patient
+    //assuming this is waht's emant when the spec says view Presciptionsingular
+    //and doesn;t mean view a particular prescription
+    public Appointment ViewAppointment(){
+        return this.Appointments.get(Prescriptions.size()-1);
+    }
     
 }

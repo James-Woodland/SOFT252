@@ -19,16 +19,16 @@ import java.util.ArrayList;
  */
 public class ProposeAppointments {
     /**
-     * allows a doctor to create an appointment with up to 3 potential dates proposed.
-     * updates the AllAccounts file with the new additions;
+     * allows a doctor to create an appointment with up to 3 potential dates proposed.updates the AllAccounts file with the new additions;
      * @param PotentialDate1
      * @param PotentialDate2
      * @param PotentialDate3
      * @param PatientID
      * @param doctor
+     * @param Confirmed
      * @return if the corresponding patient is found the return value is true, if the patient isn't found false is returned
      */
-    public boolean ProposeAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID, Doctor doctor){
+    public boolean ProposeAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID, Doctor doctor, boolean Confirmed){
         Appointment appointment = new Appointment();                    
         Serialiser accountSerialiser = new Serialiser("AllAccounts");
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
@@ -37,6 +37,7 @@ public class ProposeAppointments {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
                 appointment.registerObserver(AllPatients.get(i)); 
                 appointment.registerObserver(doctor);
+                appointment.setAppointmentConfirmed(Confirmed);
                 ArrayList<LocalDate> PotentialDates = new ArrayList();
                 LocalDate localDate;                
                 localDate = LocalDate.parse(PotentialDate1);

@@ -5,6 +5,7 @@
  */
 package PatientManagementSystem.Accounts;
 
+import PatientManagementSystem.AdminFunctionality.Delete;
 import PatientManagementSystem.System.AccountRequest;
 import PatientManagementSystem.System.MedicineRequest;
 import java.util.ArrayList;
@@ -43,4 +44,8 @@ public class Secretary extends User implements java.io.Serializable{
         this.AccountRequests.remove(accountRequest);
     }
     
+    public void RemovePatientAccount(String PatientID, String Password){
+        Delete DeletePatientAccount = new Delete();
+        DeletePatientAccount.DeleteAccount("Patient", PatientID, Password);
+    }
 }
