@@ -11,6 +11,7 @@ import java.time.*;
 import java.util.ArrayList;
 import PatientManagementSystem.System.Observer;
 import PatientManagementSystem.System.Observable;
+import PatientManagementSystem.System.PatientNote;
 /**
  *
  * @author james
@@ -20,6 +21,20 @@ public class Patient extends User implements java.io.Serializable, Observer{
     private LocalDate Dob;
     private ArrayList<Prescription> Prescriptions = new ArrayList();
     private ArrayList<Appointment> Appointments = new ArrayList();
+    private ArrayList<PatientNote> PatientNotes = new ArrayList();
+
+    public ArrayList<PatientNote> getPatientNotes() {
+        return PatientNotes;
+    }
+
+    public ArrayList<Prescription> getPrescriptions() {
+        return Prescriptions;
+    }
+
+    public ArrayList<Appointment> getAppointments() {
+        return Appointments;
+    }
+    
     private static final long serialVersionUID = 4L;
 
     public int getGender() {
@@ -36,7 +51,7 @@ public class Patient extends User implements java.io.Serializable, Observer{
         observable.registerObserver(this);
     }
     @Override
-    public void updateAppointmentDates(LocalDate[] PotentialDates, Appointment appointment){
+    public void updateAppointmentDates(ArrayList<LocalDate> PotentialDates, Appointment appointment){
         appointment.setPotentialDates(PotentialDates);
     }
 
@@ -47,7 +62,18 @@ public class Patient extends User implements java.io.Serializable, Observer{
     public void setDob(LocalDate Dob) {
         this.Dob = Dob;
     }
-
+    
+    public void addPrescription(Prescription presciption){
+        this.Prescriptions.add(presciption);
+    }
+    
+    public void addAppointment(Appointment appointment){
+        this.Appointments.add(appointment);
+    }
+    
+    public void addNote(PatientNote Note){
+        this.PatientNotes.add(Note);
+    }
     
     
 }

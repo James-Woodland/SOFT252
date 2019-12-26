@@ -6,11 +6,12 @@
 package PatientManagementSystem.System;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
  * @author james
  */
 public interface Observer {
-    public void updateAppointmentDates(LocalDate[] PotentialDates, Appointment appointment);
+    public void updateAppointmentDates(ArrayList<LocalDate> PotentialDates, Appointment appointment);
 }

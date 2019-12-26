@@ -16,18 +16,28 @@ import PatientManagementSystem.System.Observable;
  */
 public class Appointment implements java.io.Serializable, Observable{
     
-    private LocalDate[] PotentialDates = new LocalDate[0];
+    private ArrayList<LocalDate> PotentialDates = new ArrayList();
+
+    public void setPotentialDates(ArrayList<LocalDate> PotentialDates) {
+        this.PotentialDates = PotentialDates;
+    }
     private ArrayList<Observer> observers = new ArrayList();
     private static final long serialVersionUID = 7L;
     
 
-    public LocalDate[] getPotentialDates() {
+    public  ArrayList<LocalDate> getPotentialDates() {
         return PotentialDates;
     }
-
-    public void setPotentialDates(LocalDate[] PotentialDates) {
-        this.PotentialDates = PotentialDates;
+     
+   
+    public void addPotentialDate(LocalDate Date){
+        this.PotentialDates.add(Date);
     }
+    
+    public void removePotentialDate(LocalDate Date){
+        this.PotentialDates.remove(Date);
+    }
+    
     @Override
     public void registerObserver(Observer observer){
         observers.add(observer);

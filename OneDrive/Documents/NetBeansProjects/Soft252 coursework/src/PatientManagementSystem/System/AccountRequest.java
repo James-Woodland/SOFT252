@@ -15,7 +15,25 @@ public class AccountRequest implements java.io.Serializable{
     private String PotentialPassword = "";
     private int PotentialGender = 0;
     private LocalDate DoB;
-    private int AccountRequestType = 1;
+    private int AccountRequestType;
+    private boolean Completed = false;
+    
+    public int getAccountRequestType() {
+        return AccountRequestType;
+    }
+
+    public void setAccountRequestType(int AccountRequestType) {
+        this.AccountRequestType = AccountRequestType;
+    }
+    
+
+    public boolean isCompleted() {
+        return Completed;
+    }
+
+    public void setCompleted(boolean Completed) {
+        this.Completed = Completed;
+    }
     private static final long serialVersionUID = 6L;
 
     public String getPotentialPatientName() {
