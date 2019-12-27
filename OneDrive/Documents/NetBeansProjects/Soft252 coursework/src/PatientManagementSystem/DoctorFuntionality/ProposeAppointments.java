@@ -37,16 +37,22 @@ public class ProposeAppointments {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
                 appointment.registerObserver(AllPatients.get(i)); 
                 appointment.registerObserver(doctor);
-                appointment.setAppointmentConfirmed(Confirmed);
+                appointment.setAppointmentConfirmed(Confirmed);                
                 ArrayList<LocalDate> PotentialDates = new ArrayList();
                 LocalDate localDate;                
                 localDate = LocalDate.parse(PotentialDate1);
                 PotentialDates.add(localDate);
+                if (Confirmed == true) {
+                    appointment.setConfirmedDate(localDate);
+                }
                 localDate = LocalDate.parse(PotentialDate2);
                 PotentialDates.add(localDate);
                 localDate = LocalDate.parse(PotentialDate3);
                 PotentialDates.add(localDate);
                 doctor.updateAppointmentDates(PotentialDates, appointment);
+                for (int j = 0; j < allAccounts.getAllSecretarys().size(); j++) {
+                    allAccounts.getAllSecretarys().get(i).addAppointmentProposition(appointment);
+                }
                 accountSerialiser.writeObject(allAccounts);               
                 return true;
             }

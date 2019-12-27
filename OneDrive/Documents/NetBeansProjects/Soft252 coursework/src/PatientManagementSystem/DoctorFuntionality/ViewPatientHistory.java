@@ -33,11 +33,9 @@ public class ViewPatientHistory {
         ArrayList<Object> PatientHistory = new ArrayList();
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
-                CurrentPatient = AllPatients.get(i);
-                ArrayList<Appointment> PatientAppointments = CurrentPatient.getAppointments();
+                CurrentPatient = AllPatients.get(i);               
                 ArrayList<Prescription> PatientPrescriptions = CurrentPatient.getPrescriptions();  
-                ArrayList<PatientNote> PatientNotes = CurrentPatient.getPatientNotes();
-                PatientHistory.addAll(PatientAppointments);
+                ArrayList<PatientNote> PatientNotes = CurrentPatient.getPatientNotes();                
                 PatientHistory.addAll(PatientPrescriptions);
                 PatientHistory.addAll(PatientNotes);               
                 return PatientHistory;

@@ -14,19 +14,8 @@ public class AccountRequest implements java.io.Serializable{
     private String PotentialPatientAddress = "";
     private String PotentialPassword = "";
     private int PotentialGender = 0;
-    private LocalDate DoB;
-    private int AccountRequestType;
-    private boolean Completed = false;
-    
-    public int getAccountRequestType() {
-        return AccountRequestType;
-    }
-
-    public void setAccountRequestType(int AccountRequestType) {
-        if (AccountRequestType == 1 || AccountRequestType == 2) {
-            this.AccountRequestType = AccountRequestType;
-        }        
-    }
+    private LocalDate DoB;   
+    private boolean Completed = false;       
     
 
     public boolean isCompleted() {

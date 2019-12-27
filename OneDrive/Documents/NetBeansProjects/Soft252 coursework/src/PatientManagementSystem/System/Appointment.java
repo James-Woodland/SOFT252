@@ -17,9 +17,18 @@ import PatientManagementSystem.System.Observable;
 public class Appointment implements java.io.Serializable, Observable{
     
     private ArrayList<LocalDate> PotentialDates = new ArrayList();
+    private LocalDate ConfirmedDate;   
     private boolean AppointmentConfirmed;   
     private ArrayList<Observer> observers = new ArrayList();
     private static final long serialVersionUID = 7L;
+    
+    public LocalDate getConfirmedDate() {
+        return ConfirmedDate;
+    }
+
+    public void setConfirmedDate(LocalDate ConfirmedDate) {
+        this.ConfirmedDate = ConfirmedDate;
+    }
     
     public boolean isAppointmentConfirmed() {
         return AppointmentConfirmed;

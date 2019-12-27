@@ -28,9 +28,8 @@ public class CreateAccountRequest {
      * @param DoB
      * @param AccountRequestType
      */
-    public void CreateNewAccountRequest(String PotentialPatientName, String PotentialPatientAddress, String PotentialPassword, int PotentialGender, String DoB, int AccountRequestType){
-        AccountRequest accountRequest = new AccountRequest();
-        accountRequest.setAccountRequestType(1);
+    public void CreateNewAccountRequest(String PotentialPatientName, String PotentialPatientAddress, String PotentialPassword, int PotentialGender, String DoB){
+        AccountRequest accountRequest = new AccountRequest();       
         accountRequest.setDoB(LocalDate.parse(DoB));
         accountRequest.setPotentialPassword(PotentialPassword);
         accountRequest.setPotentialPatientName(PotentialPatientName);

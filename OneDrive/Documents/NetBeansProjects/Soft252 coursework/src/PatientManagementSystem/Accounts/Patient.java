@@ -5,6 +5,9 @@
  */
 package PatientManagementSystem.Accounts;
 import PatientManagementSystem.AdminFunctionality.ViewDoctorRatings;
+import PatientManagementSystem.DoctorFuntionality.ProposeAppointments;
+import PatientManagementSystem.PatientFunctionality.CreateAccountRequest;
+import PatientManagementSystem.Serialiser.Serialiser;
 import PatientManagementSystem.System.Appointment;
 import PatientManagementSystem.System.Observable;
 import PatientManagementSystem.System.Prescription;
@@ -13,6 +16,7 @@ import java.util.ArrayList;
 import PatientManagementSystem.System.Observer;
 import PatientManagementSystem.System.Observable;
 import PatientManagementSystem.System.PatientNote;
+import PatientManagementSystem.System.RemoveAccountRequest;
 /**
  *
  * @author james
@@ -75,22 +79,48 @@ public class Patient extends User implements java.io.Serializable, Observer{
     public void addNote(PatientNote Note){
         this.PatientNotes.add(Note);
     }
-    
+    //not tested
     public ArrayList<Object> GetDoctorRatings(){
         ViewDoctorRatings viewDoctorRatings = new ViewDoctorRatings();
         return viewDoctorRatings.GetDoctorRatings();
     }
+    //not tested
     //gets the most recently added prescription for the patient
     //assuming this is waht's emant when the spec says view Presciptionsingular
     //and doesn;t mean view a particular prescription
     public Prescription ViewPrescription(){
         return this.Prescriptions.get(Prescriptions.size()-1);
     }
+    //not tested
     //gets the most recently added Appointment for the patient
     //assuming this is waht's emant when the spec says view Presciptionsingular
     //and doesn;t mean view a particular prescription
     public Appointment ViewAppointment(){
         return this.Appointments.get(Prescriptions.size()-1);
     }
+    //not tested
+    //move to own class
+    public void RemoveAccount(){
+        RemoveAccountRequest removeAccountRequest = new RemoveAccountRequest();
+        removeAccountRequest.setAccountToBeRemoved(this);
+        Serialiser accountSerialiser = new Serialiser("AllAccounts");
+        AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
+        ArrayList<Secretary> Secretarys = allAccounts.getAllSecretarys();
+        for (int i = 0; i < Secretarys.size(); i++) {
+            Secretarys.get(i).addRemoveAccountRequest(removeAccountRequest);
+        }
+        accountSerialiser.writeObject(allAccounts);
+    }
+    //move to own class 
+    public ArrayList<Object> CheckHistory(){
+        ArrayList<Object> PatientHistory = new ArrayList();
+        PatientHistory.addAll(this.getPrescriptions());
+        PatientHistory.addAll(this.getPatientNotes());
+        return PatientHistory;
+    }
     
+    public boolean RequestAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, Doctor doctor){
+        ProposeAppointments proposeAppointment = new ProposeAppointments();
+        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, this.getUserID(), doctor, false);
+    }
 }
