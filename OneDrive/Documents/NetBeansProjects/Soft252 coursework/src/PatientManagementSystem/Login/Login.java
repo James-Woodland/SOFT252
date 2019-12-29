@@ -10,17 +10,16 @@ package PatientManagementSystem.Login;
  * @author james
  */
 public abstract class Login { 
-    public final void AttemptLogin(String Password, String Username){
+    public final boolean AttemptLogin(String Password, String Username){
         boolean password = CheckPassword(Password);
         boolean username = CheckUsername(Username);
-        CheckResults(password, username);
+        return CheckResults(password, username);
     }
     
     protected abstract boolean CheckPassword(String Password);
     protected abstract boolean CheckUsername(String Username);   
     protected boolean CheckResults(boolean password, boolean username){
-        if (username == true && password == true) {
-            System.out.println("Logged in");
+        if (username == true && password == true) {            
             return true;
         }
         return false;

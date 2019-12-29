@@ -5,7 +5,17 @@
  */
 package View;
 
+import PatientManagementSystem.Accounts.Admin;
+import PatientManagementSystem.Login.AdminLogin;
+import PatientManagementSystem.Login.DoctorLogin;
+import PatientManagementSystem.Login.Login;
+import PatientManagementSystem.Login.PatientLogin;
+import PatientManagementSystem.Login.SecretaryLogin;
+import PatientManagementSystem.PatientFunctionality.CreateAccountRequest;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
@@ -29,6 +39,8 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         mainPanel = new javax.swing.JPanel();
         PnlLogin = new javax.swing.JPanel();
         BtnPatientAccount = new javax.swing.JButton();
@@ -42,7 +54,7 @@ public class View extends javax.swing.JFrame {
         PnlRequestPatientAccount = new javax.swing.JPanel();
         TxtPotentialName = new javax.swing.JTextField();
         TxtPotentialAddress = new javax.swing.JTextField();
-        CmbPoentialGender = new javax.swing.JComboBox<>();
+        CmbPotentialGender = new javax.swing.JComboBox<>();
         BtnPatientAccountRequest = new javax.swing.JButton();
         BtnBackToLogin = new javax.swing.JButton();
         LblPotentialName = new javax.swing.JLabel();
@@ -50,30 +62,81 @@ public class View extends javax.swing.JFrame {
         LblPotentialPassword = new javax.swing.JLabel();
         LblPotentialGender = new javax.swing.JLabel();
         LblPotentialDoB = new javax.swing.JLabel();
-        PwdPotentialPassword = new javax.swing.JPasswordField();
-        FmtTxtPotentialDoB = new javax.swing.JFormattedTextField();
+        TxtPotentialPassword = new javax.swing.JTextField();
+        TxtPotentialDoB = new javax.swing.JTextField();
         PnlAdminMainPage = new javax.swing.JPanel();
-        PnlCreateAccount = new javax.swing.JPanel();
-        PnlRemoveAccounts = new javax.swing.JPanel();
-        PnlGenerateFeedback = new javax.swing.JPanel();
-        PnlPatientMainPage = new javax.swing.JPanel();
+        LblAdminMainPage = new javax.swing.JLabel();
+        BtnAdmCreateAccountPage = new javax.swing.JButton();
+        BtnRemoveAccountPage = new javax.swing.JButton();
+        btnViewRatingsPage = new javax.swing.JButton();
+        BtnGenerateFeedbackPage = new javax.swing.JButton();
+        CmbChooseDoctorForFeedback = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         PnlViewDoctorRatings = new javax.swing.JPanel();
+        CmbChooseDoctorForRating = new javax.swing.JComboBox<>();
+        LblRatedDoctorRating = new javax.swing.JLabel();
+        LblRatedDoctorID = new javax.swing.JLabel();
+        LblRatedDoctorName = new javax.swing.JLabel();
+        BtnAdmBack3 = new javax.swing.JButton();
+        PnlCreateAccount = new javax.swing.JPanel();
+        LblAdmCreateAccountName = new javax.swing.JLabel();
+        LblAdmCreateAccountPassword = new javax.swing.JLabel();
+        LblAdmCreateAccountType = new javax.swing.JLabel();
+        LblAdmCreateAccountAddress = new javax.swing.JLabel();
+        TxtAdmCreateAccountName = new javax.swing.JTextField();
+        TxtAdmCreateAccountPassword = new javax.swing.JTextField();
+        TxtAdmCreateAccountAddress = new javax.swing.JTextField();
+        CmbAdmCreateAccountType = new javax.swing.JComboBox<>();
+        BtnAdmCreateAccount = new javax.swing.JButton();
+        BtnAdmBack1 = new javax.swing.JButton();
+        PnlRemoveAccounts = new javax.swing.JPanel();
+        TxtAccountToBeRemoved = new javax.swing.JTextField();
+        CmbToBeRemovedAccountType = new javax.swing.JComboBox<>();
+        LblToBeRemovedID = new javax.swing.JLabel();
+        LblToBeRemovedAccountType = new javax.swing.JLabel();
+        BtnRemoveAccount = new javax.swing.JButton();
+        BtnAdmBack2 = new javax.swing.JButton();
+        PnlGenerateFeedback = new javax.swing.JPanel();
+        BtnAdmBack4 = new javax.swing.JButton();
+        LblFeedbackDoctorName = new javax.swing.JLabel();
+        CmbSelectComment = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TxtAreaFeedbackComment = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        LblFeedbackRating = new javax.swing.JLabel();
+        PnlPatientMainPage = new javax.swing.JPanel();
+        LblPatientMainPage = new javax.swing.JLabel();
         PnlRequestAppointment = new javax.swing.JPanel();
         PnlRateDoctors = new javax.swing.JPanel();
         PnlViewOwnHistory = new javax.swing.JPanel();
         PnlViewAppointment = new javax.swing.JPanel();
         PnlViewPrescription = new javax.swing.JPanel();
         PnlDoctorMainPage = new javax.swing.JPanel();
+        LblDoctorMainPage = new javax.swing.JLabel();
         PnlWritePrescription = new javax.swing.JPanel();
         PnlCreateNewMedicine = new javax.swing.JPanel();
         PnlProposeAppointment = new javax.swing.JPanel();
         PnlViewAppointments = new javax.swing.JPanel();
         PnlMakeNotes = new javax.swing.JPanel();
         PnlSecretaryMainPage = new javax.swing.JPanel();
+        LblSecretaryMainPage = new javax.swing.JLabel();
         PnlCreateAppointment = new javax.swing.JPanel();
         PnlMedicine = new javax.swing.JPanel();
         PnlPatientAccountRequesrs = new javax.swing.JPanel();
         PnlApproveRemovalRequest = new javax.swing.JPanel();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +150,17 @@ public class View extends javax.swing.JFrame {
         });
 
         BtnLoginRequest.setText("Login");
+        BtnLoginRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLoginRequestActionPerformed(evt);
+            }
+        });
+
+        TxtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtPasswordActionPerformed(evt);
+            }
+        });
 
         LblLoginUsername.setText("Username");
 
@@ -142,11 +216,27 @@ public class View extends javax.swing.JFrame {
 
         mainPanel.add(PnlLogin, "PnlLogin");
 
-        CmbPoentialGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+        TxtPotentialName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtPotentialNameActionPerformed(evt);
+            }
+        });
 
-        BtnPatientAccountRequest.setText("RequestAccount");
+        CmbPotentialGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+
+        BtnPatientAccountRequest.setText("Request Account");
+        BtnPatientAccountRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPatientAccountRequestActionPerformed(evt);
+            }
+        });
 
         BtnBackToLogin.setText("back To Login");
+        BtnBackToLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBackToLoginActionPerformed(evt);
+            }
+        });
 
         LblPotentialName.setText("Name");
 
@@ -157,8 +247,6 @@ public class View extends javax.swing.JFrame {
         LblPotentialGender.setText("Gender");
 
         LblPotentialDoB.setText("Date Of Birth");
-
-        FmtTxtPotentialDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-YYYY"))));
 
         javax.swing.GroupLayout PnlRequestPatientAccountLayout = new javax.swing.GroupLayout(PnlRequestPatientAccount);
         PnlRequestPatientAccount.setLayout(PnlRequestPatientAccountLayout);
@@ -171,19 +259,18 @@ public class View extends javax.swing.JFrame {
                         .addComponent(BtnBackToLogin))
                     .addGroup(PnlRequestPatientAccountLayout.createSequentialGroup()
                         .addGap(143, 143, 143)
-                        .addGroup(PnlRequestPatientAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PnlRequestPatientAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnPatientAccountRequest)
-                            .addGroup(PnlRequestPatientAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(LblPotentialDoB)
-                                .addComponent(LblPotentialName)
-                                .addComponent(LblPotentialAddress)
-                                .addComponent(LblPotentialPassword)
-                                .addComponent(LblPotentialGender)
-                                .addComponent(TxtPotentialName)
-                                .addComponent(CmbPoentialGender, 0, 143, Short.MAX_VALUE)
-                                .addComponent(TxtPotentialAddress)
-                                .addComponent(PwdPotentialPassword)
-                                .addComponent(FmtTxtPotentialDoB)))))
+                            .addComponent(LblPotentialDoB)
+                            .addComponent(LblPotentialName)
+                            .addComponent(LblPotentialAddress)
+                            .addComponent(LblPotentialPassword)
+                            .addComponent(LblPotentialGender)
+                            .addComponent(TxtPotentialName)
+                            .addComponent(CmbPotentialGender, 0, 143, Short.MAX_VALUE)
+                            .addComponent(TxtPotentialAddress)
+                            .addComponent(TxtPotentialPassword)
+                            .addComponent(TxtPotentialDoB))))
                 .addContainerGap(195, Short.MAX_VALUE))
         );
         PnlRequestPatientAccountLayout.setVerticalGroup(
@@ -202,15 +289,15 @@ public class View extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(LblPotentialPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PwdPotentialPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtPotentialPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LblPotentialGender)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(CmbPoentialGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CmbPotentialGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LblPotentialDoB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FmtTxtPotentialDoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtPotentialDoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnPatientAccountRequest)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -218,83 +305,346 @@ public class View extends javax.swing.JFrame {
 
         mainPanel.add(PnlRequestPatientAccount, "PnlRequestPatientAccount");
 
+        LblAdminMainPage.setText("Admin Main Page");
+
+        BtnAdmCreateAccountPage.setText("Create Account");
+        BtnAdmCreateAccountPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdmCreateAccountPageActionPerformed(evt);
+            }
+        });
+
+        BtnRemoveAccountPage.setText("Delete Account");
+        BtnRemoveAccountPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRemoveAccountPageActionPerformed(evt);
+            }
+        });
+
+        btnViewRatingsPage.setText("View Ratings");
+        btnViewRatingsPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewRatingsPageActionPerformed(evt);
+            }
+        });
+
+        BtnGenerateFeedbackPage.setText("Generate Feedback");
+        BtnGenerateFeedbackPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGenerateFeedbackPageActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Choose Doctor For Report");
+
         javax.swing.GroupLayout PnlAdminMainPageLayout = new javax.swing.GroupLayout(PnlAdminMainPage);
         PnlAdminMainPage.setLayout(PnlAdminMainPageLayout);
         PnlAdminMainPageLayout.setHorizontalGroup(
             PnlAdminMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGroup(PnlAdminMainPageLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(PnlAdminMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(PnlAdminMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BtnGenerateFeedbackPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnViewRatingsPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnRemoveAccountPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAdmCreateAccountPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PnlAdminMainPageLayout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(LblAdminMainPage))
+                        .addComponent(CmbChooseDoctorForFeedback, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         PnlAdminMainPageLayout.setVerticalGroup(
             PnlAdminMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(PnlAdminMainPageLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(LblAdminMainPage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnAdmCreateAccountPage)
+                .addGap(18, 18, 18)
+                .addComponent(BtnRemoveAccountPage)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewRatingsPage)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CmbChooseDoctorForFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BtnGenerateFeedbackPage)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         mainPanel.add(PnlAdminMainPage, "PnlAdminMainPage");
 
-        javax.swing.GroupLayout PnlCreateAccountLayout = new javax.swing.GroupLayout(PnlCreateAccount);
-        PnlCreateAccount.setLayout(PnlCreateAccountLayout);
-        PnlCreateAccountLayout.setHorizontalGroup(
-            PnlCreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        PnlCreateAccountLayout.setVerticalGroup(
-            PnlCreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
-        );
+        CmbChooseDoctorForRating.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CmbChooseDoctorForRatingActionPerformed(evt);
+            }
+        });
 
-        mainPanel.add(PnlCreateAccount, "PnlCreateAccount");
+        LblRatedDoctorID.setText("jLabel2");
 
-        javax.swing.GroupLayout PnlRemoveAccountsLayout = new javax.swing.GroupLayout(PnlRemoveAccounts);
-        PnlRemoveAccounts.setLayout(PnlRemoveAccountsLayout);
-        PnlRemoveAccountsLayout.setHorizontalGroup(
-            PnlRemoveAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        PnlRemoveAccountsLayout.setVerticalGroup(
-            PnlRemoveAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
-        );
+        LblRatedDoctorName.setText("jLabel3");
 
-        mainPanel.add(PnlRemoveAccounts, "PnlRemoveAccounts");
-
-        javax.swing.GroupLayout PnlGenerateFeedbackLayout = new javax.swing.GroupLayout(PnlGenerateFeedback);
-        PnlGenerateFeedback.setLayout(PnlGenerateFeedbackLayout);
-        PnlGenerateFeedbackLayout.setHorizontalGroup(
-            PnlGenerateFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        PnlGenerateFeedbackLayout.setVerticalGroup(
-            PnlGenerateFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
-        );
-
-        mainPanel.add(PnlGenerateFeedback, "PnlGenerateFeedback");
-
-        javax.swing.GroupLayout PnlPatientMainPageLayout = new javax.swing.GroupLayout(PnlPatientMainPage);
-        PnlPatientMainPage.setLayout(PnlPatientMainPageLayout);
-        PnlPatientMainPageLayout.setHorizontalGroup(
-            PnlPatientMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
-        PnlPatientMainPageLayout.setVerticalGroup(
-            PnlPatientMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
-        );
-
-        mainPanel.add(PnlPatientMainPage, "PnlPatientMainPage");
+        BtnAdmBack3.setText("Back To Admin Main Page");
+        BtnAdmBack3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdmBack3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PnlViewDoctorRatingsLayout = new javax.swing.GroupLayout(PnlViewDoctorRatings);
         PnlViewDoctorRatings.setLayout(PnlViewDoctorRatingsLayout);
         PnlViewDoctorRatingsLayout.setHorizontalGroup(
             PnlViewDoctorRatingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGroup(PnlViewDoctorRatingsLayout.createSequentialGroup()
+                .addGroup(PnlViewDoctorRatingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlViewDoctorRatingsLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addGroup(PnlViewDoctorRatingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LblRatedDoctorName)
+                            .addComponent(LblRatedDoctorID)
+                            .addComponent(CmbChooseDoctorForRating, 0, 162, Short.MAX_VALUE)
+                            .addComponent(LblRatedDoctorRating, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(PnlViewDoctorRatingsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BtnAdmBack3)))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         PnlViewDoctorRatingsLayout.setVerticalGroup(
             PnlViewDoctorRatingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(PnlViewDoctorRatingsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnAdmBack3)
+                .addGap(92, 92, 92)
+                .addComponent(CmbChooseDoctorForRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LblRatedDoctorID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LblRatedDoctorName)
+                .addGap(17, 17, 17)
+                .addComponent(LblRatedDoctorRating)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         mainPanel.add(PnlViewDoctorRatings, "PnlViewDoctorRatings");
+
+        LblAdmCreateAccountName.setText("Name ");
+
+        LblAdmCreateAccountPassword.setText("Password");
+
+        LblAdmCreateAccountType.setText("Account Type");
+
+        LblAdmCreateAccountAddress.setText("Address");
+
+        CmbAdmCreateAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Doctor", "Secretary" }));
+
+        BtnAdmCreateAccount.setText("Create Account");
+        BtnAdmCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdmCreateAccountActionPerformed(evt);
+            }
+        });
+
+        BtnAdmBack1.setText("Back To Main Page");
+        BtnAdmBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdmBack1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PnlCreateAccountLayout = new javax.swing.GroupLayout(PnlCreateAccount);
+        PnlCreateAccount.setLayout(PnlCreateAccountLayout);
+        PnlCreateAccountLayout.setHorizontalGroup(
+            PnlCreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlCreateAccountLayout.createSequentialGroup()
+                .addGroup(PnlCreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlCreateAccountLayout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addGroup(PnlCreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnAdmCreateAccount)
+                            .addComponent(CmbAdmCreateAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PnlCreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(LblAdmCreateAccountAddress)
+                                .addComponent(LblAdmCreateAccountType)
+                                .addComponent(LblAdmCreateAccountPassword)
+                                .addComponent(LblAdmCreateAccountName)
+                                .addComponent(TxtAdmCreateAccountName, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                .addComponent(TxtAdmCreateAccountPassword)
+                                .addComponent(TxtAdmCreateAccountAddress))))
+                    .addGroup(PnlCreateAccountLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BtnAdmBack1)))
+                .addContainerGap(205, Short.MAX_VALUE))
+        );
+        PnlCreateAccountLayout.setVerticalGroup(
+            PnlCreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlCreateAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnAdmBack1)
+                .addGap(56, 56, 56)
+                .addComponent(LblAdmCreateAccountName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtAdmCreateAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(LblAdmCreateAccountPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TxtAdmCreateAccountPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(LblAdmCreateAccountAddress)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtAdmCreateAccountAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LblAdmCreateAccountType)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CmbAdmCreateAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnAdmCreateAccount)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(PnlCreateAccount, "PnlCreateAccount");
+
+        CmbToBeRemovedAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Secretary" }));
+
+        LblToBeRemovedID.setText("Account ID");
+
+        LblToBeRemovedAccountType.setText("Account Type");
+
+        BtnRemoveAccount.setText("Remove Account");
+        BtnRemoveAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRemoveAccountActionPerformed(evt);
+            }
+        });
+
+        BtnAdmBack2.setText("Back To Main Page");
+        BtnAdmBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdmBack2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PnlRemoveAccountsLayout = new javax.swing.GroupLayout(PnlRemoveAccounts);
+        PnlRemoveAccounts.setLayout(PnlRemoveAccountsLayout);
+        PnlRemoveAccountsLayout.setHorizontalGroup(
+            PnlRemoveAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlRemoveAccountsLayout.createSequentialGroup()
+                .addGroup(PnlRemoveAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlRemoveAccountsLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addGroup(PnlRemoveAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LblToBeRemovedAccountType)
+                            .addComponent(LblToBeRemovedID)
+                            .addComponent(TxtAccountToBeRemoved)
+                            .addComponent(CmbToBeRemovedAccountType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnRemoveAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)))
+                    .addGroup(PnlRemoveAccountsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BtnAdmBack2)))
+                .addContainerGap(168, Short.MAX_VALUE))
+        );
+        PnlRemoveAccountsLayout.setVerticalGroup(
+            PnlRemoveAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlRemoveAccountsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnAdmBack2)
+                .addGap(81, 81, 81)
+                .addComponent(LblToBeRemovedID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtAccountToBeRemoved, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LblToBeRemovedAccountType)
+                .addGap(3, 3, 3)
+                .addComponent(CmbToBeRemovedAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnRemoveAccount)
+                .addContainerGap(136, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(PnlRemoveAccounts, "PnlRemoveAccounts");
+
+        BtnAdmBack4.setText("Back to Admin Main Page");
+        BtnAdmBack4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAdmBack4ActionPerformed(evt);
+            }
+        });
+
+        LblFeedbackDoctorName.setText("jLabel1");
+
+        CmbSelectComment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CmbSelectCommentActionPerformed(evt);
+            }
+        });
+
+        TxtAreaFeedbackComment.setEditable(false);
+        TxtAreaFeedbackComment.setColumns(20);
+        TxtAreaFeedbackComment.setRows(5);
+        jScrollPane2.setViewportView(TxtAreaFeedbackComment);
+
+        jLabel2.setText("Rating");
+
+        LblFeedbackRating.setText("jLabel3");
+
+        javax.swing.GroupLayout PnlGenerateFeedbackLayout = new javax.swing.GroupLayout(PnlGenerateFeedback);
+        PnlGenerateFeedback.setLayout(PnlGenerateFeedbackLayout);
+        PnlGenerateFeedbackLayout.setHorizontalGroup(
+            PnlGenerateFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlGenerateFeedbackLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PnlGenerateFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnAdmBack4)
+                    .addComponent(LblFeedbackDoctorName)
+                    .addComponent(CmbSelectComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(LblFeedbackRating))
+                .addContainerGap(305, Short.MAX_VALUE))
+        );
+        PnlGenerateFeedbackLayout.setVerticalGroup(
+            PnlGenerateFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlGenerateFeedbackLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnAdmBack4)
+                .addGap(18, 18, 18)
+                .addComponent(LblFeedbackDoctorName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CmbSelectComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LblFeedbackRating)
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(PnlGenerateFeedback, "PnlGenerateFeedback");
+
+        LblPatientMainPage.setText("Patient Main Page");
+
+        javax.swing.GroupLayout PnlPatientMainPageLayout = new javax.swing.GroupLayout(PnlPatientMainPage);
+        PnlPatientMainPage.setLayout(PnlPatientMainPageLayout);
+        PnlPatientMainPageLayout.setHorizontalGroup(
+            PnlPatientMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlPatientMainPageLayout.createSequentialGroup()
+                .addContainerGap(186, Short.MAX_VALUE)
+                .addComponent(LblPatientMainPage)
+                .addGap(209, 209, 209))
+        );
+        PnlPatientMainPageLayout.setVerticalGroup(
+            PnlPatientMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlPatientMainPageLayout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(LblPatientMainPage)
+                .addContainerGap(239, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(PnlPatientMainPage, "PnlPatientMainPage");
 
         javax.swing.GroupLayout PnlRequestAppointmentLayout = new javax.swing.GroupLayout(PnlRequestAppointment);
         PnlRequestAppointment.setLayout(PnlRequestAppointmentLayout);
@@ -361,15 +711,23 @@ public class View extends javax.swing.JFrame {
 
         mainPanel.add(PnlViewPrescription, "PnlViewPrescription");
 
+        LblDoctorMainPage.setText("Doctor Main Page");
+
         javax.swing.GroupLayout PnlDoctorMainPageLayout = new javax.swing.GroupLayout(PnlDoctorMainPage);
         PnlDoctorMainPage.setLayout(PnlDoctorMainPageLayout);
         PnlDoctorMainPageLayout.setHorizontalGroup(
             PnlDoctorMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGroup(PnlDoctorMainPageLayout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(LblDoctorMainPage)
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         PnlDoctorMainPageLayout.setVerticalGroup(
             PnlDoctorMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(PnlDoctorMainPageLayout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(LblDoctorMainPage)
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         mainPanel.add(PnlDoctorMainPage, "PnlDoctorMainPage");
@@ -439,15 +797,23 @@ public class View extends javax.swing.JFrame {
 
         mainPanel.add(PnlMakeNotes, "PnlMakeNotes");
 
+        LblSecretaryMainPage.setText("Secretary Main Page");
+
         javax.swing.GroupLayout PnlSecretaryMainPageLayout = new javax.swing.GroupLayout(PnlSecretaryMainPage);
         PnlSecretaryMainPage.setLayout(PnlSecretaryMainPageLayout);
         PnlSecretaryMainPageLayout.setHorizontalGroup(
             PnlSecretaryMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGroup(PnlSecretaryMainPageLayout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(LblSecretaryMainPage)
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         PnlSecretaryMainPageLayout.setVerticalGroup(
             PnlSecretaryMainPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(PnlSecretaryMainPageLayout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(LblSecretaryMainPage)
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         mainPanel.add(PnlSecretaryMainPage, "PnlSecretaryMainPage");
@@ -520,8 +886,187 @@ public class View extends javax.swing.JFrame {
 
     private void BtnPatientAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPatientAccountActionPerformed
         CardLayout card = (CardLayout)mainPanel.getLayout();
-        card.show(mainPanel, "PnlRequestPatientLogin");
+        card.show(mainPanel, "PnlRequestPatientAccount");
     }//GEN-LAST:event_BtnPatientAccountActionPerformed
+
+    private void BtnLoginRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginRequestActionPerformed
+        Login login;
+        switch(CmbLoginAccountType.getSelectedItem().toString()){
+            case "Patient":
+                login = new PatientLogin();
+                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                    CardLayout card = (CardLayout)mainPanel.getLayout();
+                    card.show(mainPanel, "PnlPatientMainPage");
+                }   
+                break;
+            case "Doctor":
+                login = new DoctorLogin();
+                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                    CardLayout card = (CardLayout)mainPanel.getLayout();
+                    card.show(mainPanel, "PnlDoctorMainPage");
+                }   
+                break;
+            case "Admin":
+                login = new AdminLogin();
+                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                    CardLayout card = (CardLayout)mainPanel.getLayout();
+                    card.show(mainPanel, "PnlAdminMainPage");
+                    Admin admin = new Admin();
+                    ArrayList<Object> Ratings  = admin.GetDoctorRatings();
+                    for (int i = 0; i < Ratings.size()/3; i++) {
+                        String DoctorID = Ratings.get(i*3+1).toString();
+                        CmbChooseDoctorForFeedback.addItem(DoctorID);
+                    }
+                }   
+                break;
+            case "Secretary":
+                login = new SecretaryLogin();
+                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                    CardLayout card = (CardLayout)mainPanel.getLayout();
+                    card.show(mainPanel, "PnlSecretaryMainPage");
+                }   
+                break;
+        }    
+        TxtPassword.setText("");
+        TxtUsername.setText("");
+    }//GEN-LAST:event_BtnLoginRequestActionPerformed
+
+    private void BtnBackToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackToLoginActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlLogin");
+    }//GEN-LAST:event_BtnBackToLoginActionPerformed
+
+    private void BtnPatientAccountRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPatientAccountRequestActionPerformed
+        CreateAccountRequest accountRequest = new CreateAccountRequest();
+        String gender = CmbPotentialGender.getSelectedItem().toString();
+        int Gender = 0;
+        switch(gender){
+            case "Male":
+                Gender = 1;
+                break;
+            case "Female":
+                Gender = 2;
+                break;
+            case "Other":
+                Gender = 3;
+                break;
+        }
+        String DoB = TxtPotentialDoB.getText();
+        accountRequest.CreateNewAccountRequest(TxtPotentialName.getText(), TxtPotentialAddress.getText(), TxtPotentialPassword.getText(), Gender, TxtPotentialDoB.getText());
+        TxtPotentialName.setText("");
+        TxtPotentialAddress.setText("");
+        TxtPotentialPassword.setText("");
+        TxtPotentialDoB.setText("");
+    }//GEN-LAST:event_BtnPatientAccountRequestActionPerformed
+
+    private void TxtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtPasswordActionPerformed
+
+    private void TxtPotentialNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPotentialNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtPotentialNameActionPerformed
+
+    private void BtnAdmBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdmBack1ActionPerformed
+        // TODO add your handling code here:
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlAdminMainPage");
+    }//GEN-LAST:event_BtnAdmBack1ActionPerformed
+
+    private void BtnAdmCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdmCreateAccountActionPerformed
+        Admin admin = new Admin();
+        admin.CreateAccount(CmbAdmCreateAccountType.getSelectedItem().toString(), TxtAdmCreateAccountPassword.getText(), TxtAdmCreateAccountName.getText(), TxtAdmCreateAccountAddress.getText());
+        TxtAdmCreateAccountName.setText("");
+        TxtAdmCreateAccountAddress.setText("");
+        TxtAdmCreateAccountPassword.setText("");
+    }//GEN-LAST:event_BtnAdmCreateAccountActionPerformed
+
+    private void BtnAdmCreateAccountPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdmCreateAccountPageActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlCreateAccount");
+    }//GEN-LAST:event_BtnAdmCreateAccountPageActionPerformed
+
+    private void BtnAdmBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdmBack2ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlAdminMainPage");
+    }//GEN-LAST:event_BtnAdmBack2ActionPerformed
+
+    private void BtnRemoveAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRemoveAccountActionPerformed
+        Admin admin = new Admin();
+        admin.RemoveAccount(CmbToBeRemovedAccountType.getSelectedItem().toString(), TxtAccountToBeRemoved.getText());
+        TxtAccountToBeRemoved.setText("");
+    }//GEN-LAST:event_BtnRemoveAccountActionPerformed
+
+    private void BtnRemoveAccountPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRemoveAccountPageActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlRemoveAccounts");
+    }//GEN-LAST:event_BtnRemoveAccountPageActionPerformed
+
+    private void BtnAdmBack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdmBack3ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlAdminMainPage");
+    }//GEN-LAST:event_BtnAdmBack3ActionPerformed
+
+    private void btnViewRatingsPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRatingsPageActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlViewDoctorRatings");
+        Admin admin = new Admin();
+        ArrayList<Object> Ratings  = admin.GetDoctorRatings();
+        for (int i = 0; i < Ratings.size()/3; i++) {
+            String DoctorID = Ratings.get(i*3+1).toString();
+            CmbChooseDoctorForRating.addItem(DoctorID);
+        }
+        LblRatedDoctorName.setText(Ratings.get(0).toString());
+        LblRatedDoctorID.setText(Ratings.get(1).toString());
+        LblRatedDoctorRating.setText(Ratings.get(2).toString());
+    }//GEN-LAST:event_btnViewRatingsPageActionPerformed
+
+    private void BtnGenerateFeedbackPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGenerateFeedbackPageActionPerformed
+        CmbSelectComment.removeAllItems();
+        TxtAreaFeedbackComment.setText("");
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlGenerateFeedback");
+        Admin admin = new Admin();
+        ArrayList<Object> FeedbackReport = admin.GenerateFeedbackReport(CmbChooseDoctorForFeedback.getSelectedItem().toString());
+        LblFeedbackDoctorName.setText(CmbChooseDoctorForFeedback.getSelectedItem().toString());
+        for (int i = 1; i < FeedbackReport.size()-1; i++) {
+            CmbSelectComment.addItem("Comment " + i);
+        }
+        TxtAreaFeedbackComment.setText(FeedbackReport.get(1).toString());
+        String rating = FeedbackReport.get(FeedbackReport.size()-1).toString();
+        if (!rating.equals("-1")) {
+            LblFeedbackRating.setText(rating);
+        }
+        else{
+            LblFeedbackRating.setText("Doctor Not Yet Rated");
+        }               
+    }//GEN-LAST:event_BtnGenerateFeedbackPageActionPerformed
+
+    private void BtnAdmBack4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdmBack4ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlAdminMainPage");
+    }//GEN-LAST:event_BtnAdmBack4ActionPerformed
+
+    private void CmbSelectCommentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbSelectCommentActionPerformed
+        Admin admin = new Admin();
+        ArrayList<Object> FeedbackReport = admin.GenerateFeedbackReport(CmbChooseDoctorForFeedback.getSelectedItem().toString());
+        int Comment = CmbSelectComment.getSelectedIndex();
+        TxtAreaFeedbackComment.setText(FeedbackReport.get(Comment + 1).toString());
+    }//GEN-LAST:event_CmbSelectCommentActionPerformed
+
+    private void CmbChooseDoctorForRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbChooseDoctorForRatingActionPerformed
+       Admin admin = new Admin();
+       ArrayList<Object> Ratings  = admin.GetDoctorRatings();
+       int Doctor = CmbChooseDoctorForRating.getSelectedIndex() * 3;
+       LblRatedDoctorName.setText(Ratings.get(Doctor).toString());
+       LblRatedDoctorID.setText(Ratings.get(Doctor+1).toString());
+        if (!Ratings.get(Doctor+2).toString().equals("-1")) {
+            LblRatedDoctorRating.setText(Ratings.get(Doctor+2).toString());
+        }
+        else{
+            LblRatedDoctorRating.setText("Doctor Not Yet Rated");
+        }       
+    }//GEN-LAST:event_CmbChooseDoctorForRatingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -559,21 +1104,49 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAdmBack1;
+    private javax.swing.JButton BtnAdmBack2;
+    private javax.swing.JButton BtnAdmBack3;
+    private javax.swing.JButton BtnAdmBack4;
+    private javax.swing.JButton BtnAdmCreateAccount;
+    private javax.swing.JButton BtnAdmCreateAccountPage;
     private javax.swing.JButton BtnBackToLogin;
+    private javax.swing.JButton BtnGenerateFeedbackPage;
     private javax.swing.JButton BtnLoginRequest;
     private javax.swing.JButton BtnPatientAccount;
     private javax.swing.JButton BtnPatientAccountRequest;
+    private javax.swing.JButton BtnRemoveAccount;
+    private javax.swing.JButton BtnRemoveAccountPage;
+    private javax.swing.JComboBox<String> CmbAdmCreateAccountType;
+    private javax.swing.JComboBox<String> CmbChooseDoctorForFeedback;
+    private javax.swing.JComboBox<String> CmbChooseDoctorForRating;
     private javax.swing.JComboBox<String> CmbLoginAccountType;
-    private javax.swing.JComboBox<String> CmbPoentialGender;
-    private javax.swing.JFormattedTextField FmtTxtPotentialDoB;
+    private javax.swing.JComboBox<String> CmbPotentialGender;
+    private javax.swing.JComboBox<String> CmbSelectComment;
+    private javax.swing.JComboBox<String> CmbToBeRemovedAccountType;
+    private javax.swing.JLabel LblAdmCreateAccountAddress;
+    private javax.swing.JLabel LblAdmCreateAccountName;
+    private javax.swing.JLabel LblAdmCreateAccountPassword;
+    private javax.swing.JLabel LblAdmCreateAccountType;
+    private javax.swing.JLabel LblAdminMainPage;
+    private javax.swing.JLabel LblDoctorMainPage;
+    private javax.swing.JLabel LblFeedbackDoctorName;
+    private javax.swing.JLabel LblFeedbackRating;
     private javax.swing.JLabel LblLoginAccountTYpe;
     private javax.swing.JLabel LblLoginPassword;
     private javax.swing.JLabel LblLoginUsername;
+    private javax.swing.JLabel LblPatientMainPage;
     private javax.swing.JLabel LblPotentialAddress;
     private javax.swing.JLabel LblPotentialDoB;
     private javax.swing.JLabel LblPotentialGender;
     private javax.swing.JLabel LblPotentialName;
     private javax.swing.JLabel LblPotentialPassword;
+    private javax.swing.JLabel LblRatedDoctorID;
+    private javax.swing.JLabel LblRatedDoctorName;
+    private javax.swing.JLabel LblRatedDoctorRating;
+    private javax.swing.JLabel LblSecretaryMainPage;
+    private javax.swing.JLabel LblToBeRemovedAccountType;
+    private javax.swing.JLabel LblToBeRemovedID;
     private javax.swing.JPanel PnlAdminMainPage;
     private javax.swing.JPanel PnlApproveRemovalRequest;
     private javax.swing.JPanel PnlCreateAccount;
@@ -598,11 +1171,23 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel PnlViewOwnHistory;
     private javax.swing.JPanel PnlViewPrescription;
     private javax.swing.JPanel PnlWritePrescription;
-    private javax.swing.JPasswordField PwdPotentialPassword;
+    private javax.swing.JTextField TxtAccountToBeRemoved;
+    private javax.swing.JTextField TxtAdmCreateAccountAddress;
+    private javax.swing.JTextField TxtAdmCreateAccountName;
+    private javax.swing.JTextField TxtAdmCreateAccountPassword;
+    private javax.swing.JTextArea TxtAreaFeedbackComment;
     private javax.swing.JTextField TxtPassword;
     private javax.swing.JTextField TxtPotentialAddress;
+    private javax.swing.JTextField TxtPotentialDoB;
     private javax.swing.JTextField TxtPotentialName;
+    private javax.swing.JTextField TxtPotentialPassword;
     private javax.swing.JTextField TxtUsername;
+    private javax.swing.JButton btnViewRatingsPage;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

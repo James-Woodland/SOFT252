@@ -28,10 +28,10 @@ import java.util.ArrayList;
 public class Soft252Coursework {   
     public static void main(String[] args) {
         // TODO code application logic here             
-//        Serialiser serialiser = new Serialiser("AllAccounts");
-////        AllAccounts allaccounts = new AllAccounts();
+        Serialiser serialiser = new Serialiser("AllAccounts");
+//        AllAccounts allaccounts = new AllAccounts();
 ////        serialiser.writeObject(allaccounts);
-//        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
+        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
 //        Admin admin = (Admin) allAccounts.getAllAdmins().get(0);        
 ////        admin.RemoveAccount("Admin", "A0002", "Password");
 ////        Admin admin = new Admin();
@@ -53,7 +53,13 @@ public class Soft252Coursework {
 ////        serialiser.writeObject(allAccounts);
 ////        AllAccounts ReadAccounts = (AllAccounts) serialiser.readObject();  
 //        ArrayList<Object> DoctorFeedback = admin.GenerateFeedbackReport("D0001");
-        LocalDate localDate;        
+//        LocalDate localDate;    
+          ArrayList<Doctor> doctors = allAccounts.getAllDoctors();
+          ArrayList<DoctorFeedback> feedbackReport = doctors.get(0).getDoctorFeedback();
+          feedbackReport.get(0).setFeedbackNotes("This is the First Comment");
+          feedbackReport.get(1).setFeedbackNotes("This is the Second Comment");
+          serialiser.writeObject(allAccounts);
+          allAccounts = (AllAccounts) serialiser.readObject();
     }    
 }
 

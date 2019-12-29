@@ -28,6 +28,7 @@ public class ViewDoctorRatings {
         ArrayList<Object> DoctorRatings = new ArrayList();
         for (int i = 0; i < AllDoctors.size(); i++) {
             int count = 0;
+            DoctorRatings.add(Doctors.getAllDoctors().get(i).getName());
             DoctorRatings.add(Doctors.getAllDoctors().get(i).getUserID());
             float average = 0;
             //gets all the doctor feedbacks for 1 particular doctor

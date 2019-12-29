@@ -23,9 +23,9 @@ public class Admin extends User implements java.io.Serializable{
         CreateAccount createAccount = new CreateAccount(AccountType);        
         createAccount.executeStrategy(Password, Name, Address);   
     }
-    public void RemoveAccount(String AccountType, String Username, String Password){
+    public void RemoveAccount(String AccountType, String Username){
         Delete delete = new Delete();
-        delete.DeleteAccount(AccountType, Username, Password);
+        delete.DeleteAccount(AccountType, Username);
     }
     public ArrayList<Object> GetDoctorRatings(){
         ViewDoctorRatings viewDoctorRatings = new ViewDoctorRatings();

@@ -70,7 +70,7 @@ public class Secretary extends User implements java.io.Serializable{
     
     public void RemovePatientAccount(RemoveAccountRequest removeAccountRequest){
         Delete DeletePatientAccount = new Delete();
-        DeletePatientAccount.DeleteAccount("Patient", removeAccountRequest.getAccountToBeRemoved().getUserID(), removeAccountRequest.getAccountToBeRemoved().getPassword());
+        DeletePatientAccount.DeleteAccount("Patient", removeAccountRequest.getAccountToBeRemoved().getUserID());
     }
     
     public void RestockMedicine(Medicine medicine, int Amount){

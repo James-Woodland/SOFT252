@@ -10,6 +10,7 @@ import PatientManagementSystem.Accounts.Secretary;
 import PatientManagementSystem.Serialiser.Serialiser;
 import PatientManagementSystem.System.AccountRequest;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -26,11 +27,11 @@ public class CreateAccountRequest {
      * @param PotentialPassword
      * @param PotentialGender
      * @param DoB
-     * @param AccountRequestType
      */
     public void CreateNewAccountRequest(String PotentialPatientName, String PotentialPatientAddress, String PotentialPassword, int PotentialGender, String DoB){
-        AccountRequest accountRequest = new AccountRequest();       
-        accountRequest.setDoB(LocalDate.parse(DoB));
+        AccountRequest accountRequest = new AccountRequest();  
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        accountRequest.setDoB(LocalDate.parse(DoB, formatter));
         accountRequest.setPotentialPassword(PotentialPassword);
         accountRequest.setPotentialPatientName(PotentialPatientName);
         accountRequest.setPotentialPatientAddress(PotentialPatientAddress);
