@@ -84,7 +84,7 @@ public class Doctor extends User implements java.io.Serializable, Observer{
     //move to own class
     public boolean ProposeorCreateAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID, boolean appointmentConfirmed){
         ProposeAppointments proposeAppointment = new ProposeAppointments();
-        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, PatientID, this, appointmentConfirmed);
+        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, PatientID, this.getUserID(), appointmentConfirmed);
     }
     //observer
     @Override

@@ -97,6 +97,6 @@ public class Secretary extends User implements java.io.Serializable{
     //move to own class
     public boolean RequestAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, Patient patient,Doctor doctor){
         ProposeAppointments proposeAppointment = new ProposeAppointments();
-        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, patient.getUserID(), doctor, true);
+        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, patient.getUserID(), doctor.getUserID(), true);
     }
 }

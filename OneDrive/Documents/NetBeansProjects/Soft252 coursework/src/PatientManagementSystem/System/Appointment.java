@@ -20,6 +20,24 @@ public class Appointment implements java.io.Serializable, Observable{
     private LocalDate ConfirmedDate;   
     private boolean AppointmentConfirmed;   
     private ArrayList<Observer> observers = new ArrayList();
+    private String DoctorName;
+    private String PatientName;
+
+    public String getDoctorName() {
+        return DoctorName;
+    }
+
+    public void setDoctorName(String DoctorName) {
+        this.DoctorName = DoctorName;
+    }
+
+    public String getPatientName() {
+        return PatientName;
+    }
+
+    public void setPatientName(String PatientName) {
+        this.PatientName = PatientName;
+    }
     private static final long serialVersionUID = 7L;
     
     public LocalDate getConfirmedDate() {

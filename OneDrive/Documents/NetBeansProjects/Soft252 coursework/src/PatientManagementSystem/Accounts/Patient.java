@@ -7,6 +7,7 @@ package PatientManagementSystem.Accounts;
 import PatientManagementSystem.AdminFunctionality.ViewDoctorRatings;
 import PatientManagementSystem.DoctorFuntionality.ProposeAppointments;
 import PatientManagementSystem.PatientFunctionality.CreateAccountRequest;
+import PatientManagementSystem.PatientFunctionality.RateDoctor;
 import PatientManagementSystem.Serialiser.Serialiser;
 import PatientManagementSystem.System.Appointment;
 import PatientManagementSystem.System.Observable;
@@ -89,38 +90,50 @@ public class Patient extends User implements java.io.Serializable, Observer{
     //assuming this is waht's emant when the spec says view Presciptionsingular
     //and doesn;t mean view a particular prescription
     public Prescription ViewPrescription(){
-        return this.Prescriptions.get(Prescriptions.size()-1);
+        if (Prescriptions.size()-1 >= 0) {
+            return this.Prescriptions.get(Prescriptions.size()-1);
+        }
+        return null;
     }
     //not tested
     //gets the most recently added Appointment for the patient
     //assuming this is waht's emant when the spec says view Presciptionsingular
     //and doesn;t mean view a particular prescription
     public Appointment ViewAppointment(){
-        return this.Appointments.get(Prescriptions.size()-1);
+        if (Appointments.size()-1 >= 0) {
+            return this.Appointments.get(Prescriptions.size()-1);
+        }
+        return null;
     }
     //not tested
     //move to own class
-    public void RemoveAccount(){
-        RemoveAccountRequest removeAccountRequest = new RemoveAccountRequest();
-        removeAccountRequest.setAccountToBeRemoved(this);
-        Serialiser accountSerialiser = new Serialiser("AllAccounts");
-        AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
-        ArrayList<Secretary> Secretarys = allAccounts.getAllSecretarys();
-        for (int i = 0; i < Secretarys.size(); i++) {
-            Secretarys.get(i).addRemoveAccountRequest(removeAccountRequest);
-        }
-        accountSerialiser.writeObject(allAccounts);
+    public void RemoveAccount(String AccountPassword){
+        if (AccountPassword.equals(this.getPassword())) {
+            RemoveAccountRequest removeAccountRequest = new RemoveAccountRequest();
+            removeAccountRequest.setAccountToBeRemoved(this);
+            Serialiser accountSerialiser = new Serialiser("AllAccounts");
+            AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
+            ArrayList<Secretary> Secretarys = allAccounts.getAllSecretarys();
+            for (int i = 0; i < Secretarys.size(); i++) {
+                Secretarys.get(i).addRemoveAccountRequest(removeAccountRequest);
+            }
+            accountSerialiser.writeObject(allAccounts);
+        }        
     }
     //move to own class 
-    public ArrayList<Object> CheckHistory(){
-        ArrayList<Object> PatientHistory = new ArrayList();
-        PatientHistory.addAll(this.getPrescriptions());
-        PatientHistory.addAll(this.getPatientNotes());
+    public ArrayList<Appointment> CheckHistory(){
+        ArrayList<Appointment> PatientHistory = new ArrayList();
+        PatientHistory.addAll(this.getAppointments());       
         return PatientHistory;
     }
     
-    public boolean RequestAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, Doctor doctor){
+    public boolean RequestAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String DoctorID){
         ProposeAppointments proposeAppointment = new ProposeAppointments();
-        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, this.getUserID(), doctor, false);
+        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, this.getUserID(), DoctorID, false);
+    }
+    
+    public void RateDoctor(String Comment, int rating, String DoctorID){
+        RateDoctor rateDoctor = new RateDoctor();
+        rateDoctor.CreateDoctorRating(rating, Comment, DoctorID);
     }
 }
