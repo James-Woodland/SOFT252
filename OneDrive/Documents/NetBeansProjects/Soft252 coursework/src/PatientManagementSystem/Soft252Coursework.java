@@ -14,6 +14,8 @@ import PatientManagementSystem.Login.Login;
 import PatientManagementSystem.AdminFunctionality.Delete;
 import PatientManagementSystem.Serialiser.Serialiser;
 import PatientManagementSystem.System.DoctorFeedback;
+import PatientManagementSystem.System.Medicine.AllMedicines;
+import PatientManagementSystem.System.Medicine.Medicine;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -54,12 +56,13 @@ public class Soft252Coursework {
 ////        AllAccounts ReadAccounts = (AllAccounts) serialiser.readObject();  
 //        ArrayList<Object> DoctorFeedback = admin.GenerateFeedbackReport("D0001");
 //        LocalDate localDate;    
-          ArrayList<Doctor> doctors = allAccounts.getAllDoctors();
-          ArrayList<DoctorFeedback> feedbackReport = doctors.get(0).getDoctorFeedback();
-          feedbackReport.get(0).setFeedbackNotes("This is the First Comment");
-          feedbackReport.get(1).setFeedbackNotes("This is the Second Comment");
-          serialiser.writeObject(allAccounts);
-          allAccounts = (AllAccounts) serialiser.readObject();
+          Serialiser medicineSerialiser = new Serialiser("AllMedicines");
+//          AllMedicines allMedicines = new AllMedicines();
+//          medicineSerialiser.writeObject(allMedicines);
+          AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject(); 
+          Doctor doctors = new Doctor();
+          doctors.CreateMedicineAndOrder("Test", 2);         
+          allMedicines = (AllMedicines) medicineSerialiser.readObject(); 
     }    
 }
 

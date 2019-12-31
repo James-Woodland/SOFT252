@@ -8,7 +8,7 @@ package PatientManagementSystem.System.Medicine;
  *
  * @author james
  */
-public class InStock implements iMedicineState{  
+public class InStock implements java.io.Serializable, iMedicineState{  
     
     @Override
     public Boolean GiveMedicine(Medicine medicine, int Quantity){

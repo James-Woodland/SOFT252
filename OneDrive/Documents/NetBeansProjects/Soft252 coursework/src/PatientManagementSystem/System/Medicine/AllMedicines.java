@@ -12,16 +12,12 @@ import java.util.ArrayList;
  * @author james
  */
 public class AllMedicines implements java.io.Serializable{
-    private ArrayList<Medicine> AllMedicines;
+    private ArrayList<Medicine> AllMedicines = new ArrayList();
     private static final long serialVersionUID = 10L; 
 
     public ArrayList<Medicine> getAllMedicines() {
         return AllMedicines;
-    }
-       
-    private AllMedicines(){
-        AllMedicines = new ArrayList();       
-    }
+    }         
     
     public void addMedcine(Medicine medicine){
         this.AllMedicines.add(medicine);

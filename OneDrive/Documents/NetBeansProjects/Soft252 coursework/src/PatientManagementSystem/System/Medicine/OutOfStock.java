@@ -9,7 +9,7 @@ package PatientManagementSystem.System.Medicine;
  *
  * @author james
  */
-public class OutOfStock implements iMedicineState{    
+public class OutOfStock implements java.io.Serializable, iMedicineState{    
     
     @Override
     public Boolean GiveMedicine(Medicine medicine, int Quantity){

@@ -29,20 +29,18 @@ public class CreateMedicineAndRequestRestock {
         OutOfStock outOfStock = new OutOfStock();
         Medicine medicine = new Medicine(outOfStock);
         medicine.setMedicineName(MedicineName);       
-        Serialiser medicineSerialiser = new Serialiser("AllMedicine");
+        Serialiser medicineSerialiser = new Serialiser("AllMedicines");
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
         allMedicines.addMedcine(medicine);
         medicineSerialiser.writeObject(allMedicines);       
     }   
     /**
-     * creates a medicine stock request for a given medicine for a for a given amount with a given secretary.  
-     * updates the AllAccounts file with the new additions;
+     * creates a medicine stock request for a given medicine for a for a all secretarys. updates the AllAccounts file with the new additions;
      * @param MedicineName
      * @param RestockRequestAmount
-     * @param SecretaryID
      */
-    public void createMedicineRestockRequest(String MedicineName, int RestockRequestAmount, String SecretaryID){
-        Serialiser medicineSerialiser = new Serialiser("AllMedicine");
+    public void createMedicineRestockRequest(String MedicineName, int RestockRequestAmount){
+        Serialiser medicineSerialiser = new Serialiser("AllMedicines");
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
         MedicineRequest medicineRequest = new MedicineRequest(); 
         medicineRequest.setStockRequestAmmount(RestockRequestAmount);
@@ -55,11 +53,9 @@ public class CreateMedicineAndRequestRestock {
         Serialiser accountSerialiser = new Serialiser("AllAccounts");
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Secretary> AllSecretarys = allAccounts.getAllSecretarys();
-        for (int i = 0; i < AllSecretarys.size(); i++) {
-            if (AllSecretarys.get(i).getUserID().equals(SecretaryID)) {
-                AllSecretarys.get(i).getMedicineRequests().add(medicineRequest);
-                break;
-            }
+        for (int i = 0; i < AllSecretarys.size(); i++) {  
+            Secretary secretary = AllSecretarys.get(i);
+            secretary.addMecineRequest(medicineRequest);                          
         }
         accountSerialiser.writeObject(allAccounts);
     }

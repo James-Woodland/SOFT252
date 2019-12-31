@@ -9,7 +9,7 @@ package PatientManagementSystem.System.Medicine;
  *
  * @author james
  */
-interface iMedicineState {   
+interface iMedicineState extends java.io.Serializable{   
     public Boolean GiveMedicine(Medicine medicine, int Quantity);
     public void ReStock(Medicine medicine, int newStock);
 }

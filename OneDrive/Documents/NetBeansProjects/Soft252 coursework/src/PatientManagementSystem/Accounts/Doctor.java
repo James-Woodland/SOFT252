@@ -60,7 +60,7 @@ public class Doctor extends User implements java.io.Serializable, Observer{
         return this.getPossibleAppointments();
     }
     //not tested  
-    public ArrayList<Object> InspectPatientHistory(String PatientID){
+    public ArrayList<Appointment> InspectPatientHistory(String PatientID){
         ViewPatientHistory viewPatientHistory = new ViewPatientHistory();
         return viewPatientHistory.InspectPatientHistory(PatientID);       
     }
@@ -71,10 +71,10 @@ public class Doctor extends User implements java.io.Serializable, Observer{
         return createPresciption.CreatePrescription(PatientID, DoctorNote, MedicineName, Quantity, Dosage, this);   
     }
     //not tested   
-    public void CreateMedicineAndOrder(String MedicineName, int RestockAmount, String SecretaryID){
+    public void CreateMedicineAndOrder(String MedicineName, int RestockAmount){
         CreateMedicineAndRequestRestock CreateMedicineAndRequestRestock = new CreateMedicineAndRequestRestock();
         CreateMedicineAndRequestRestock.createNewMedicine(MedicineName);
-        CreateMedicineAndRequestRestock.createMedicineRestockRequest(MedicineName, RestockAmount,SecretaryID);
+        CreateMedicineAndRequestRestock.createMedicineRestockRequest(MedicineName, RestockAmount);
     }   
     public boolean CreatePatientNote(String PatientID, String Note){
         CreatePatientNotes createPatientNotes = new CreatePatientNotes();

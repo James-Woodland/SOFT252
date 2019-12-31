@@ -25,23 +25,20 @@ public class ViewPatientHistory {
      * @return returns the full patient history as an array of appointments, notes and prescriptions 
      * or returns a list containing the string Patient Not Found if a a patient with a corresponding patient ID isn't found, 
      */
-    public ArrayList<Object> InspectPatientHistory(String PatientID){
+    public ArrayList<Appointment> InspectPatientHistory(String PatientID){
         Serialiser serialiser = new Serialiser("AllAccounts");
         AllAccounts Patients = (AllAccounts) serialiser.readObject();
         ArrayList<Patient> AllPatients = Patients.getAllPatients();
         Patient CurrentPatient;
-        ArrayList<Object> PatientHistory = new ArrayList();
+        ArrayList<Appointment> PatientHistory = new ArrayList();
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
-                CurrentPatient = AllPatients.get(i);               
-                ArrayList<Prescription> PatientPrescriptions = CurrentPatient.getPrescriptions();  
-                ArrayList<PatientNote> PatientNotes = CurrentPatient.getPatientNotes();                
-                PatientHistory.addAll(PatientPrescriptions);
-                PatientHistory.addAll(PatientNotes);               
+                CurrentPatient = AllPatients.get(i);                              
+                ArrayList<Appointment> AppointmentPrescriptions = CurrentPatient.getAppointments();                                               
+                PatientHistory.addAll(AppointmentPrescriptions);
                 return PatientHistory;
             }
-        }        
-        PatientHistory.add("Patient Not Found");
+        }               
         return PatientHistory;
     }
 }
