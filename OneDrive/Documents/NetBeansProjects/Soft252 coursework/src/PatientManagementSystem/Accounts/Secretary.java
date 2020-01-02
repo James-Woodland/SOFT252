@@ -36,6 +36,10 @@ public class Secretary extends User implements java.io.Serializable{
         return MedicineRequests;
     }
     
+     public ArrayList<RemoveAccountRequest> getRemovalRequests() {
+        return AccountRemovalRequest;
+    }
+    
     public void addMecineRequest(MedicineRequest medicineRequest){
         this.MedicineRequests.add(medicineRequest);
     }
@@ -92,11 +96,12 @@ public class Secretary extends User implements java.io.Serializable{
         CurrentPatient.setDob(accountRequest.getDoB());
         CurrentPatient.setGender(accountRequest.getPotentialGender());
         accountSerialiser.writeObject(allAccounts);
+        this.removeAccountRequest(accountRequest);
     }
     
     //move to own class
-    public boolean RequestAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, Patient patient,Doctor doctor){
+    public boolean RequestAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID,String DoctorID){
         ProposeAppointments proposeAppointment = new ProposeAppointments();
-        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, patient.getUserID(), doctor.getUserID(), true);
+        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, PatientID, DoctorID, true);
     }
 }

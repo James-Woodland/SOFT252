@@ -31,18 +31,18 @@ public class Soft252Coursework {
     public static void main(String[] args) {
         // TODO code application logic here             
         Serialiser serialiser = new Serialiser("AllAccounts");
-//        AllAccounts allaccounts = new AllAccounts();
-////        serialiser.writeObject(allaccounts);
-        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
+        AllAccounts allaccounts = new AllAccounts();
+        serialiser.writeObject(allaccounts);
+//        AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
 //        Admin admin = (Admin) allAccounts.getAllAdmins().get(0);        
 ////        admin.RemoveAccount("Admin", "A0002", "Password");
-////        Admin admin = new Admin();
-////        admin.CreateAccount("Admin", "Password", "Name", "Address");    
+        Admin admin = new Admin();
+        admin.CreateAccount("Admin", "Password", "Name", "Address");    
 ////        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
 ////        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
 ////        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
 ////        admin.CreateAccount("Secretary", "Password", "Name", "Address");         
-////        allAccounts = (AllAccounts) serialiser.readObject();
+        allaccounts = (AllAccounts) serialiser.readObject();
 ////        Doctor doctor = allAccounts.getAllDoctors().get(0);
 ////        DoctorFeedback doctorfeedback1 = new DoctorFeedback();
 ////        doctorfeedback1.setDoctorRating(5);
@@ -57,11 +57,11 @@ public class Soft252Coursework {
 //        ArrayList<Object> DoctorFeedback = admin.GenerateFeedbackReport("D0001");
 //        LocalDate localDate;    
           Serialiser medicineSerialiser = new Serialiser("AllMedicines");
-//          AllMedicines allMedicines = new AllMedicines();
-//          medicineSerialiser.writeObject(allMedicines);
-          AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject(); 
-          Doctor doctors = new Doctor();
-          doctors.CreateMedicineAndOrder("Test", 2);         
+          AllMedicines allMedicines = new AllMedicines();
+          medicineSerialiser.writeObject(allMedicines);
+//          AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject(); 
+//          Doctor doctors = new Doctor();
+//          doctors.CreateMedicineAndOrder("Test", 2);         
           allMedicines = (AllMedicines) medicineSerialiser.readObject(); 
     }    
 }
