@@ -37,12 +37,12 @@ public class Soft252Coursework {
 ////////        allaccounts = (AllAccounts) serialiser.readObject();
 //////////        Admin admin = (Admin) allAccounts.getAllAdmins().get(0);        
 ////////////        admin.RemoveAccount("Admin", "A0002", "Password");
-//        Admin admin = new Admin();
-//        admin.CreateAccount("Admin", "Password", "Name", "Address");    
-//        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
-//        admin.CreateAccount("Doctor", "Password", "Name", "Address"); 
-//        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
-//        admin.CreateAccount("Patient", "Password", "Name", "Address"); 
+        Admin admin = new Admin();
+        admin.CreateAccount("Admin", "Password", "A1", "Address");    
+        admin.CreateAccount("Doctor", "Password", "D1", "Address"); 
+        admin.CreateAccount("Doctor", "Password", "D2", "Address"); 
+        admin.CreateAccount("Secretary", "Password", "S1", "Address"); 
+        admin.CreateAccount("Patient", "Password", "P1", "Address"); 
 ////        admin.CreateAccount("Secretary", "Password", "Name", "Address"); 
 //        serialiser.writeObject(allaccounts);
         AllAccounts allaccounts = (AllAccounts) serialiser.readObject();
@@ -70,9 +70,9 @@ public class Soft252Coursework {
 //          AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject(); 
 //          Doctor doctors = new Doctor();
 //          doctors.CreateMedicineAndOrder("Test", 2);         
-//          AllMedicines allMedicines = new AllMedicines();
-//          medicineSerialiser.writeObject(allMedicines);
-          AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
+          AllMedicines allMedicines = new AllMedicines();
+          medicineSerialiser.writeObject(allMedicines);
+          allMedicines = (AllMedicines) medicineSerialiser.readObject();
     }    
 }
 

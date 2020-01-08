@@ -59,6 +59,22 @@ public class View extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        JDiaAppointmentNotification = new javax.swing.JDialog();
+        jButton14 = new javax.swing.JButton();
+        jLabel41 = new javax.swing.JLabel();
+        JDiaPrescriptionNotification = new javax.swing.JDialog();
+        jButton13 = new javax.swing.JButton();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        JDiaRemovalNotification = new javax.swing.JDialog();
+        jButton12 = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
+        JDiaAccounRequestNotification = new javax.swing.JDialog();
+        jButton11 = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
+        JDiaMedicineRequest = new javax.swing.JDialog();
+        jLabel36 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         PnlLogin = new javax.swing.JPanel();
         BtnPatientAccount = new javax.swing.JButton();
@@ -299,6 +315,186 @@ public class View extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        JDiaAppointmentNotification.setMinimumSize(new java.awt.Dimension(245, 127));
+        JDiaAppointmentNotification.setPreferredSize(new java.awt.Dimension(245, 127));
+
+        jButton14.setText("OK");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jLabel41.setText("You Have A New Appointment");
+
+        javax.swing.GroupLayout JDiaAppointmentNotificationLayout = new javax.swing.GroupLayout(JDiaAppointmentNotification.getContentPane());
+        JDiaAppointmentNotification.getContentPane().setLayout(JDiaAppointmentNotificationLayout);
+        JDiaAppointmentNotificationLayout.setHorizontalGroup(
+            JDiaAppointmentNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JDiaAppointmentNotificationLayout.createSequentialGroup()
+                .addGroup(JDiaAppointmentNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JDiaAppointmentNotificationLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel41))
+                    .addGroup(JDiaAppointmentNotificationLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jButton14)))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+        JDiaAppointmentNotificationLayout.setVerticalGroup(
+            JDiaAppointmentNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDiaAppointmentNotificationLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel41)
+                .addGap(27, 27, 27)
+                .addComponent(jButton14)
+                .addGap(29, 29, 29))
+        );
+
+        JDiaPrescriptionNotification.setMinimumSize(new java.awt.Dimension(245, 127));
+
+        jButton13.setText("OK");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setText("You Have A New Prescription");
+
+        javax.swing.GroupLayout JDiaPrescriptionNotificationLayout = new javax.swing.GroupLayout(JDiaPrescriptionNotification.getContentPane());
+        JDiaPrescriptionNotification.getContentPane().setLayout(JDiaPrescriptionNotificationLayout);
+        JDiaPrescriptionNotificationLayout.setHorizontalGroup(
+            JDiaPrescriptionNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JDiaPrescriptionNotificationLayout.createSequentialGroup()
+                .addGroup(JDiaPrescriptionNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JDiaPrescriptionNotificationLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(JDiaPrescriptionNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel39)
+                            .addComponent(jButton13)))
+                    .addGroup(JDiaPrescriptionNotificationLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel40)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        JDiaPrescriptionNotificationLayout.setVerticalGroup(
+            JDiaPrescriptionNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDiaPrescriptionNotificationLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel40)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel39)
+                .addGap(30, 30, 30)
+                .addComponent(jButton13)
+                .addGap(25, 25, 25))
+        );
+
+        JDiaRemovalNotification.setMinimumSize(new java.awt.Dimension(224, 127));
+
+        jButton12.setText("OK");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jLabel38.setText("You Have New Account Removal Requests");
+
+        javax.swing.GroupLayout JDiaRemovalNotificationLayout = new javax.swing.GroupLayout(JDiaRemovalNotification.getContentPane());
+        JDiaRemovalNotification.getContentPane().setLayout(JDiaRemovalNotificationLayout);
+        JDiaRemovalNotificationLayout.setHorizontalGroup(
+            JDiaRemovalNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JDiaRemovalNotificationLayout.createSequentialGroup()
+                .addGroup(JDiaRemovalNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JDiaRemovalNotificationLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jButton12))
+                    .addGroup(JDiaRemovalNotificationLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel38)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        JDiaRemovalNotificationLayout.setVerticalGroup(
+            JDiaRemovalNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDiaRemovalNotificationLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jLabel38)
+                .addGap(29, 29, 29)
+                .addComponent(jButton12)
+                .addGap(20, 20, 20))
+        );
+
+        JDiaAccounRequestNotification.setMinimumSize(new java.awt.Dimension(261, 127));
+
+        jButton11.setText("OK");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jLabel37.setText("You Have New Account Requests");
+
+        javax.swing.GroupLayout JDiaAccounRequestNotificationLayout = new javax.swing.GroupLayout(JDiaAccounRequestNotification.getContentPane());
+        JDiaAccounRequestNotification.getContentPane().setLayout(JDiaAccounRequestNotificationLayout);
+        JDiaAccounRequestNotificationLayout.setHorizontalGroup(
+            JDiaAccounRequestNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JDiaAccounRequestNotificationLayout.createSequentialGroup()
+                .addGroup(JDiaAccounRequestNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JDiaAccounRequestNotificationLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jButton11))
+                    .addGroup(JDiaAccounRequestNotificationLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel37)))
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        JDiaAccounRequestNotificationLayout.setVerticalGroup(
+            JDiaAccounRequestNotificationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDiaAccounRequestNotificationLayout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(jLabel37)
+                .addGap(27, 27, 27)
+                .addComponent(jButton11)
+                .addGap(24, 24, 24))
+        );
+
+        JDiaMedicineRequest.setMinimumSize(new java.awt.Dimension(343, 127));
+
+        jLabel36.setText("You Have New Medicine Requests Please Consider Restocking");
+
+        jButton9.setText("OK");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JDiaMedicineRequestLayout = new javax.swing.GroupLayout(JDiaMedicineRequest.getContentPane());
+        JDiaMedicineRequest.getContentPane().setLayout(JDiaMedicineRequestLayout);
+        JDiaMedicineRequestLayout.setHorizontalGroup(
+            JDiaMedicineRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JDiaMedicineRequestLayout.createSequentialGroup()
+                .addGroup(JDiaMedicineRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JDiaMedicineRequestLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel36))
+                    .addGroup(JDiaMedicineRequestLayout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jButton9)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        JDiaMedicineRequestLayout.setVerticalGroup(
+            JDiaMedicineRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JDiaMedicineRequestLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2084,7 +2280,17 @@ public class View extends javax.swing.JFrame {
                     ArrayList<Patient> AllPatients = allAccounts.getAllPatients();
                     for (int i = 0; i < AllPatients.size(); i++) {
                         if (AllPatients.get(i).getUserID().equals(TxtUsername.getText())) {
-                            PatientAccount = AllPatients.get(i);                            
+                            PatientAccount = AllPatients.get(i);
+                            if (PatientAccount.getAppointmentNotification() == true) {
+                                JDiaAppointmentNotification.setVisible(true);
+                                PatientAccount.setAppointmentNotification(false);
+                                accountSerialiser.writeObject(allAccounts);
+                            } 
+                            if (PatientAccount.getPrescriptionNotification() == true) {
+                                JDiaPrescriptionNotification.setVisible(true);
+                                PatientAccount.setPrescriptionNotification(false);
+                                accountSerialiser.writeObject(allAccounts);
+                            }
                             break;
                         }
                     }
@@ -2101,6 +2307,11 @@ public class View extends javax.swing.JFrame {
                     for (int i = 0; i < AllDoctors.size(); i++) {
                         if (AllDoctors.get(i).getUserID().equals(TxtUsername.getText())) {
                             DoctorAccount = AllDoctors.get(i);
+                            if (DoctorAccount.getAppointmentNotification() == true) {
+                                JDiaAppointmentNotification.setVisible(true);
+                                DoctorAccount.setAppointmentNotification(false);
+                                accountSerialiser.writeObject(allAccounts);
+                            }     
                             break;
                         }
                     }   
@@ -2127,7 +2338,7 @@ public class View extends javax.swing.JFrame {
                         ArrayList<Admin> AllAdmins = allAccounts.getAllAdmins();
                         for (int i = 0; i < AllAdmins.size(); i++) {
                             if (AllAdmins.get(i).getUserID().equals(TxtUsername.getText())) {
-                                AdminAccount = AllAdmins.get(i);
+                                AdminAccount = AllAdmins.get(i);                             
                                 break;
                             }
                         }      
@@ -2145,6 +2356,21 @@ public class View extends javax.swing.JFrame {
                             if (AllSecretarys.get(i).getUserID().equals(TxtUsername.getText())) {
                                 SecretaryAccount = AllSecretarys.get(i);
                                 SecretaryIndex = i;
+                                if (SecretaryAccount.getAccountRequestNotification() == true) {
+                                    JDiaAccounRequestNotification.setVisible(true);
+                                    SecretaryAccount.setAccountRequestNotification(false);
+                                    accountSerialiser.writeObject(allAccounts);
+                                }
+                                if (SecretaryAccount.getMedicineRequestNotification() == true) {
+                                    JDiaMedicineRequest.setVisible(true);
+                                    SecretaryAccount.setMedicineRequestNotification(false);
+                                    accountSerialiser.writeObject(allAccounts);
+                                }
+                                if (SecretaryAccount.getRemovalRequestNotification() == true) {
+                                    JDiaRemovalNotification.setVisible(true);
+                                    SecretaryAccount.setRemovalRequestNotification(false);
+                                    accountSerialiser.writeObject(allAccounts);
+                                }
                                 break;
                             }
                         }      
@@ -2763,6 +2989,26 @@ public class View extends javax.swing.JFrame {
         CmbSelectAppointment.removeAllItems();
     }//GEN-LAST:event_BackToMainDoctorPageActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        JDiaAppointmentNotification.dispose();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        JDiaPrescriptionNotification.dispose();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        JDiaRemovalNotification.dispose();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        JDiaAccounRequestNotification.dispose();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        JDiaMedicineRequest.dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2865,6 +3111,11 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CmbSelectPatientForHistory;
     private javax.swing.JComboBox<String> CmbSelectPatientForNote;
     private javax.swing.JComboBox<String> CmbToBeRemovedAccountType;
+    private javax.swing.JDialog JDiaAccounRequestNotification;
+    private javax.swing.JDialog JDiaAppointmentNotification;
+    private javax.swing.JDialog JDiaMedicineRequest;
+    private javax.swing.JDialog JDiaPrescriptionNotification;
+    private javax.swing.JDialog JDiaRemovalNotification;
     private javax.swing.JLabel LblAdmCreateAccountAddress;
     private javax.swing.JLabel LblAdmCreateAccountName;
     private javax.swing.JLabel LblAdmCreateAccountPassword;
@@ -2976,6 +3227,10 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton btnbackToMainPatientPage2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2983,6 +3238,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3012,7 +3268,13 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

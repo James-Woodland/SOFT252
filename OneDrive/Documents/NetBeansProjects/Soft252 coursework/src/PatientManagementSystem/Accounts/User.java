@@ -13,7 +13,7 @@ public class User implements java.io.Serializable{
     private String name = "";
     private String Password = "";
     private String UserID = "";
-    private String Address = "";
+    private String Address = "";      
     
 
     public boolean Login(String Input){

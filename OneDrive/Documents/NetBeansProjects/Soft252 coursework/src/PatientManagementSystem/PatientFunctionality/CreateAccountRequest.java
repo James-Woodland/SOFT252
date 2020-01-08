@@ -42,6 +42,7 @@ public class CreateAccountRequest {
         for (int i = 0; i < secretarys.size(); i++) {
             Secretary secretary = secretarys.get(i);
             secretary.addAccountRequest(accountRequest);
+            secretary.setAccountRequestNotification(true);
         }
         accountSerialiser.writeObject(allAccounts);
     }

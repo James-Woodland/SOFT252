@@ -24,10 +24,46 @@ import java.util.List;
  */
 public class Secretary extends User implements java.io.Serializable{
     private ArrayList<AccountRequest> AccountRequests = new ArrayList();
+    private Boolean AccountRequestNotification = false;
     private ArrayList<RemoveAccountRequest> AccountRemovalRequest = new ArrayList();
+    private Boolean RemovalRequestNotification = false;
     private ArrayList<MedicineRequest> MedicineRequests = new ArrayList();
+    private Boolean medicineRequestNotification = false;
     private ArrayList<Appointment> AppointmentProposition = new ArrayList();
+    private Boolean AppointmentNotification = false;    
+
+    public Boolean getAppointmentNotification() {
+        return AppointmentNotification;
+    }
+
+    public void setAppointmentNotification(Boolean AppointmentNotification) {
+        this.AppointmentNotification = AppointmentNotification;
+    }
     private static final long serialVersionUID = 5L;
+
+    public Boolean getAccountRequestNotification() {
+        return AccountRequestNotification;
+    }
+
+    public void setAccountRequestNotification(Boolean AccountRequestNotification) {
+        this.AccountRequestNotification = AccountRequestNotification;
+    }
+
+    public Boolean getRemovalRequestNotification() {
+        return RemovalRequestNotification;
+    }
+
+    public void setRemovalRequestNotification(Boolean RemovalRequestNotification) {
+        this.RemovalRequestNotification = RemovalRequestNotification;
+    }
+
+    public Boolean getMedicineRequestNotification() {
+        return medicineRequestNotification;
+    }
+
+    public void setMedicineRequestNotification(Boolean medicineRequestNotification) {
+        this.medicineRequestNotification = medicineRequestNotification;
+    }
 
     public List<AccountRequest> getAccountRequests() {
         return AccountRequests;

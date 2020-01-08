@@ -75,7 +75,7 @@ public class Appointment implements java.io.Serializable, Observable{
     
     @Override
     public void registerObserver(Observer observer){
-        observers.add(observer);
+        observers.add(observer);       
     }  
     @Override
     public void notifyObserver(){

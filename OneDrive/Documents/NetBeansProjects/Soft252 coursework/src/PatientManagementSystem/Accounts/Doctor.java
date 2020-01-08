@@ -25,12 +25,21 @@ import java.time.LocalDate;
 public class Doctor extends User implements java.io.Serializable, Observer{
 //    private ArrayList<Prescription> WrittenPrescriptions = new ArrayList();
     private ArrayList<Appointment> PossibleAppointments = new ArrayList();
+    private Boolean AppointmentNotification = false;
     private ArrayList<DoctorFeedback> DoctorFeedback = new ArrayList();
     private static final long serialVersionUID = 3L;
     //getters
 //    public ArrayList<Prescription> getWrittenPrescriptions() {
 //        return WrittenPrescriptions;
 //    }
+
+    public Boolean getAppointmentNotification() {
+        return AppointmentNotification;
+    }
+
+    public void setAppointmentNotification(Boolean AppointmentNotification) {
+        this.AppointmentNotification = AppointmentNotification;
+    }
 
     public ArrayList<Appointment> getPossibleAppointments() {
         return PossibleAppointments;

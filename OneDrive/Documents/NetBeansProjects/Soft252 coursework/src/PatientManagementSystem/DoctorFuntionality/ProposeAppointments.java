@@ -37,6 +37,8 @@ public class ProposeAppointments {
         ArrayList<Doctor> AllDoctors = allAccounts.getAllDoctors();
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
+                Patient patient = AllPatients.get(i);
+                patient.setAppointmentNotification(true);
                 appointment.registerObserver(AllPatients.get(i));
                 appointment.setPatientName(AllPatients.get(i).getName());                 
                 Doctor doctor;
@@ -58,6 +60,7 @@ public class ProposeAppointments {
                         appointment.registerObserver(AllDoctors.get(j));
                         AllDoctors.get(j).updateAppointmentDates(PotentialDates, appointment);
                         AllDoctors.get(j).addPossibleAppointment(appointment);
+                        AllDoctors.get(j).setAppointmentNotification(true);
                         appointment.setDoctorName(AllDoctors.get(j).getName());
                         AllPatients.get(i).addAppointment(appointment);
                         break;
@@ -65,7 +68,8 @@ public class ProposeAppointments {
                 }  
                 if (Confirmed == false) {
                     for (int j = 0; j < allAccounts.getAllSecretarys().size(); j++) {
-                    allAccounts.getAllSecretarys().get(i).addAppointmentProposition(appointment);
+                        allAccounts.getAllSecretarys().get(i).addAppointmentProposition(appointment);
+                        allAccounts.getAllSecretarys().get(i).setAppointmentNotification(true);
                     }
                 }               
                 accountSerialiser.writeObject(allAccounts);               

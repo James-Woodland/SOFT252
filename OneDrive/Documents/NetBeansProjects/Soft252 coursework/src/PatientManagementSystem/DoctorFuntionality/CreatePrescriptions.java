@@ -40,7 +40,8 @@ public class CreatePrescriptions {
         Medicine medicine = null;
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
-               patient = AllPatients.get(i);               
+               patient = AllPatients.get(i); 
+               patient.setPrescriptionNotification(true);
 //               prescription.setDoctor(doctor);
 //               prescription.setPatient(patient);
                 prescription.setDoctorNote(DoctorNote);

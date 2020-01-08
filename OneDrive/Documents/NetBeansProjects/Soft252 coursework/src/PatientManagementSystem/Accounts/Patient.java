@@ -26,8 +26,26 @@ public class Patient extends User implements java.io.Serializable, Observer{
     private int Gender = 0;
     private LocalDate Dob;
     private ArrayList<Prescription> Prescriptions = new ArrayList();
+    private Boolean prescriptionNotification = false;
     private ArrayList<Appointment> Appointments = new ArrayList();
-    private ArrayList<PatientNote> PatientNotes = new ArrayList();
+    private Boolean AppointmentNotification = false;
+    private ArrayList<PatientNote> PatientNotes = new ArrayList();   
+
+    public Boolean getPrescriptionNotification() {
+        return prescriptionNotification;
+    }
+
+    public void setPrescriptionNotification(Boolean prescriptionNotification) {
+        this.prescriptionNotification = prescriptionNotification;
+    }
+
+    public Boolean getAppointmentNotification() {
+        return AppointmentNotification;
+    }
+
+    public void setAppointmentNotification(Boolean AppointmentNotification) {
+        this.AppointmentNotification = AppointmentNotification;
+    }
 
     public ArrayList<PatientNote> getPatientNotes() {
         return PatientNotes;
@@ -116,6 +134,7 @@ public class Patient extends User implements java.io.Serializable, Observer{
             ArrayList<Secretary> Secretarys = allAccounts.getAllSecretarys();
             for (int i = 0; i < Secretarys.size(); i++) {
                 Secretarys.get(i).addRemoveAccountRequest(removeAccountRequest);
+                Secretarys.get(i).setRemovalRequestNotification(true);
             }
             accountSerialiser.writeObject(allAccounts);
         }        
