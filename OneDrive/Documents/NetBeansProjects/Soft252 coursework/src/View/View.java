@@ -99,6 +99,7 @@ public class View extends javax.swing.JFrame {
         LblPotentialDoB = new javax.swing.JLabel();
         TxtPotentialPassword = new javax.swing.JTextField();
         TxtPotentialDoB = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
         PnlAdminMainPage = new javax.swing.JPanel();
         LblAdminMainPage = new javax.swing.JLabel();
         BtnAdmCreateAccountPage = new javax.swing.JButton();
@@ -283,6 +284,7 @@ public class View extends javax.swing.JFrame {
         SpnGiveMedicineAmount = new javax.swing.JSpinner();
         BtnGiveMedicine = new javax.swing.JButton();
         LblMedicineStock = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
         PnlPatientAccountRequests = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         LblPotentialPatientName = new javax.swing.JLabel();
@@ -607,6 +609,8 @@ public class View extends javax.swing.JFrame {
 
         LblPotentialDoB.setText("Date Of Birth");
 
+        jLabel43.setText("please Type the date in format dd/mm/yyyy ");
+
         javax.swing.GroupLayout PnlRequestPatientAccountLayout = new javax.swing.GroupLayout(PnlRequestPatientAccount);
         PnlRequestPatientAccount.setLayout(PnlRequestPatientAccountLayout);
         PnlRequestPatientAccountLayout.setHorizontalGroup(
@@ -629,8 +633,10 @@ public class View extends javax.swing.JFrame {
                             .addComponent(CmbPotentialGender, 0, 143, Short.MAX_VALUE)
                             .addComponent(TxtPotentialAddress)
                             .addComponent(TxtPotentialPassword)
-                            .addComponent(TxtPotentialDoB))))
-                .addContainerGap(239, Short.MAX_VALUE))
+                            .addComponent(TxtPotentialDoB))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel43)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         PnlRequestPatientAccountLayout.setVerticalGroup(
             PnlRequestPatientAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,7 +662,9 @@ public class View extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LblPotentialDoB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtPotentialDoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PnlRequestPatientAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtPotentialDoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnPatientAccountRequest)
                 .addContainerGap(36, Short.MAX_VALUE))
@@ -2065,7 +2073,8 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jLabel33)
                     .addComponent(SpnGiveMedicineAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnGiveMedicine)
-                    .addComponent(LblMedicineStock))
+                    .addComponent(LblMedicineStock)
+                    .addComponent(jLabel42))
                 .addContainerGap(344, Short.MAX_VALUE))
         );
         PnlMedicineLayout.setVerticalGroup(
@@ -2091,7 +2100,9 @@ public class View extends javax.swing.JFrame {
                 .addComponent(SpnGiveMedicineAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnGiveMedicine)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel42)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         mainPanel.add(PnlMedicine, "PnlMedicine");
@@ -2510,14 +2521,16 @@ public class View extends javax.swing.JFrame {
        ArrayList<Admin> Admins = allAccounts.getAllAdmins();
        ArrayList<Object> Ratings  = Admins.get(0).GetDoctorRatings();  
        int Doctor = CmbChooseDoctorForRating.getSelectedIndex() * 3;
-       LblRatedDoctorName.setText(Ratings.get(Doctor).toString());
-       LblRatedDoctorID.setText(Ratings.get(Doctor+1).toString());
-        if (!Ratings.get(Doctor+2).toString().equals("-1")) {
-            LblRatedDoctorRating.setText(Ratings.get(Doctor+2).toString());
-        }
-        else{
-            LblRatedDoctorRating.setText("Doctor Not Yet Rated");
-        }       
+        if (CmbChooseDoctorForRating.getSelectedIndex() >= 0) {
+            LblRatedDoctorName.setText(Ratings.get(Doctor).toString());
+            LblRatedDoctorID.setText(Ratings.get(Doctor+1).toString());
+            if (!Ratings.get(Doctor+2).toString().equals("-1")) {
+                LblRatedDoctorRating.setText(Ratings.get(Doctor+2).toString());
+            }
+            else{
+                LblRatedDoctorRating.setText("Doctor Not Yet Rated");
+            }   
+        }         
     }//GEN-LAST:event_CmbChooseDoctorForRatingActionPerformed
 
     private void TxtPotentialDate3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPotentialDate3ActionPerformed
@@ -2542,6 +2555,9 @@ public class View extends javax.swing.JFrame {
 
     private void BtnRequestAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRequestAppointmentActionPerformed
        PatientAccount.RequestAppointment(TxtPotentialDate1.getText(), TxtPotentialDate2.getText(), TxtPotentialDate3.getText(), CmbPotentialDoctor.getSelectedItem().toString());
+       TxtPotentialDate1.setText("");
+       TxtPotentialDate2.setText("");
+       TxtPotentialDate3.setText("");
     }//GEN-LAST:event_BtnRequestAppointmentActionPerformed
 
     private void BtnRequestAccountTerminationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRequestAccountTerminationActionPerformed
@@ -2663,8 +2679,10 @@ public class View extends javax.swing.JFrame {
     private void CmbChooseAppointmentHistoryItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbChooseAppointmentHistoryItemActionPerformed
         int Index = CmbChooseAppointmentHistoryItem.getSelectedIndex();
         ArrayList<Appointment> appointments = PatientAccount.getAppointments();
-        LblHistoryDoctorName.setText("Doctor: "+appointments.get(Index).getDoctorName());
-        LblAppointmentDate.setText("Date: "+appointments.get(Index).getConfirmedDate().toString());
+        if (CmbChooseAppointmentHistoryItem.getSelectedIndex() >= 0) {
+            LblHistoryDoctorName.setText("Doctor: "+appointments.get(Index).getDoctorName());
+            LblAppointmentDate.setText("Date: "+appointments.get(Index).getConfirmedDate().toString());
+        }       
     }//GEN-LAST:event_CmbChooseAppointmentHistoryItemActionPerformed
 
     private void BtnWritePrescriptionPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnWritePrescriptionPageActionPerformed
@@ -2701,6 +2719,7 @@ public class View extends javax.swing.JFrame {
 
     private void btnCreateMedicineOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateMedicineOrderActionPerformed
         DoctorAccount.CreateMedicineAndOrder(TxtNewMedicineName.getText(), (int)SpnNewMedicineRestockAmount.getValue());
+        TxtNewMedicineName.setText("");
     }//GEN-LAST:event_btnCreateMedicineOrderActionPerformed
 
     private void BtnAddPatientNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddPatientNoteActionPerformed
@@ -2732,6 +2751,9 @@ public class View extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
                DoctorAccount.ProposeorCreateAppointment(TxtPotentialDate4.getText(), TxtPotentialDate5.getText(), TxtPotentialDate6.getText(), CmbSelectPatientForAppointment.getSelectedItem().toString(), ChkAppointmentConfirmed.isSelected());
+               TxtPotentialDate4.setText("");
+               TxtPotentialDate5.setText("");
+               TxtPotentialDate6.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnDocViewAppointmentPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocViewAppointmentPageActionPerformed
@@ -2743,16 +2765,19 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDocViewAppointmentPageActionPerformed
 
     private void CmbSelectAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbSelectAppointmentActionPerformed
-        LblAppointmentPatientID.setText("Patient Name: "+DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPatientName());
-        LblPotentialDate4.setText("Potential Date 1: " +DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(0).toString());
-        LblPotentialDate5.setText("Potential Date 2: " +DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(1).toString());
-        LblPotentialDate6.setText("Potential Date 3: " + DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(2).toString());
-        if (DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).isAppointmentConfirmed() == true) {
-            LblConfirmedDate1.setText("Confirmed Date: " + DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(0).toString());
+        if (CmbSelectAppointment.getSelectedIndex() >= 0) {
+            LblAppointmentPatientID.setText("Patient Name: "+DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPatientName());
+            LblPotentialDate4.setText("Potential Date 1: " +DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(0).toString());
+            LblPotentialDate5.setText("Potential Date 2: " +DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(1).toString());
+            LblPotentialDate6.setText("Potential Date 3: " + DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(2).toString());
+            if (DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).isAppointmentConfirmed() == true) {
+                LblConfirmedDate1.setText("Confirmed Date: " + DoctorAccount.getPossibleAppointments().get(CmbSelectAppointment.getSelectedIndex()).getPotentialDates().get(0).toString());
+            }
+            else{
+                LblConfirmedDate1.setText("Confirmed Date: Date Not yet Confirmed");
+            }
         }
-        else{
-            LblConfirmedDate1.setText("Confirmed Date: Date Not yet Confirmed");
-        }
+        
     }//GEN-LAST:event_CmbSelectAppointmentActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -2795,6 +2820,9 @@ public class View extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         SecretaryAccount.RequestAppointment(TxtPotentialDate7.getText(), TxtPotentialDate8.getText(), TxtPotentialDate9.getText(), CmbSelectPatientForAppointment1.getSelectedItem().toString(), CmbSelectDoctorForAppointment.getSelectedItem().toString());
+        TxtPotentialDate7.setText("");
+        TxtPotentialDate8.setText("");
+        TxtPotentialDate9.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -2808,6 +2836,8 @@ public class View extends javax.swing.JFrame {
         String restockAmount = SpnRestockAmountSec.getValue().toString();
         int restockValue = Integer.parseInt(restockAmount);
         SecretaryAccount.RestockMedicine(medicine, restockValue);
+        AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
+        LblMedicineStock.setText("Stock: " + allMedicines.getAllMedicines().get(medicine).getStock());
     }//GEN-LAST:event_btnRestockMedcineActionPerformed
 
     private void BtnApproveAccountRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnApproveAccountRequestActionPerformed
@@ -2856,9 +2886,10 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnApproveRemovalRequestActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        CardLayout card = (CardLayout)mainPanel.getLayout();
-        card.show(mainPanel, "PnlSecretaryMainPage");
         CmbSelectMedicine.removeAllItems();
+        jLabel42.setText("");
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "PnlSecretaryMainPage");       
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void BtnCreateAppointmentPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCreateAppointmentPageActionPerformed
@@ -2891,14 +2922,24 @@ public class View extends javax.swing.JFrame {
     private void CmbSelectMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbSelectMedicineActionPerformed
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
         ArrayList<Medicine> medicines = allMedicines.getAllMedicines();
-        LblMedicineStock.setText("Stock: " + medicines.get(CmbSelectMedicine.getSelectedIndex()).getStock());
+        if (CmbSelectMedicine.getSelectedIndex() >= 0) {
+            LblMedicineStock.setText("Stock: " + medicines.get(CmbSelectMedicine.getSelectedIndex()).getStock());
+        }       
     }//GEN-LAST:event_CmbSelectMedicineActionPerformed
 
     private void BtnGiveMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGiveMedicineActionPerformed
         String givenAmount = SpnGiveMedicineAmount.getValue().toString();
         int givenValue = Integer.parseInt(givenAmount);
         int medicineIndex = CmbSelectMedicine.getSelectedIndex();
-        SecretaryAccount.GiveMedicine(medicineIndex, givenValue);
+        boolean MedicineGiven = SecretaryAccount.GiveMedicine(medicineIndex, givenValue);
+        if (MedicineGiven == true) {
+            jLabel42.setText("Medicine Given");
+        }
+        else{
+            jLabel42.setText("Medicine Not Given");
+        }
+        AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
+        LblMedicineStock.setText("Stock: " + allMedicines.getAllMedicines().get(medicineIndex).getStock());
     }//GEN-LAST:event_BtnGiveMedicineActionPerformed
 
     private void BtnApproveRemovalRequestPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnApproveRemovalRequestPageActionPerformed
@@ -2925,11 +2966,13 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnApproveRemovalRequestPageActionPerformed
 
     private void CmbSelectAccountRemovalRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbSelectAccountRemovalRequestActionPerformed
-        LblPotentialPatientName1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getName());
-        LblPotentialPatientAddress1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getAddress());
-        LblPotentialPatientPassword1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getPassword());
-        LblPotentialPatientGender1.setText(""+SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getGender());
-        lblPotentialPatientDoB1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getDob().toString());
+        if (CmbSelectAccountRemovalRequest.getSelectedIndex() >= 0) {
+            LblPotentialPatientName1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getName());
+            LblPotentialPatientAddress1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getAddress());
+            LblPotentialPatientPassword1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getPassword());
+            LblPotentialPatientGender1.setText(""+SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getGender());
+            lblPotentialPatientDoB1.setText(SecretaryAccount.getRemovalRequests().get(CmbSelectAccountRemovalRequest.getSelectedIndex()).getAccountToBeRemoved().getDob().toString());
+        }       
     }//GEN-LAST:event_CmbSelectAccountRemovalRequestActionPerformed
 
     private void BtnApporvePatientAccountsPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnApporvePatientAccountsPageActionPerformed
@@ -2946,11 +2989,13 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnApporvePatientAccountsPageActionPerformed
 
     private void CmbSelectAccountRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbSelectAccountRequestActionPerformed
-        LblPotentialPatientName.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPatientName());
-        LblPotentialPatientAddress.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPatientAddress());
-        LblPotentialPatientPassword.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPassword());
-        LblPotentialPatientGender.setText(""+SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialGender());
-        lblPotentialPatientDoB.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getDoB().toString());
+        if (CmbSelectAccountRequest.getSelectedIndex() >= 0) {
+            LblPotentialPatientName.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPatientName());
+            LblPotentialPatientAddress.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPatientAddress());
+            LblPotentialPatientPassword.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPassword());
+            LblPotentialPatientGender.setText(""+SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialGender());
+            lblPotentialPatientDoB.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getDoB().toString());
+        }      
     }//GEN-LAST:event_CmbSelectAccountRequestActionPerformed
 
     private void BtnLogOutAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutAdminActionPerformed
@@ -3276,6 +3321,8 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

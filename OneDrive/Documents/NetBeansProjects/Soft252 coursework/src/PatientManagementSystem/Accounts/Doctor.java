@@ -51,6 +51,7 @@ public class Doctor extends User implements java.io.Serializable, Observer{
     
     public void DoctorObserver(Observable observable){
         observable.registerObserver(this);
+        this.setAppointmentNotification(true);
     }
     //Adders
 //    public void addPrescription(Prescription presciption){

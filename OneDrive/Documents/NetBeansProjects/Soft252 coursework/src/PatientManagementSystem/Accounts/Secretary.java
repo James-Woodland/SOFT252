@@ -129,12 +129,13 @@ public class Secretary extends User implements java.io.Serializable{
         medicineSerialiser.writeObject(allMedicines);
     }
     
-    public void GiveMedicine(int medicineIndex, int Amount){
+    public boolean  GiveMedicine(int medicineIndex, int Amount){
         Serialiser medicineSerialiser = new Serialiser("AllMedicines");
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();  
         Medicine medicine = allMedicines.getAllMedicines().get(medicineIndex);
-        medicine.GiveMedicine(Amount);
+        boolean MedicineGiven = medicine.GiveMedicine(Amount);
         medicineSerialiser.writeObject(allMedicines);
+        return MedicineGiven;
     }
     //not tested
     //move into own class
