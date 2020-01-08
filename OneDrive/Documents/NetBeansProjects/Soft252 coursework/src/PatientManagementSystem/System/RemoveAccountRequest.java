@@ -11,7 +11,7 @@ import PatientManagementSystem.Accounts.Patient;
  *
  * @author james
  */
-public class RemoveAccountRequest {
+public class RemoveAccountRequest implements java.io.Serializable{
     Patient AccountToBeRemoved;
 
     public Patient getAccountToBeRemoved() {

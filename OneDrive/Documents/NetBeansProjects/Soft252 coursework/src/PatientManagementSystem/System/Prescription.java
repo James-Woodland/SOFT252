@@ -16,8 +16,8 @@ import PatientManagementSystem.System.Medicine.Medicine;
 public class Prescription implements java.io.Serializable{
     private Medicine medicine;
     private int Dosage;
-    private Patient patient;
-    private Doctor doctor;
+//    private Patient patient;
+//    private Doctor doctor;
     private String DoctorNote;
     private int Quantity;
     private static final long serialVersionUID = 9L;
@@ -37,21 +37,21 @@ public class Prescription implements java.io.Serializable{
         this.Dosage = Dosage;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
+//    public Patient getPatient() {
+//        return patient;
+//    }
+//
+//    public void setPatient(Patient patient) {
+//        this.patient = patient;
+//    }
+//
+//    public Doctor getDoctor() {
+//        return doctor;
+//    }
+//
+//    public void setDoctor(Doctor doctor) {
+//        this.doctor = doctor;
+//    }
 
     public String getDoctorNote() {
         return DoctorNote;

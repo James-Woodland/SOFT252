@@ -38,7 +38,7 @@ public class ProposeAppointments {
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
                 appointment.registerObserver(AllPatients.get(i));
-                appointment.setPatientName(AllPatients.get(i).getName());                
+                appointment.setPatientName(AllPatients.get(i).getName());                 
                 Doctor doctor;
                 appointment.setAppointmentConfirmed(Confirmed);                
                 ArrayList<LocalDate> PotentialDates = new ArrayList();
@@ -47,7 +47,7 @@ public class ProposeAppointments {
                 localDate = LocalDate.parse(PotentialDate1, formatter);
                 PotentialDates.add(localDate);
                 if (Confirmed == true) {
-                    appointment.setConfirmedDate(localDate);
+                    appointment.setConfirmedDate(localDate);                   
                 }
                 localDate = LocalDate.parse(PotentialDate2, formatter);
                 PotentialDates.add(localDate);
@@ -57,13 +57,17 @@ public class ProposeAppointments {
                     if (AllDoctors.get(j).getUserID().equals(DoctorID)) {
                         appointment.registerObserver(AllDoctors.get(j));
                         AllDoctors.get(j).updateAppointmentDates(PotentialDates, appointment);
+                        AllDoctors.get(j).addPossibleAppointment(appointment);
                         appointment.setDoctorName(AllDoctors.get(j).getName());
+                        AllPatients.get(i).addAppointment(appointment);
                         break;
                     }
-                }                             
-                for (int j = 0; j < allAccounts.getAllSecretarys().size(); j++) {
+                }  
+                if (Confirmed == false) {
+                    for (int j = 0; j < allAccounts.getAllSecretarys().size(); j++) {
                     allAccounts.getAllSecretarys().get(i).addAppointmentProposition(appointment);
-                }
+                    }
+                }               
                 accountSerialiser.writeObject(allAccounts);               
                 return true;
             }

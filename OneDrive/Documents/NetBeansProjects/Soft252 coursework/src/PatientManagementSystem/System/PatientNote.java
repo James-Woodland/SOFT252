@@ -11,15 +11,15 @@ import PatientManagementSystem.Accounts.Doctor;
  *
  * @author james
  */
-public class PatientNote {
-    private Doctor NoteCreator;
+public class PatientNote implements java.io.Serializable{
+    private String NoteCreator;
     private String Note;
 
-    public Doctor getNoteCreator() {
+    public String getNoteCreator() {
         return NoteCreator;
     }
 
-    public void setNoteCreator(Doctor NoteCreator) {
+    public void setNoteCreator(String NoteCreator) {
         this.NoteCreator = NoteCreator;
     }
 

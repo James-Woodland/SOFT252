@@ -23,9 +23,7 @@ public class InStock implements java.io.Serializable, iMedicineState{
         return true;
     }
     @Override
-    public void ReStock(Medicine medicine, int newStock){
-        System.out.println("Stock:" + medicine.getStock());
-        medicine.setStock(medicine.getStock()+newStock);       
-        System.out.println("Stock:" + medicine.getStock());
+    public void ReStock(Medicine medicine, int newStock){       
+        medicine.setStock(medicine.getStock()+newStock);               
     }
 }

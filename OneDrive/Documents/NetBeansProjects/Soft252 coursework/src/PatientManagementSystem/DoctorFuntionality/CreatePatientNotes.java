@@ -26,17 +26,19 @@ public class CreatePatientNotes {
      * @param doctor
      * @return returns false if the patient can;t be found, returns true if the patient can be.
      */ 
-    public boolean CreatePatientNote(String PatientID, String Note, Doctor doctor){
-        PatientNote patientNote = new PatientNote();
-        patientNote.setNote(Note);
-        patientNote.setNoteCreator(doctor);
+    public boolean CreatePatientNote(String PatientID, String Note, String doctor){
         Serialiser accountSerialiser = new Serialiser("AllAccounts");
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Patient> AllPatients = allAccounts.getAllPatients();
+        PatientNote patientNote = new PatientNote();
+        patientNote.setNote(Note);
+        patientNote.setNoteCreator(doctor);      
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
                 AllPatients.get(i).addNote(patientNote);
                 accountSerialiser.writeObject(allAccounts);
+                allAccounts = (AllAccounts) accountSerialiser.readObject();
+                allAccounts = (AllAccounts) accountSerialiser.readObject();              
                 return true;
             }
         }

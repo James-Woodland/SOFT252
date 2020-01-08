@@ -76,9 +76,9 @@ public class Doctor extends User implements java.io.Serializable, Observer{
         CreateMedicineAndRequestRestock.createNewMedicine(MedicineName);
         CreateMedicineAndRequestRestock.createMedicineRestockRequest(MedicineName, RestockAmount);
     }   
-    public boolean CreatePatientNote(String PatientID, String Note){
+    public boolean CreatePatientNote(String PatientID, String Note, String DoctorID){
         CreatePatientNotes createPatientNotes = new CreatePatientNotes();
-        return createPatientNotes.CreatePatientNote(PatientID, Note, this);
+        return createPatientNotes.CreatePatientNote(PatientID, Note, DoctorID);
     } 
     //not tested
     //move to own class

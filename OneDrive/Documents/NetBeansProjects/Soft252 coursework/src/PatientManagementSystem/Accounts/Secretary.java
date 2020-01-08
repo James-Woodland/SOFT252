@@ -11,6 +11,7 @@ import PatientManagementSystem.DoctorFuntionality.ProposeAppointments;
 import PatientManagementSystem.Serialiser.Serialiser;
 import PatientManagementSystem.System.AccountRequest;
 import PatientManagementSystem.System.Appointment;
+import PatientManagementSystem.System.Medicine.AllMedicines;
 import PatientManagementSystem.System.Medicine.Medicine;
 import PatientManagementSystem.System.MedicineRequest;
 import PatientManagementSystem.System.RemoveAccountRequest;
@@ -60,33 +61,48 @@ public class Secretary extends User implements java.io.Serializable{
         this.MedicineRequests.remove(medicineRequest);
     }
     
-    public void removeAccountRequest(AccountRequest accountRequest){
-        this.AccountRequests.remove(accountRequest);
+    public void removeAccountRequest(int index){
+        this.AccountRequests.remove(index);       
     }
     
-    public void removeRemoveAccountRequest(RemoveAccountRequest removeAccountRequest){
-        this.AccountRemovalRequest.remove(removeAccountRequest);
+    public void removeRemoveAccountRequest(int index){
+        this.AccountRemovalRequest.remove(index);
     }
     
     public void removeAppointmentProposition(Appointment appointment){
         this.AppointmentProposition.remove(appointment);
     }
     
-    public void RemovePatientAccount(RemoveAccountRequest removeAccountRequest){
+    public void RemovePatientAccount(RemoveAccountRequest removeAccountRequest, int index){
         Delete DeletePatientAccount = new Delete();
         DeletePatientAccount.DeleteAccount("Patient", removeAccountRequest.getAccountToBeRemoved().getUserID());
+        Serialiser accountSerialiser = new Serialiser("AllAccounts");
+        AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
+        ArrayList<Secretary> Secretarys = allAccounts.getAllSecretarys(); 
+        for (int i = 0; i < Secretarys.size(); i++) {
+            Secretarys.get(i).removeRemoveAccountRequest(index);
+        }
+        accountSerialiser.writeObject(allAccounts);
     }
     
-    public void RestockMedicine(Medicine medicine, int Amount){
+    public void RestockMedicine(int medicineIndex, int Amount){
+        Serialiser medicineSerialiser = new Serialiser("AllMedicines");
+        AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();  
+        Medicine medicine = allMedicines.getAllMedicines().get(medicineIndex);
         medicine.Restock(Amount);
+        medicineSerialiser.writeObject(allMedicines);
     }
     
-    public boolean GiveMedicine(Medicine medicine, int Amount){
-        return medicine.GiveMedicine(Amount);
+    public void GiveMedicine(int medicineIndex, int Amount){
+        Serialiser medicineSerialiser = new Serialiser("AllMedicines");
+        AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();  
+        Medicine medicine = allMedicines.getAllMedicines().get(medicineIndex);
+        medicine.GiveMedicine(Amount);
+        medicineSerialiser.writeObject(allMedicines);
     }
     //not tested
     //move into own class
-    public void CreatePatientAccount(AccountRequest accountRequest){
+    public void CreatePatientAccount(AccountRequest accountRequest, int index){
         CreateAccount createAccount = new CreateAccount("Patient");
         createAccount.executeStrategy(accountRequest.getPotentialPassword(), accountRequest.getPotentialPatientName(), accountRequest.getPotentialPatientAddress());
         Serialiser accountSerialiser = new Serialiser("AllAccounts");
@@ -95,8 +111,11 @@ public class Secretary extends User implements java.io.Serializable{
         Patient CurrentPatient = Patients.get(Patients.size()-1);
         CurrentPatient.setDob(accountRequest.getDoB());
         CurrentPatient.setGender(accountRequest.getPotentialGender());
+        ArrayList<Secretary> Secretarys = allAccounts.getAllSecretarys();        
+        for (int i = 0; i < Secretarys.size(); i++) {
+            Secretarys.get(i).removeAccountRequest(index);
+        }
         accountSerialiser.writeObject(allAccounts);
-        this.removeAccountRequest(accountRequest);
     }
     
     //move to own class

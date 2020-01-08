@@ -40,13 +40,13 @@ public class CreatePrescriptions {
         Medicine medicine = null;
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
-               patient = AllPatients.get(i);
-               prescription.setDoctor(doctor);
-                prescription.setPatient(patient);
+               patient = AllPatients.get(i);               
+//               prescription.setDoctor(doctor);
+//               prescription.setPatient(patient);
                 prescription.setDoctorNote(DoctorNote);
                 prescription.setDosage(Dosage);
                 prescription.setQuantity(Quantity);
-                Serialiser medicineSerialiser = new Serialiser("AllMedicine");
+                Serialiser medicineSerialiser = new Serialiser("AllMedicines");
                 AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
                 for (int j = 0; j < allMedicines.getAllMedicines().size(); j++) {
                     if (allMedicines.getAllMedicines().get(j).getMedicineName().equals(MedicineName)) {

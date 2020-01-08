@@ -6,12 +6,11 @@
 package PatientManagementSystem.System;
 
 import PatientManagementSystem.System.Medicine.Medicine;
-
 /**
  *
  * @author james
  */
-public class MedicineRequest {
+public class MedicineRequest implements java.io.Serializable{
     private Medicine medicine;
     private int StockRequestAmmount;
 

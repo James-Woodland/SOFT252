@@ -101,7 +101,7 @@ public class Patient extends User implements java.io.Serializable, Observer{
     //and doesn;t mean view a particular prescription
     public Appointment ViewAppointment(){
         if (Appointments.size()-1 >= 0) {
-            return this.Appointments.get(Prescriptions.size()-1);
+            return this.Appointments.get(Appointments.size()-1);
         }
         return null;
     }
@@ -132,8 +132,8 @@ public class Patient extends User implements java.io.Serializable, Observer{
         return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, this.getUserID(), DoctorID, false);
     }
     
-    public void RateDoctor(String Comment, int rating, String DoctorID){
+    public void RateDoctor(String Comment, int rating, int DoctorIndex){
         RateDoctor rateDoctor = new RateDoctor();
-        rateDoctor.CreateDoctorRating(rating, Comment, DoctorID);
+        rateDoctor.CreateDoctorRating(rating, Comment, DoctorIndex);
     }
 }
