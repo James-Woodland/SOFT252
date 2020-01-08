@@ -41,6 +41,7 @@ public class View extends javax.swing.JFrame {
     public String PreviousPage;
     Serialiser accountSerialiser = new Serialiser("AllAccounts");
     Serialiser medicineSerialiser = new Serialiser("AllMedicines");
+    
     /**
      * Creates new form View
      */
