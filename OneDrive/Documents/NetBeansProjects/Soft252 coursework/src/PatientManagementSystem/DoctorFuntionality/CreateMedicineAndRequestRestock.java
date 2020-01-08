@@ -25,9 +25,8 @@ public class CreateMedicineAndRequestRestock {
      * Updates the AllMedicines file with the new medicine; 
      * @param MedicineName
      */
-    public void createNewMedicine(String MedicineName){
-        OutOfStock outOfStock = new OutOfStock();
-        Medicine medicine = new Medicine(outOfStock);
+    public void createNewMedicine(String MedicineName){        
+        Medicine medicine = new Medicine();
         medicine.setMedicineName(MedicineName);       
         Serialiser medicineSerialiser = new Serialiser("AllMedicines");
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();

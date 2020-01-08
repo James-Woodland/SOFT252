@@ -11,11 +11,8 @@ package PatientManagementSystem.System.Medicine;
 public class Medicine implements java.io.Serializable{
     private String MedicineName = "";
     private int Stock = 0;
-    private iMedicineState State;
-    
-    public Medicine(iMedicineState State){
-        this.State = State;
-    }
+    private iMedicineState State = new OutOfStock();
+       
 
     public String getMedicineName() {
         return MedicineName;
@@ -30,11 +27,17 @@ public class Medicine implements java.io.Serializable{
     }
 
     public void setStock(int Stock) {
-        this.Stock = Stock;       
-        if (Stock > 0) {
-            InStock inStock = new InStock();
-            this.setState(inStock);
-        }            
+        if (Stock >= 0) {
+            this.Stock = Stock;       
+            if (Stock > 0) {
+                InStock inStock = new InStock();
+                this.setState(inStock);
+            }  
+            else{
+                OutOfStock outOfStock = new OutOfStock();
+                this.setState(outOfStock);
+            }
+        }      
     }
 
     public iMedicineState getState() {

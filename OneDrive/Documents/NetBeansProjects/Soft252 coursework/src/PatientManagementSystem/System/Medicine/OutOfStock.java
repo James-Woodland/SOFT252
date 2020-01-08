@@ -12,15 +12,12 @@ package PatientManagementSystem.System.Medicine;
 public class OutOfStock implements java.io.Serializable, iMedicineState{    
     
     @Override
-    public Boolean GiveMedicine(Medicine medicine, int Quantity){
-        System.out.println("Medicine is out of stock");        
+    public Boolean GiveMedicine(Medicine medicine, int Quantity){                
         return false;
     }
     @Override
-    public void ReStock(Medicine medicine, int newStock){       
-        System.out.println("Stock:" + medicine.getStock());
-        medicine.setStock(medicine.getStock()+ newStock);       
-        System.out.println("Stock:" + medicine.getStock());        
+    public void ReStock(Medicine medicine, int newStock){               
+        medicine.setStock(medicine.getStock()+ newStock);                    
         medicine.setState(new InStock());              
     };
 }

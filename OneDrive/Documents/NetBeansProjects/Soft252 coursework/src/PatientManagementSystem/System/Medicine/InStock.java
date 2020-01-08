@@ -11,15 +11,12 @@ package PatientManagementSystem.System.Medicine;
 public class InStock implements java.io.Serializable, iMedicineState{  
     
     @Override
-    public Boolean GiveMedicine(Medicine medicine, int Quantity){
-        System.out.println("Medicine is given");
-        System.out.println("Stock:" + medicine.getStock());
+    public Boolean GiveMedicine(Medicine medicine, int Quantity){        
         medicine.setStock(medicine.getStock()-Quantity);
         if (medicine.getStock() == 0) {              
             medicine.setState(new OutOfStock());
             return false;
-        }
-        System.out.println("Stock:" + medicine.getStock());
+        }        
         return true;
     }
     @Override
