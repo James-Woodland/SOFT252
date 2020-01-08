@@ -42,7 +42,7 @@ public class SerialiserTest {
         serialiser.writeObject(allAccounts);
         AllAccounts ReadAccounts = (AllAccounts) serialiser.readObject();
         if (allAccounts.getAllAdmins().get(0).getPassword().equals(ReadAccounts.getAllAdmins().get(0).getPassword())) {
-            System.out.println("The 2 objects contain the same data");
+            System.out.println("The 2 objects likely contain the same data");
         }
     }
          
