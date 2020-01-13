@@ -2870,18 +2870,29 @@ public class View extends javax.swing.JFrame {
 
     private void BtnApproveAccountRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnApproveAccountRequestActionPerformed
         SecretaryAccount.CreatePatientAccount(SecretaryAccount.getAccountRequests().get(CmbSelectAccountRequest.getSelectedIndex()), CmbSelectAccountRequest.getSelectedIndex());               
-        CmbSelectAccountRequest.removeItem(CmbSelectAccountRequest.getSelectedIndex());
+//        CmbSelectAccountRequest.removeItem(CmbSelectAccountRequest.getSelectedIndex());
+        CmbSelectAccountRequest.removeAllItems();
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Secretary> AllSecretarys = allAccounts.getAllSecretarys();
-        SecretaryAccount = AllSecretarys.get(SecretaryIndex);
+        SecretaryAccount = AllSecretarys.get(SecretaryIndex);        
         for (int i = 0; i < SecretaryAccount.getAccountRequests().size(); i++) {
-            CmbSelectAccountRequest.addItem("Account Request "+ i+1);
+            CmbSelectAccountRequest.addItem("Account Request "+ (i+1));
         }        
-        if (SecretaryAccount.getAccountRequests().size() > 0) {
+        if (SecretaryAccount.getAccountRequests().size() > 0) {            
             LblPotentialPatientName.setText(SecretaryAccount.getAccountRequests().get(0).getPotentialPatientName());
         LblPotentialPatientAddress.setText(SecretaryAccount.getAccountRequests().get(0).getPotentialPatientAddress());
         LblPotentialPatientPassword.setText(SecretaryAccount.getAccountRequests().get(0).getPotentialPassword());
-        LblPotentialPatientGender.setText(""+SecretaryAccount.getAccountRequests().get(0).getPotentialGender());
+            switch(SecretaryAccount.getAccountRequests().get(0).getPotentialGender()){
+                case 1:
+                    LblPotentialPatientGender.setText("male");
+                    break;
+                case 2:
+                    LblPotentialPatientGender.setText("female");
+                    break;
+                case 3:
+                    LblPotentialPatientGender.setText("other");
+                    break;
+            }                                            
         lblPotentialPatientDoB.setText(SecretaryAccount.getAccountRequests().get(0).getDoB().toString());
         }
         else{
@@ -3012,7 +3023,17 @@ public class View extends javax.swing.JFrame {
         LblPotentialPatientName.setText(SecretaryAccount.getAccountRequests().get(0).getPotentialPatientName());
         LblPotentialPatientAddress.setText(SecretaryAccount.getAccountRequests().get(0).getPotentialPatientAddress());
         LblPotentialPatientPassword.setText(SecretaryAccount.getAccountRequests().get(0).getPotentialPassword());
-        LblPotentialPatientGender.setText(""+SecretaryAccount.getAccountRequests().get(0).getPotentialGender());
+        switch(SecretaryAccount.getAccountRequests().get(0).getPotentialGender()){
+                case 1:
+                    LblPotentialPatientGender.setText("male");
+                    break;
+                case 2:
+                    LblPotentialPatientGender.setText("female");
+                    break;
+                case 3:
+                    LblPotentialPatientGender.setText("other");
+                    break;
+            }     
         lblPotentialPatientDoB.setText(SecretaryAccount.getAccountRequests().get(0).getDoB().toString());
     }//GEN-LAST:event_BtnApporvePatientAccountsPageActionPerformed
 
@@ -3021,7 +3042,17 @@ public class View extends javax.swing.JFrame {
             LblPotentialPatientName.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPatientName());
             LblPotentialPatientAddress.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPatientAddress());
             LblPotentialPatientPassword.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialPassword());
-            LblPotentialPatientGender.setText(""+SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getPotentialGender());
+            switch(SecretaryAccount.getAccountRequests().get(0).getPotentialGender()){
+                case 1:
+                    LblPotentialPatientGender.setText("male");
+                    break;
+                case 2:
+                    LblPotentialPatientGender.setText("female");
+                    break;
+                case 3:
+                    LblPotentialPatientGender.setText("other");
+                    break;
+            }     
             lblPotentialPatientDoB.setText(SecretaryAccount.getAccountRequests().get( CmbSelectAccountRequest.getSelectedIndex()).getDoB().toString());
         }      
     }//GEN-LAST:event_CmbSelectAccountRequestActionPerformed
