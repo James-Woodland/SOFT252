@@ -15,14 +15,26 @@ public class AllMedicines implements java.io.Serializable{
     private ArrayList<Medicine> AllMedicines = new ArrayList();
     private static final long serialVersionUID = 10L; 
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Medicine> getAllMedicines() {
         return AllMedicines;
     }         
     
+    /**
+     *
+     * @param medicine
+     */
     public void addMedcine(Medicine medicine){
         this.AllMedicines.add(medicine);
     }
     
+    /**
+     *
+     * @param medicine
+     */
     public void removeMedicine(Medicine medicine){
         this.AllMedicines.remove(medicine);
     }

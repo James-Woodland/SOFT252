@@ -10,6 +10,13 @@ package PatientManagementSystem.System.Medicine;
  */
 public class InStock implements java.io.Serializable, iMedicineState{  
     
+    /**
+     * gives medicine to a patient and decreases the stock by the given amount
+     * changes the state to out of stock if the medicine stick drops to 0
+     * @param medicine
+     * @param Quantity
+     * @return
+     */
     @Override
     public Boolean GiveMedicine(Medicine medicine, int Quantity){        
         medicine.setStock(medicine.getStock()-Quantity);
@@ -19,6 +26,12 @@ public class InStock implements java.io.Serializable, iMedicineState{
         }        
         return true;
     }
+
+    /**
+     * Increases the stock by of the given medicine by the given amount
+     * @param medicine
+     * @param newStock
+     */
     @Override
     public void ReStock(Medicine medicine, int newStock){       
         medicine.setStock(medicine.getStock()+newStock);               

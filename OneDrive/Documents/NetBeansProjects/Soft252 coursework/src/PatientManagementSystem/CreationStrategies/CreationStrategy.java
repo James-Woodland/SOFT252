@@ -10,5 +10,13 @@ package PatientManagementSystem.CreationStrategies;
  * @author james
  */
 public interface CreationStrategy {
-    public abstract void CreateWorkerAccount(String Password, String Name, String Address);
+
+    /**
+     *
+     * @param Password
+     * @param Name
+     * @param Address
+     * @param FileName
+     */
+    public abstract void CreateWorkerAccount(String Password, String Name, String Address, String FileName);
 }

@@ -22,11 +22,12 @@ public class ViewPatientHistory {
     /**
      * returns the full patient history for the patient with the corresponding patient ID
      * @param PatientID
+     * @param FileName
      * @return returns the full patient history as an array of appointments, notes and prescriptions 
      * or returns a list containing the string Patient Not Found if a a patient with a corresponding patient ID isn't found, 
      */
-    public ArrayList<Appointment> InspectPatientHistory(String PatientID){
-        Serialiser serialiser = new Serialiser("AllAccounts");
+    public static ArrayList<Appointment> InspectPatientHistory(String PatientID, String FileName){
+        Serialiser serialiser = new Serialiser(FileName);
         AllAccounts Patients = (AllAccounts) serialiser.readObject();
         ArrayList<Patient> AllPatients = Patients.getAllPatients();
         Patient CurrentPatient;

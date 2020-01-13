@@ -33,22 +33,42 @@ public class Doctor extends User implements java.io.Serializable, Observer{
 //        return WrittenPrescriptions;
 //    }
 
+    /**
+     *
+     * @return
+     */
     public Boolean getAppointmentNotification() {
         return AppointmentNotification;
     }
 
+    /**
+     *
+     * @param AppointmentNotification
+     */
     public void setAppointmentNotification(Boolean AppointmentNotification) {
         this.AppointmentNotification = AppointmentNotification;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Appointment> getPossibleAppointments() {
         return PossibleAppointments;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<DoctorFeedback> getDoctorFeedback() {
         return DoctorFeedback;
     }
     
+    /**
+     *
+     * @param observable
+     */
     public void DoctorObserver(Observable observable){
         observable.registerObserver(this);
         this.setAppointmentNotification(true);
@@ -58,45 +78,92 @@ public class Doctor extends User implements java.io.Serializable, Observer{
 //        this.WrittenPrescriptions.add(presciption);
 //    }
     
+    /**
+     *
+     * @param appointment
+     */
     public void addPossibleAppointment(Appointment appointment){
         this.PossibleAppointments.add(appointment);
     }
     
+    /**
+     *
+     * @param doctorFeedback
+     */
     public void addDoctorFeedback(DoctorFeedback doctorFeedback){
         this.DoctorFeedback.add(doctorFeedback);
-    }
-    //not tested    
+    }      
+
+    /**
+     *
+     * @return
+     */
     public ArrayList<Appointment> ViewAppointments(){
         return this.getPossibleAppointments();
-    }
-    //not tested  
-    public ArrayList<Appointment> InspectPatientHistory(String PatientID){
-        ViewPatientHistory viewPatientHistory = new ViewPatientHistory();
-        return viewPatientHistory.InspectPatientHistory(PatientID);       
-    }
-    //not tested    
-    public boolean CreatePrescription(String PatientID, String DoctorNote, String MedicineName, int Quantity, int Dosage){
-        CreatePrescriptions createPresciption = new CreatePrescriptions();  
-        
-        return createPresciption.CreatePrescription(PatientID, DoctorNote, MedicineName, Quantity, Dosage, this);   
-    }
-    //not tested   
-    public void CreateMedicineAndOrder(String MedicineName, int RestockAmount){
-        CreateMedicineAndRequestRestock CreateMedicineAndRequestRestock = new CreateMedicineAndRequestRestock();
-        CreateMedicineAndRequestRestock.createNewMedicine(MedicineName);
-        CreateMedicineAndRequestRestock.createMedicineRestockRequest(MedicineName, RestockAmount);
+    }  
+
+    /**
+     * used to get all the past appointments that a particular patient has had
+     * @param PatientID
+     * @return
+     */
+    public ArrayList<Appointment> InspectPatientHistory(String PatientID){       
+        return ViewPatientHistory.InspectPatientHistory(PatientID, "AllAccounts");       
+    }      
+
+    /**
+     * Used to generate a prescription through the CreatePrescriptions class
+     * @param PatientID
+     * @param DoctorNote
+     * @param MedicineName
+     * @param Quantity
+     * @param Dosage
+     * @return
+     */
+    public boolean CreatePrescription(String PatientID, String DoctorNote, String MedicineName, int Quantity, int Dosage){                
+        return CreatePrescriptions.CreatePrescription(PatientID, DoctorNote, MedicineName, Quantity, Dosage,"AllAccounts", "AllMedicines");   
+    }    
+
+    /**
+     * Used to create a new medicine entry and then generate a medicine request for
+     * a certain amount of that medicine
+     * @param MedicineName
+     * @param RestockAmount
+     */
+    public void CreateMedicineAndOrder(String MedicineName, int RestockAmount){        
+        CreateMedicineAndRequestRestock.createNewMedicine(MedicineName, "AllMedicines");
+        CreateMedicineAndRequestRestock.createMedicineRestockRequest(MedicineName, RestockAmount, "AllAccounts", "AllMedicines");
     }   
-    public boolean CreatePatientNote(String PatientID, String Note, String DoctorID){
-        CreatePatientNotes createPatientNotes = new CreatePatientNotes();
-        return createPatientNotes.CreatePatientNote(PatientID, Note, DoctorID);
-    } 
-    //not tested
-    //move to own class
-    public boolean ProposeorCreateAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID, boolean appointmentConfirmed){
-        ProposeAppointments proposeAppointment = new ProposeAppointments();
-        return proposeAppointment.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, PatientID, this.getUserID(), appointmentConfirmed);
+
+    /**
+     * Creates a patient note for a given patient.
+     * @param PatientID
+     * @param Note
+     * @param DoctorID
+     * @return
+     */
+    public boolean CreatePatientNote(String PatientID, String Note, String DoctorID){       
+        return CreatePatientNotes.CreatePatientNote(PatientID, Note, DoctorID, "AllAccounts");
+    }    
+    /**
+     * proposes an appointment for a patient for this doctor. this appointment could be either confirmed
+     * @param PotentialDate1
+     * @param PotentialDate2
+     * @param PotentialDate3
+     * @param PatientID
+     * @param appointmentConfirmed
+     * @return
+     */
+    public boolean ProposeorCreateAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID, boolean appointmentConfirmed){       
+        return ProposeAppointments.ProposeAppointment(PotentialDate1, PotentialDate2, PotentialDate3, PatientID, this.getUserID(), appointmentConfirmed, "AllAccounts");
     }
     //observer
+
+    /**
+     *
+     * @param PotentialDates
+     * @param appointment
+     */
     @Override
     public void updateAppointmentDates(ArrayList<LocalDate> PotentialDates, Appointment appointment){
         appointment.setPotentialDates(PotentialDates);

@@ -14,9 +14,18 @@ import java.util.ArrayList;
  * @author james
  */
 public class CreateAdmin implements CreationStrategy{
+
+    /**
+     * Creates an admin account with a given, name, address and password.
+     * Auto generates the lowest available admin ID.
+     * @param Password
+     * @param Name
+     * @param Address
+     * @param FileName
+     */
     @Override
-    public void CreateWorkerAccount(String Password, String Name, String Address){   
-        Serialiser serialiser = new Serialiser("AllAccounts");
+    public void CreateWorkerAccount(String Password, String Name, String Address, String FileName){   
+        Serialiser serialiser = new Serialiser(FileName);
         AllAccounts Admins = (AllAccounts) serialiser.readObject();
         ArrayList<Admin> AllAdmins = Admins.getAllAdmins();
         Admin admin = new Admin();

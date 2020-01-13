@@ -10,14 +10,42 @@ package PatientManagementSystem.Login;
  * @author james
  */
 public abstract class Login { 
-    public final boolean AttemptLogin(String Password, String Username){
-        boolean password = CheckPassword(Password);
-        boolean username = CheckUsername(Username);
+
+    /**
+     *
+     * @param Password
+     * @param Username
+     * @param FileName
+     * @return
+     */
+    public final boolean AttemptLogin(String Password, String Username, String FileName){
+        boolean password = CheckPassword(Password, FileName);
+        boolean username = CheckUsername(Username, FileName);
         return CheckResults(password, username);
     }
     
-    protected abstract boolean CheckPassword(String Password);
-    protected abstract boolean CheckUsername(String Username);   
+    /**
+     *
+     * @param Password
+     * @param FileName
+     * @return
+     */
+    protected abstract boolean CheckPassword(String Password, String FileName);
+
+    /**
+     *
+     * @param Username
+     * @param FileName
+     * @return
+     */
+    protected abstract boolean CheckUsername(String Username, String FileName);   
+
+    /**
+     *
+     * @param password
+     * @param username
+     * @return
+     */
     protected boolean CheckResults(boolean password, boolean username){
         if (username == true && password == true) {            
             return true;

@@ -21,11 +21,13 @@ public class Delete {
     /**
      * This function will delete an account given the correct userID for that account is given(All UserIDs are unique) 
      * @param AccountType The type of account that is going to be deleted 
-     * @param Username The Username of that account
-     * @param Password  The Password of that account
+     * @param UserID 
+     * @param FileName 
+     * @UserID the ID of the user to be deleted 
+     * @FileName the name of the file to be edited
      */
-    public void DeleteAccount(String AccountType, String UserID){
-        Serialiser serialiser = new Serialiser("AllAccounts");
+    public static void DeleteAccount(String AccountType, String UserID, String FileName){
+        Serialiser serialiser = new Serialiser(FileName);
         AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
         switch(AccountType){           
             case "Doctor":                

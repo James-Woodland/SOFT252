@@ -28,11 +28,12 @@ public class CreatePrescriptions {
      * @param MedicineName
      * @param Quantity
      * @param Dosage
-     * @param doctor
+     * @param AccountFile
+     * @param MedicineFile
      * @return returns false if the patient or medicine aren't found to be in the system, returns true if they are.
      */
-    public boolean CreatePrescription(String PatientID, String DoctorNote, String MedicineName, int Quantity, int Dosage, Doctor doctor){
-        Serialiser accountSerialiser = new Serialiser("AllAccounts");
+    public static boolean CreatePrescription(String PatientID, String DoctorNote, String MedicineName, int Quantity, int Dosage/*, Doctor doctor*/, String AccountFile, String MedicineFile){
+        Serialiser accountSerialiser = new Serialiser(AccountFile);
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Patient> AllPatients = allAccounts.getAllPatients();
         Prescription prescription = new Prescription();
@@ -41,13 +42,11 @@ public class CreatePrescriptions {
         for (int i = 0; i < AllPatients.size(); i++) {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
                patient = AllPatients.get(i); 
-               patient.setPrescriptionNotification(true);
-//               prescription.setDoctor(doctor);
-//               prescription.setPatient(patient);
+               patient.setPrescriptionNotification(true);               
                 prescription.setDoctorNote(DoctorNote);
                 prescription.setDosage(Dosage);
                 prescription.setQuantity(Quantity);
-                Serialiser medicineSerialiser = new Serialiser("AllMedicines");
+                Serialiser medicineSerialiser = new Serialiser(MedicineFile);
                 AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
                 for (int j = 0; j < allMedicines.getAllMedicines().size(); j++) {
                     if (allMedicines.getAllMedicines().get(j).getMedicineName().equals(MedicineName)) {

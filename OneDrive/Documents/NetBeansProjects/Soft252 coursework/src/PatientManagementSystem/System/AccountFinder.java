@@ -18,6 +18,13 @@ import java.util.ArrayList;
  * @author james
  */
 public class AccountFinder {
+
+    /**
+     * used to find a specific patient account from a given UserID and AccountType
+     * @param UserID
+     * @param AccountType
+     * @return
+     */
     public String FindAccount(String UserID, String AccountType){
         Serialiser accountSerialiser = new Serialiser("AllAccounts");
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();        

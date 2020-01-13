@@ -16,11 +16,21 @@ import java.util.ArrayList;
  * @author james
  */
 public class DoctorLogin extends Login{
-    Serialiser serialiser = new Serialiser("AllAccounts");
-    AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
-    ArrayList<Doctor> doctors = allAccounts.getAllDoctors();
+    Serialiser serialiser;
+    AllAccounts allAccounts;
+    ArrayList<Doctor> doctors;
+
+    /**
+     *
+     * @param Password
+     * @param FileName
+     * @return
+     */
     @Override
-    protected boolean CheckPassword(String Password){
+    protected boolean CheckPassword(String Password, String FileName){
+        serialiser = new Serialiser(FileName);
+        allAccounts = (AllAccounts) serialiser.readObject();
+        doctors = allAccounts.getAllDoctors();
         for (int i = 0; i < doctors.size(); i++) {                   
             if (doctors.get(i).getPassword().equals(Password)) {                                                     
                 return true;
@@ -28,8 +38,15 @@ public class DoctorLogin extends Login{
             }
         return false;
     }
+
+    /**
+     *
+     * @param Username
+     * @param FileName
+     * @return
+     */
     @Override
-    protected boolean CheckUsername(String Username){
+    protected boolean CheckUsername(String Username, String FileName){
         for (int i = 0; i < doctors.size(); i++) {                   
             if (doctors.get(i).getUserID().equals(Username)) {                                                     
                 return true;

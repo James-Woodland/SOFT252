@@ -17,54 +17,101 @@ public class AccountRequest implements java.io.Serializable{
     private LocalDate DoB;   
     private boolean Completed = false;       
     
-
+    /**
+     *
+     * @return
+     */
     public boolean isCompleted() {
         return Completed;
     }
 
+    /**
+     *
+     * @param Completed
+     */
     public void setCompleted(boolean Completed) {
         this.Completed = Completed;
     }
     private static final long serialVersionUID = 6L;
 
+    /**
+     *
+     * @return
+     */
     public String getPotentialPatientName() {
         return PotentialPatientName;
     }
 
+    /**
+     *
+     * @param PotentialPatientName
+     */
     public void setPotentialPatientName(String PotentialPatientName) {
         this.PotentialPatientName = PotentialPatientName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPotentialPatientAddress() {
         return PotentialPatientAddress;
     }
 
+    /**
+     *
+     * @param PotentialPatientAddress
+     */
     public void setPotentialPatientAddress(String PotentialPatientAddress) {
         this.PotentialPatientAddress = PotentialPatientAddress;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPotentialPassword() {
         return PotentialPassword;
     }
 
+    /**
+     *
+     * @param PotentialPassword
+     */
     public void setPotentialPassword(String PotentialPassword) {
         this.PotentialPassword = PotentialPassword;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPotentialGender() {
         return PotentialGender;
     }
 
+    /**
+     *
+     * @param PotentialGender
+     */
     public void setProtentialGender(int PotentialGender) {
         if (PotentialGender >= 1 && PotentialGender <=3) {
             this.PotentialGender = PotentialGender;
         }   
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getDoB() {
         return DoB;
     }
 
+    /**
+     *
+     * @param DoB
+     */
     public void setDoB(LocalDate DoB) {
         this.DoB = DoB;
     }

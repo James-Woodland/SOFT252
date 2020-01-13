@@ -20,10 +20,11 @@ public class GenerateFeedbackReport {
     /**
      * generate a feedback report which contains the average rating of a given doctor and all of the comments that doctor has received.
      * @param DoctorID
+     * @param FileName
      * @return returns an array containing the doctors ID, all their comments, and their average rating.
      */
-    public ArrayList<Object> GenerateNewFeedbackReport(String DoctorID){
-        Serialiser serialiser = new Serialiser("AllAccounts");
+    public static ArrayList<Object> GenerateNewFeedbackReport(String DoctorID, String FileName){
+        Serialiser serialiser = new Serialiser(FileName);
         AllAccounts Doctors = (AllAccounts) serialiser.readObject();
         ArrayList<Doctor> AllDoctors = Doctors.getAllDoctors();
         ArrayList<Object> DoctorFeedbackReport = new ArrayList();

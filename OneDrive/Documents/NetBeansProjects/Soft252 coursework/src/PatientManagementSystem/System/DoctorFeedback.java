@@ -17,26 +17,50 @@ public class DoctorFeedback implements java.io.Serializable{
     private String FeedbackNotes = "";
     private static final long serialVersionUID = 8L;
 
+    /**
+     *
+     * @return
+     */
     public Doctor getDoctor() {
         return doctor;
     }
 
+    /**
+     *
+     * @param doctor
+     */
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDoctorRating() {
         return DoctorRating;
     }
 
+    /**
+     *
+     * @param DoctorRating
+     */
     public void setDoctorRating(int DoctorRating) {
         this.DoctorRating = DoctorRating;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFeedbackNotes() {
         return FeedbackNotes;
     }
 
+    /**
+     *
+     * @param FeedbackNotes
+     */
     public void setFeedbackNotes(String FeedbackNotes) {
         this.FeedbackNotes = FeedbackNotes;
     }

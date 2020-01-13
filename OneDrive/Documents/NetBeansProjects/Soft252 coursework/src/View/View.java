@@ -32,12 +32,40 @@ import java.util.ArrayList;
  * @author james
  */
 public class View extends javax.swing.JFrame {   
+
+    /**
+     *
+     */
     public Admin AdminAccount;
+
+    /**
+     *
+     */
     public Patient PatientAccount;
+
+    /**
+     *
+     */
     public int PatientIndex;
+
+    /**
+     *
+     */
     public Secretary SecretaryAccount;
+
+    /**
+     *
+     */
     public int SecretaryIndex;
+
+    /**
+     *
+     */
     public Doctor DoctorAccount;
+
+    /**
+     *
+     */
     public String PreviousPage;
     Serialiser accountSerialiser = new Serialiser("AllAccounts");
     Serialiser medicineSerialiser = new Serialiser("AllMedicines");
@@ -2284,7 +2312,7 @@ public class View extends javax.swing.JFrame {
         switch(CmbLoginAccountType.getSelectedItem().toString()){
             case "Patient":
                 login = new PatientLogin();
-                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText(), "AllAccounts") == true) {
                     CardLayout card = (CardLayout)mainPanel.getLayout();
                     card.show(mainPanel, "PnlPatientMainPage");
                     AccountFinder FindAccount = new AccountFinder();
@@ -2310,7 +2338,7 @@ public class View extends javax.swing.JFrame {
                 break;
             case "Doctor":
                 login = new DoctorLogin();
-                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText(), "AllAccounts") == true) {
                     CardLayout card = (CardLayout)mainPanel.getLayout();
                     card.show(mainPanel, "PnlDoctorMainPage");
                     AccountFinder FindAccount = new AccountFinder();
@@ -2335,7 +2363,7 @@ public class View extends javax.swing.JFrame {
                 break;
                 case "Admin":
                     login = new AdminLogin();
-                    if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                    if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText(), "AllAccounts") == true) {
                         CardLayout card = (CardLayout)mainPanel.getLayout();
                         card.show(mainPanel, "PnlAdminMainPage");
                         CmbChooseDoctorForFeedback.removeAllItems();
@@ -2358,7 +2386,7 @@ public class View extends javax.swing.JFrame {
                     break;
                 case "Secretary":
                     login = new SecretaryLogin();
-                    if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText()) == true) {
+                    if (login.AttemptLogin(TxtPassword.getText(), TxtUsername.getText(), "AllAccounts") == true) {
                         CardLayout card = (CardLayout)mainPanel.getLayout();
                         card.show(mainPanel, "PnlSecretaryMainPage");
                         AccountFinder FindAccount = new AccountFinder();
@@ -2697,7 +2725,7 @@ public class View extends javax.swing.JFrame {
         }
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
         ArrayList<Medicine> Medicines = allMedicines.getAllMedicines();
-        for (int i = 0; Medicines.size() < 10; i++) {
+        for (int i = 0; i < Medicines.size(); i++) {
             CmbChoosePrescriptionMedicine.addItem(Medicines.get(i).getMedicineName());
         }
     }//GEN-LAST:event_BtnWritePrescriptionPageActionPerformed

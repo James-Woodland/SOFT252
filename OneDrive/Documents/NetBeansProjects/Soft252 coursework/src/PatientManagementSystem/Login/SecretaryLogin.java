@@ -16,11 +16,21 @@ import java.util.ArrayList;
  * @author james
  */
 public class SecretaryLogin extends Login{
-    Serialiser serialiser = new Serialiser("AllAccounts");
-    AllAccounts allAccounts = (AllAccounts) serialiser.readObject();
-    ArrayList<Secretary> secretarys = allAccounts.getAllSecretarys();
+    Serialiser serialiser;
+    AllAccounts allAccounts;
+    ArrayList<Secretary> secretarys;
+
+    /**
+     *
+     * @param Password
+     * @param FileName
+     * @return
+     */
     @Override
-    protected boolean CheckPassword(String Password){
+    protected boolean CheckPassword(String Password, String FileName){
+        serialiser = new Serialiser(FileName);
+        allAccounts = (AllAccounts) serialiser.readObject();
+        secretarys = allAccounts.getAllSecretarys();
         for (int i = 0; i < secretarys.size(); i++) {                   
             if (secretarys.get(i).getPassword().equals(Password)) {                                                     
                 return true;
@@ -28,8 +38,15 @@ public class SecretaryLogin extends Login{
             }
         return false;
     }
+
+    /**
+     *
+     * @param Username
+     * @param FileName
+     * @return
+     */
     @Override
-    protected boolean CheckUsername(String Username){
+    protected boolean CheckUsername(String Username, String FileName){
         for (int i = 0; i < secretarys.size(); i++) {                   
             if (secretarys.get(i).getUserID().equals(Username)) {                                                     
                 return true;

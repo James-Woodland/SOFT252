@@ -19,10 +19,11 @@ public class ViewDoctorRatings {
 
     /**
      * generate an array that contains a doctors ID followed by their average rating
+     * @param FileName
      * @return returns the array containing all the Doctor IDS and ratings
      */
-    public ArrayList<Object> GetDoctorRatings(){
-        Serialiser serialiser = new Serialiser("AllAccounts");
+    public static ArrayList<Object> GetDoctorRatings(String FileName){
+        Serialiser serialiser = new Serialiser(FileName);
         AllAccounts Doctors = (AllAccounts) serialiser.readObject();
         ArrayList<Doctor> AllDoctors = Doctors.getAllDoctors();  
         ArrayList<Object> DoctorRatings = new ArrayList();

@@ -15,18 +15,34 @@ public class PatientNote implements java.io.Serializable{
     private String NoteCreator;
     private String Note;
 
+    /**
+     *
+     * @return
+     */
     public String getNoteCreator() {
         return NoteCreator;
     }
 
+    /**
+     *
+     * @param NoteCreator
+     */
     public void setNoteCreator(String NoteCreator) {
         this.NoteCreator = NoteCreator;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNote() {
         return Note;
     }
 
+    /**
+     *
+     * @param Note
+     */
     public void setNote(String Note) {
         this.Note = Note;
     }

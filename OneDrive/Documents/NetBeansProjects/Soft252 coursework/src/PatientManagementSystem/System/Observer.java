@@ -13,5 +13,11 @@ import java.util.ArrayList;
  * @author james
  */
 public interface Observer {
+
+    /**
+     * allows the observers to update the potential dates for an appointment
+     * @param PotentialDates
+     * @param appointment
+     */
     public void updateAppointmentDates(ArrayList<LocalDate> PotentialDates, Appointment appointment);
 }

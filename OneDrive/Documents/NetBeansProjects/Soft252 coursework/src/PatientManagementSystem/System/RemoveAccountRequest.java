@@ -14,10 +14,18 @@ import PatientManagementSystem.Accounts.Patient;
 public class RemoveAccountRequest implements java.io.Serializable{
     Patient AccountToBeRemoved;
 
+    /**
+     *
+     * @return
+     */
     public Patient getAccountToBeRemoved() {
         return AccountToBeRemoved;
     }
 
+    /**
+     *
+     * @param AccountToBeRemoved
+     */
     public void setAccountToBeRemoved(Patient AccountToBeRemoved) {
         this.AccountToBeRemoved = AccountToBeRemoved;
     }   

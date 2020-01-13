@@ -19,18 +19,35 @@ import java.io.Serializable;
 public class Serialiser {
     private String name;
     
+    /**
+     *
+     * @param filename
+     */
     public Serialiser(String filename){
         name = filename;
     }
        
+    /**
+     *
+     * @param filename
+     */
     public void setName(String filename){
         name = filename;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getName(){
         return name;
     }
     
+    /**
+     *
+     * @param object
+     * @return
+     */
     public boolean writeObject(Serializable object){
         try {
             FileOutputStream fileOut = new FileOutputStream(name);
@@ -45,6 +62,10 @@ public class Serialiser {
          }
     }
     
+    /**
+     *
+     * @return
+     */
     public Serializable readObject(){
         Serializable loadedObject = null;
         try {

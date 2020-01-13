@@ -16,11 +16,20 @@ import java.util.ArrayList;
  * @author james
  */
 public class RateDoctor {
-    public void CreateDoctorRating(int Rating, String Feedback, int DoctorIndex){
+
+    /**
+     * Creates a rating for a given doctor with a rating and feedback
+     * 
+     * @param Rating
+     * @param Feedback
+     * @param DoctorIndex
+     * @param FileName
+     */
+    public static void CreateDoctorRating(int Rating, String Feedback, int DoctorIndex, String FileName){
         DoctorFeedback newDoctorFeedback = new DoctorFeedback();
         newDoctorFeedback.setDoctorRating(Rating);
         newDoctorFeedback.setFeedbackNotes(Feedback);
-        Serialiser accountSerialiser = new Serialiser("AllAccounts");
+        Serialiser accountSerialiser = new Serialiser(FileName);
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Doctor> Doctors = allAccounts.getAllDoctors();
         newDoctorFeedback.setDoctor(Doctors.get(DoctorIndex));

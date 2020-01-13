@@ -24,10 +24,11 @@ public class CreatePatientNotes {
      * @param PatientID
      * @param Note
      * @param doctor
+     * @param FileName
      * @return returns false if the patient can;t be found, returns true if the patient can be.
      */ 
-    public boolean CreatePatientNote(String PatientID, String Note, String doctor){
-        Serialiser accountSerialiser = new Serialiser("AllAccounts");
+    public static boolean CreatePatientNote(String PatientID, String Note, String doctor, String FileName){
+        Serialiser accountSerialiser = new Serialiser(FileName);
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Patient> AllPatients = allAccounts.getAllPatients();
         PatientNote patientNote = new PatientNote();

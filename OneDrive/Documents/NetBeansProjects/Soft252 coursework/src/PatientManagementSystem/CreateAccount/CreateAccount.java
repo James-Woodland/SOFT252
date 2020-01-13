@@ -18,6 +18,10 @@ import PatientManagementSystem.CreationStrategies.CreatePatient;
 public class CreateAccount {
     private CreationStrategy Strategy; 
           
+    /**
+     *
+     * @param AccountType
+     */
     public CreateAccount(String AccountType){
         CreationStrategy Strategy;
         switch(AccountType){
@@ -37,7 +41,14 @@ public class CreateAccount {
         this.Strategy = Strategy;
     }
     
-    public void executeStrategy(String Password, String Name, String Address){
-        Strategy.CreateWorkerAccount(Password, Name, Address);
+    /**
+     *
+     * @param Password
+     * @param Name
+     * @param Address
+     * @param FileName
+     */
+    public void executeStrategy(String Password, String Name, String Address, String FileName){
+        Strategy.CreateWorkerAccount(Password, Name, Address, FileName);
     }
 }

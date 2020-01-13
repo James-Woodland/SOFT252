@@ -9,8 +9,6 @@ import PatientManagementSystem.CreateAccount.CreateAccount;
 import PatientManagementSystem.AdminFunctionality.Delete;
 import PatientManagementSystem.AdminFunctionality.GenerateFeedbackReport;
 import PatientManagementSystem.AdminFunctionality.ViewDoctorRatings;
-import PatientManagementSystem.Serialiser.Serialiser;
-import PatientManagementSystem.System.DoctorFeedback;
 import java.util.ArrayList;
 
 /**
@@ -19,22 +17,44 @@ import java.util.ArrayList;
  */
 public class Admin extends User implements java.io.Serializable{
     private static final long serialVersionUID = 2L;
+
+    /**
+     * used to create an account of type admin, secretary or doctor
+     * @param AccountType
+     * @param Password
+     * @param Name
+     * @param Address
+     */
     public void CreateAccount(String AccountType, String Password, String Name, String Address){
         CreateAccount createAccount = new CreateAccount(AccountType);        
-        createAccount.executeStrategy(Password, Name, Address);   
+        createAccount.executeStrategy(Password, Name, Address, "AllAccounts");   
     }
-    public void RemoveAccount(String AccountType, String Username){
-        Delete delete = new Delete();
-        delete.DeleteAccount(AccountType, Username);
+
+    /**
+     * used to remove an account of type doctor or secretary
+     * @param AccountType
+     * @param Username
+     */
+    public void RemoveAccount(String AccountType, String Username){       
+        Delete.DeleteAccount(AccountType, Username, "AllAccounts");
     }
-    public ArrayList<Object> GetDoctorRatings(){
-        ViewDoctorRatings viewDoctorRatings = new ViewDoctorRatings();
-        ArrayList<Object> DoctorRatings = viewDoctorRatings.GetDoctorRatings();
-        return DoctorRatings;
+
+    /**
+     * Used to return all the ratings all doctors have.
+     * Used to generate an average rating for each doctor.
+     * @return
+     */
+    public ArrayList<Object> GetDoctorRatings(){        
+        return ViewDoctorRatings.GetDoctorRatings("AllAccounts");
     }
-    public ArrayList<Object> GenerateFeedbackReport(String DoctorID){
-        GenerateFeedbackReport generateFeedbackReport = new GenerateFeedbackReport();
-        ArrayList<Object> DoctorFeedbackReport = generateFeedbackReport.GenerateNewFeedbackReport(DoctorID);
-        return DoctorFeedbackReport;
+
+    /**
+     * generates a feedback report that allows the doctor to see all their comments and 
+     * an average rating.
+     * @param DoctorID
+     * @return
+     */
+    public ArrayList<Object> GenerateFeedbackReport(String DoctorID){        
+        return GenerateFeedbackReport.GenerateNewFeedbackReport(DoctorID, "AllAccounts");
     }
 }

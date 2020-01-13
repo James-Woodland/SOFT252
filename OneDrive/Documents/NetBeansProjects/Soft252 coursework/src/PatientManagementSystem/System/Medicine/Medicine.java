@@ -13,19 +13,34 @@ public class Medicine implements java.io.Serializable{
     private int Stock = 0;
     private iMedicineState State = new OutOfStock();
        
-
+    /**
+     *
+     * @return
+     */
     public String getMedicineName() {
         return MedicineName;
     }
 
+    /**
+     *
+     * @param MedicineName
+     */
     public void setMedicineName(String MedicineName) {
         this.MedicineName = MedicineName;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getStock() {
         return Stock;
     }
 
+    /**
+     *
+     * @param Stock
+     */
     public void setStock(int Stock) {
         if (Stock >= 0) {
             this.Stock = Stock;       
@@ -40,10 +55,18 @@ public class Medicine implements java.io.Serializable{
         }      
     }
 
+    /**
+     *
+     * @return
+     */
     public iMedicineState getState() {
         return State;
     }
 
+    /**
+     *
+     * @param State
+     */
     public void setState(iMedicineState State) {
         this.State = State;
     }

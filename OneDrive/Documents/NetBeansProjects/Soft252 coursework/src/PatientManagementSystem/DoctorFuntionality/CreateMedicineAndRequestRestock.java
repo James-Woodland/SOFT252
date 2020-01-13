@@ -24,11 +24,12 @@ public class CreateMedicineAndRequestRestock {
      * also sets the state to out OfStock as when the Stock is set to 0 the state isn't automatically set.
      * Updates the AllMedicines file with the new medicine; 
      * @param MedicineName
+     * @param FileName
      */
-    public void createNewMedicine(String MedicineName){        
+    public static void createNewMedicine(String MedicineName, String FileName){        
         Medicine medicine = new Medicine();
         medicine.setMedicineName(MedicineName);       
-        Serialiser medicineSerialiser = new Serialiser("AllMedicines");
+        Serialiser medicineSerialiser = new Serialiser(FileName);
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
         allMedicines.addMedcine(medicine);
         medicineSerialiser.writeObject(allMedicines);       
@@ -37,9 +38,11 @@ public class CreateMedicineAndRequestRestock {
      * creates a medicine stock request for a given medicine for a for a all secretarys. updates the AllAccounts file with the new additions;
      * @param MedicineName
      * @param RestockRequestAmount
+     * @param AccountFile
+     * @param MedicineFile
      */
-    public void createMedicineRestockRequest(String MedicineName, int RestockRequestAmount){
-        Serialiser medicineSerialiser = new Serialiser("AllMedicines");
+    public static void createMedicineRestockRequest(String MedicineName, int RestockRequestAmount, String AccountFile, String MedicineFile){
+        Serialiser medicineSerialiser = new Serialiser(MedicineFile);
         AllMedicines allMedicines = (AllMedicines) medicineSerialiser.readObject();
         MedicineRequest medicineRequest = new MedicineRequest(); 
         medicineRequest.setStockRequestAmmount(RestockRequestAmount);
@@ -49,7 +52,7 @@ public class CreateMedicineAndRequestRestock {
                 break;
             }
         }
-        Serialiser accountSerialiser = new Serialiser("AllAccounts");
+        Serialiser accountSerialiser = new Serialiser(AccountFile);
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Secretary> AllSecretarys = allAccounts.getAllSecretarys();
         for (int i = 0; i < AllSecretarys.size(); i++) {  

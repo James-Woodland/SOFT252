@@ -10,6 +10,15 @@ package PatientManagementSystem.System;
  * @author james
  */
 public interface Observable {
+
+    /**
+     *
+     * @param observer
+     */
     public void registerObserver(Observer observer);   
+
+    /**
+     *
+     */
     public void notifyObserver();
 }

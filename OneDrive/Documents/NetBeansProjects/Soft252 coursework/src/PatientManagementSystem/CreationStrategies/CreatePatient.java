@@ -11,13 +11,22 @@ import PatientManagementSystem.Serialiser.Serialiser;
 import java.util.ArrayList;
 
 /**
- *
+ * 
  * @author james
  */
 public class CreatePatient implements CreationStrategy{
+
+    /**
+     * Creates an patient account with a given, name, address and password.
+     * Auto generates the lowest available patient ID.
+     * @param Password
+     * @param Name
+     * @param Address
+     * @param FileName
+     */
     @Override
-    public void CreateWorkerAccount(String Password, String Name, String Address){
-        Serialiser serialiser = new Serialiser("AllAccounts");
+    public void CreateWorkerAccount(String Password, String Name, String Address, String FileName){
+        Serialiser serialiser = new Serialiser(FileName);
         AllAccounts Patients = (AllAccounts) serialiser.readObject();
         ArrayList<Patient> AllPatients = Patients.getAllPatients();       
         Patient patient = new Patient();

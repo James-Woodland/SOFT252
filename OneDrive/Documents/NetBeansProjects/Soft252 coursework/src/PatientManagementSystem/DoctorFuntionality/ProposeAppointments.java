@@ -27,11 +27,12 @@ public class ProposeAppointments {
      * @param PatientID
      * @param DoctorID
      * @param Confirmed
+     * @param FileName
      * @return if the corresponding patient is found the return value is true, if the patient isn't found false is returned
      */
-    public boolean ProposeAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID, String DoctorID, boolean Confirmed){
+    public static boolean ProposeAppointment(String PotentialDate1, String PotentialDate2, String PotentialDate3, String PatientID, String DoctorID, boolean Confirmed, String FileName){
         Appointment appointment = new Appointment();                    
-        Serialiser accountSerialiser = new Serialiser("AllAccounts");
+        Serialiser accountSerialiser = new Serialiser(FileName);
         AllAccounts allAccounts = (AllAccounts) accountSerialiser.readObject();
         ArrayList<Patient> AllPatients = allAccounts.getAllPatients();
         ArrayList<Doctor> AllDoctors = allAccounts.getAllDoctors();

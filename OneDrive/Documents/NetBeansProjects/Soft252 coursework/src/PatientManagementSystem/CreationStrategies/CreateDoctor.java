@@ -16,9 +16,18 @@ import java.util.ArrayList;
  * @author james
  */
 public class CreateDoctor implements CreationStrategy{
+
+    /**
+     *Creates an Doctor account with a given, name, address and password.
+     * Auto generates the lowest available Doctor ID.
+     * @param Password
+     * @param Name
+     * @param Address
+     * @param FileName
+     */
     @Override
-    public void CreateWorkerAccount(String Password, String Name, String Address){
-        Serialiser serialiser = new Serialiser("AllAccounts");
+    public void CreateWorkerAccount(String Password, String Name, String Address, String FileName){
+        Serialiser serialiser = new Serialiser(FileName);
         AllAccounts Doctors = (AllAccounts) serialiser.readObject();
         ArrayList<Doctor> AllDoctors = Doctors.getAllDoctors();       
         Doctor doctor = new Doctor();

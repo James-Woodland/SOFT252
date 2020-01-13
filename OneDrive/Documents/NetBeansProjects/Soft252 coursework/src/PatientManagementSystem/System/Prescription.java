@@ -21,18 +21,35 @@ public class Prescription implements java.io.Serializable{
     private String DoctorNote;
     private int Quantity;
     private static final long serialVersionUID = 9L;
+
+    /**
+     *
+     * @return
+     */
     public Medicine getMedicine() {
         return medicine;
     }
 
+    /**
+     *
+     * @param medicine
+     */
     public void setMedicine(Medicine medicine) {
         this.medicine = medicine;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDosage() {
         return Dosage;
     }
 
+    /**
+     *
+     * @param Dosage
+     */
     public void setDosage(int Dosage) {
         this.Dosage = Dosage;
     }
@@ -53,18 +70,35 @@ public class Prescription implements java.io.Serializable{
 //        this.doctor = doctor;
 //    }
 
+    /**
+     *
+     * @return
+     */
+
     public String getDoctorNote() {
         return DoctorNote;
     }
 
+    /**
+     *
+     * @param DoctorNote
+     */
     public void setDoctorNote(String DoctorNote) {
         this.DoctorNote = DoctorNote;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getQuantity() {
         return Quantity;
     }
 
+    /**
+     *
+     * @param Quantity
+     */
     public void setQuantity(int Quantity) {
         this.Quantity = Quantity;
     }
