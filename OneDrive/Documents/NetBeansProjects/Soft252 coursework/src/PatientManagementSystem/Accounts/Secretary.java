@@ -15,7 +15,6 @@ import SecretaryFunctionality.GiveMedicine;
 import SecretaryFunctionality.RemovePatientAccount;
 import SecretaryFunctionality.RestockMedicine;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -100,7 +99,7 @@ public class Secretary extends User implements java.io.Serializable{
      *
      * @return
      */
-    public List<AccountRequest> getAccountRequests() {
+    public ArrayList<AccountRequest> getAccountRequests() {
         return AccountRequests;
     }
 
@@ -108,7 +107,7 @@ public class Secretary extends User implements java.io.Serializable{
      *
      * @return
      */
-    public List<MedicineRequest> getMedicineRequests() {
+    public ArrayList<MedicineRequest> getMedicineRequests() {
         return MedicineRequests;
     }
     
