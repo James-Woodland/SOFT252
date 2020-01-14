@@ -38,8 +38,7 @@ public class CreatePatientNotes {
             if (AllPatients.get(i).getUserID().equals(PatientID)) {
                 AllPatients.get(i).addNote(patientNote);
                 accountSerialiser.writeObject(allAccounts);
-                allAccounts = (AllAccounts) accountSerialiser.readObject();
-                allAccounts = (AllAccounts) accountSerialiser.readObject();              
+                allAccounts = (AllAccounts) accountSerialiser.readObject();                          
                 return true;
             }
         }
