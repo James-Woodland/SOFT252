@@ -48,17 +48,15 @@ public class Serialiser {
      * @param object
      * @return
      */
-    public boolean writeObject(Serializable object){
+    public void writeObject(Serializable object){
         try {
-            FileOutputStream fileOut = new FileOutputStream(name);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(object);
-            out.close();
-            fileOut.close();           
-            return true;
+            FileOutputStream fileOutput = new FileOutputStream(name);
+            ObjectOutputStream output = new ObjectOutputStream(fileOutput);
+            output.writeObject(object);
+            output.close();
+            fileOutput.close();                      
          } catch (IOException i) {           
-            i.printStackTrace();
-            return false;
+            i.printStackTrace();           
          }
     }
     
@@ -69,11 +67,11 @@ public class Serialiser {
     public Serializable readObject(){
         Serializable loadedObject = null;
         try {
-         FileInputStream fileIn = new FileInputStream(name);
-         ObjectInputStream in = new ObjectInputStream(fileIn);
-         loadedObject = (Serializable) in.readObject();
-         in.close();
-         fileIn.close();       
+         FileInputStream fileInput = new FileInputStream(name);
+         ObjectInputStream input = new ObjectInputStream(fileInput);
+         loadedObject = (Serializable) input.readObject();
+         input.close();
+         fileInput.close();       
         } catch (IOException i) {       
             i.printStackTrace();
         } catch (ClassNotFoundException c) {           

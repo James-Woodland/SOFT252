@@ -2508,8 +2508,13 @@ public class View extends javax.swing.JFrame {
             CmbChooseDoctorForRating.addItem(DoctorID);
         }
         LblRatedDoctorName.setText(Ratings.get(0).toString());
-        LblRatedDoctorID.setText(Ratings.get(1).toString());
-        LblRatedDoctorRating.setText(Ratings.get(2).toString());
+        LblRatedDoctorID.setText(Ratings.get(1).toString());       
+        if (Ratings.get(2).toString().equals("-1")) {
+            LblRatedDoctorRating.setText("Doctor Not yet Rated");
+        }
+        else{
+            LblRatedDoctorRating.setText(Ratings.get(2).toString());
+        }                 
         PreviousPage = "PnlAdminMainPage";
     }//GEN-LAST:event_btnViewRatingsPageActionPerformed
 
@@ -2682,7 +2687,12 @@ public class View extends javax.swing.JFrame {
         String DoctorName = Ratings.get(0).toString();
         LblRatedDoctorName.setText(Ratings.get(0).toString());
         LblRatedDoctorID.setText(Ratings.get(1).toString());
-        LblRatedDoctorRating.setText(Ratings.get(2).toString());       
+        if (Ratings.get(2).toString().equals("-1")) {
+            LblRatedDoctorRating.setText("Doctor Not yet Rated");
+        }
+        else{
+            LblRatedDoctorRating.setText(Ratings.get(2).toString());
+        }                  
         PreviousPage = "PnlPatientMainPage";
     }//GEN-LAST:event_BtnPtnViewDoctorRatingsActionPerformed
 
